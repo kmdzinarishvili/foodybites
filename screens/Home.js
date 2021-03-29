@@ -7,6 +7,8 @@ import SearchBar from '../components/SearchBar';
 import HomeSection from '../components/HomeSection';
 import FooterNavigation from '../components/FooterNavigation';
 
+import RestaurantPreview from '../components/SectionViews/RestaurantPreview';
+
 
 const Home = () => {
     const [restaurants, setRestaurants] = useState();
@@ -67,14 +69,20 @@ const Home = () => {
                             data={restaurants}
                             horizontal={true}
                             renderItem={({item})=>{
-                                return (<View>
-                                    <Image 
-                                    style={{width:100, height:100}}
-                                source={{
-                                    uri: item['urls']['regular']
-                                }}
-                                />
-                                </View>)
+                                return (
+                                    <RestaurantPreview item={item} /> 
+
+                                
+                                
+                                // <View>
+                                //     <Image 
+                                //     style={{width:100, height:100}}
+                                // source={{
+                                //     uri: item['urls']['regular']
+                                // }}
+                                // />
+                                // </View>
+                                )
                         
                             }}
                             keyExtractor={(item) => item.id}
@@ -104,6 +112,7 @@ const Home = () => {
                     <HomeSection title='Friends' number={56}>    
                     <FlatList
                         showsHorizontalScrollIndicator={false}
+
                         data={friends}
                         horizontal={true}
                         renderItem={({item})=>{

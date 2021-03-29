@@ -6,11 +6,11 @@ import {
     Josefin_Sans_400Regular,
   } from "@expo-google-fonts/josefin-sans";
 
-
+import {w,h} from '../proportion';
 
 
   
-const HomeSection = ({title, number, data, renderItem, extraData, children}) =>{
+const HomeSection = ({index, title, number, data, renderItem, extraData, children}) =>{
     // let [fontsLoaded] = useFonts({
     //     Josefin_Sans_400Regular,
     //   });
@@ -36,11 +36,11 @@ const sectionStyles = StyleSheet.create({
     },
     title:{
         // fontFamily:'JosefinSans_400Regular',
-        fontSize:27,
+        fontSize:60*w,
         color: '#222455',
     },
     seeall:{
-        fontSize:15,
+        fontSize:40*w,
         color:'#6E7FAA',
         opacity:0.8,
     }
