@@ -6,9 +6,10 @@ const SearchBar = (searchTerm, setSearchTerm) => {
     <View style={styles.SectionStyle}>
     <Image source={require('../imgs/home/magnifying_glass.png')} style={styles.ImageStyle} />
     <TextInput
+        style={{position: 'absolute', left:60}}
         value={searchTerm}
         onChangeText={(text) => setSearchTerm(text)}
-        placeholder='Search Items'
+        placeholder="Find Restaurants"
     
     />
     <Image source={require('../imgs/home/search_sliders.png')} style={styles.ImageStyle} />
