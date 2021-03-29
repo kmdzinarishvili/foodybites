@@ -8,7 +8,7 @@ import HomeSection from '../components/HomeSection';
 import FooterNavigation from '../components/FooterNavigation';
 
 import RestaurantPreview from '../components/SectionViews/RestaurantPreview';
-
+import FriendView from '../components/SectionViews/FriendView';
 
 const Home = () => {
     const [restaurants, setRestaurants] = useState();
@@ -116,14 +116,21 @@ const Home = () => {
                         data={friends}
                         horizontal={true}
                         renderItem={({item})=>{
-                            return (<View>
-                                <Image 
-                                style={{width:100, height:100}}
-                            source={{
-                                uri: item['urls']['regular']
-                            }}
+                            return (
+                            
+                            // <View>
+                            //     <Image 
+                            //     style={{width:100, height:100}}
+                            // source={{
+                            //     uri: item['urls']['regular']
+                            // }}
+                            // />
+                            // </View>
+                            <FriendView image={item['urls']['regular']}
                             />
-                            </View>)
+
+                            
+                            )
                        
                         }}
                         keyExtractor={(item) => item.id}
