@@ -11,7 +11,7 @@ const pixelRatio = PixelRatio.get();
 
 
   
-const HomeSection = ({title, number, children}) =>{
+const HomeSection = ({title, number, data, renderItem, extraData, children}) =>{
     // let [fontsLoaded] = useFonts({
     //     Josefin_Sans_400Regular,
     //   });
@@ -24,12 +24,7 @@ const HomeSection = ({title, number, children}) =>{
                     <Text style={sectionStyles.title}>{title}</Text>
                     <Text style={sectionStyles.seeall}>See all ({number})</Text>
                 </View>
-                <FlatList 
- data={DATA}
- renderItem={renderItem}
- keyExtractor={(item) => item.id}
- extraData={selectedId}
-                    />
+               {children}
             </View>
         )
         //;
