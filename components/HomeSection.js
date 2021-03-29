@@ -1,11 +1,10 @@
 import React from 'react';
-import {View, Text, StyleSheet, PixelRatio, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {
     useFonts,
     Josefin_Sans_400Regular,
   } from "@expo-google-fonts/josefin-sans";
-const pixelRatio = PixelRatio.get();
 
 
 
@@ -19,7 +18,7 @@ const HomeSection = ({title, number, data, renderItem, extraData, children}) =>{
     //       return <AppLoading/>
     //   }
         return(
-            <View>
+            <View style={{marginVertical:20}}>
                 <View style={sectionStyles.titleContainer}>
                     <Text style={sectionStyles.title}>{title}</Text>
                     <Text style={sectionStyles.seeall}>See all ({number})</Text>
@@ -37,10 +36,11 @@ const sectionStyles = StyleSheet.create({
     },
     title:{
         // fontFamily:'JosefinSans_400Regular',
-        fontSize:60/pixelRatio,
+        fontSize:27,
         color: '#222455',
     },
     seeall:{
+        fontSize:15,
         color:'#6E7FAA',
         opacity:0.8,
     }
