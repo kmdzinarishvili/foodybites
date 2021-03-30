@@ -18,7 +18,7 @@ const HomeSection = ({index, title, number, data, renderItem, extraData, childre
     //       return <AppLoading/>
     //   }
         return(
-            <View style={{marginVertical:20}}>
+            <View style={{marginTop:20}}>
                 <View style={sectionStyles.titleContainer}>
                     <Text style={sectionStyles.title}>{title}</Text>
                     <Text style={sectionStyles.seeall}>See all ({number})</Text>

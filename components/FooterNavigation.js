@@ -1,16 +1,17 @@
 import React from 'react';
-import {View, Image, StyleSheet, PixelRatio, Dimensions} from 'react-native';
+import {View, Image, StyleSheet, Dimensions} from 'react-native';
 import {w, h} from '../proportion';
 
 
 const FooterNavigation = () =>{
     return(
-        <View style={{flexDirection:"row", justifyContent:'space-around', alignItems:'center'}}>
+        <View style={{flexDirection:"row", justifyContent:'space-around', alignItems:'center', backgroundColor:'#FFF',
+                    width:Dimensions.get('window').width, position:'absolute', bottom:0, height:252*h, borderRadius:30}}>
         <Image source={require('../imgs/footer/home.png')} style={styles.home} />
         <Image source={require('../imgs/footer/bookmark.png')} style={styles.bookmark} />
         <View style={{backgroundColor:"#5663FF", borderRadius:176.11*w, width:176.11*w, height:176.11*h,
                     justifyContent:'center', alignItems:'center',
-                    position:'absolute', bottom:30, left: Dimensions.get('window').width/2 -176.11*w +12 ,
+                    position:'absolute', bottom:30, left: Dimensions.get('window').width/2 -176.11*w +33 ,
                     shadowColor: '#000',
                     zIndex: 1,
                     shadowOffset: {

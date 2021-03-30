@@ -9,6 +9,7 @@ import FooterNavigation from '../components/FooterNavigation';
 
 import RestaurantPreview from '../components/SectionViews/RestaurantPreview';
 import FriendView from '../components/SectionViews/FriendView';
+import CatView from '../components/SectionViews/CatView';
 
 const Home = () => {
     const [restaurants, setRestaurants] = useState();
@@ -16,7 +17,6 @@ const Home = () => {
     const [friends, setFriends] = useState();
     const [searchTerm, setSearchTerm] = useState('');    
     const fetch_restaurant_pictures= async () =>{
-        console.log('fetching pictures');
         const result = await fetch(
             'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=restaurant'
         ).then(res=>res.json()).then(res=>res['results'])
@@ -26,23 +26,20 @@ const Home = () => {
         });
     }
     const fetch_category_pictures= async () =>{
-        console.log('fetching pictures');
         const result = await fetch(
             'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food'
         ).then(res=>res.json()).then(res=>res['results'])
         .then(json => {setCategories(json);
-        console.log(pictures);})
+       })
         .catch((error) => {
             throw error;
         });
     }
     const fetch_friend_pictures= async () =>{
-        console.log('fetching pictures');
         const result = await fetch(
             'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile'
         ).then(res=>res.json()).then(res=>res['results'])
-        .then(json => {setFriends(json);
-        console.log(pictures);})
+        .then(json => {setFriends(json)})
         .catch((error) => {
             throw error;
         });
@@ -70,18 +67,7 @@ const Home = () => {
                             horizontal={true}
                             renderItem={({item})=>{
                                 return (
-                                    <RestaurantPreview item={item} /> 
-
-                                
-                                
-                                // <View>
-                                //     <Image 
-                                //     style={{width:100, height:100}}
-                                // source={{
-                                //     uri: item['urls']['regular']
-                                // }}
-                                // />
-                                // </View>
+                                    <RestaurantPreview item={item} friends={friends}/> 
                                 )
                         
                             }}
@@ -95,14 +81,10 @@ const Home = () => {
                         data={categories}
                         horizontal={true}
 
-                        renderItem={({item})=>{
+                        renderItem={({item, index})=>{
                             return (<View>
-                                <Image 
-                                style={{width:100, height:100}}
-                            source={{
-                                uri: item['urls']['regular']
-                            }}
-                            />
+                                <CatView image={item['urls']['regular']}  index={index}/>
+                     
                             </View>)
                        
                         }}
@@ -117,19 +99,8 @@ const Home = () => {
                         horizontal={true}
                         renderItem={({item})=>{
                             return (
-                            
-                            // <View>
-                            //     <Image 
-                            //     style={{width:100, height:100}}
-                            // source={{
-                            //     uri: item['urls']['regular']
-                            // }}
-                            // />
-                            // </View>
                             <FriendView image={item['urls']['regular']}
                             />
-
-                            
                             )
                        
                         }}
