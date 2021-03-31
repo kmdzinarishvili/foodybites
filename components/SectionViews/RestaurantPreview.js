@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, Text, Image, Dimensions, FlatList, StyleSheet} from 'react-native';
+import {View, Text, Image, FlatList, StyleSheet} from 'react-native';
+import {LinearGradient} from 'expo-linear-gradient';
 import styles from '../../styles/styles';
 import {w,h} from '../../proportion';
+import gradients from '../../styles/gradients';
 
 const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-52f8b828add9?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwxfHxyZXN0YXVyYW50fGVufDB8fHx8MTYxNzAxMTE2OQ\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=1080",
      name ='Happy Bones',
@@ -32,8 +34,12 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
             <View style={restStyles.bottom}>
                <View style={{flexDirection:'row', alignItems:'center'}}> 
                     <Text style={[styles.font50, styles.spaceRight, styles.jBold, {color:'#3E3F68'}]}>{name}</Text> 
-                    <Text  style={[restStyles.white22, styles.spaceRight]}>{category}</Text>
-                    <Text style={[styles.jReg, restStyles.white22]}>{distance}</Text>
+                    
+                    <LinearGradient colors={gradients.pink} 
+                        style={[styles.linearGradient,  styles.spaceRight, restStyles.rad9, {opacity:0.65}]}>
+                    <Text  style={[restStyles.white22, ]}>{category}</Text>
+                    </LinearGradient>
+                    <Text style={[styles.jReg, restStyles.white22, restStyles.purple,restStyles.rad9]}>{distance} km</Text>
                     <FlatList
                                 contentContainerStyle={{flexDirection:'row', alignSelf:'flex-end'}}
                                 data={friends}
@@ -41,8 +47,7 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
                                 renderItem={({item})=>{
                                     return (
                                 <Text>{item} </Text>
-                                    )
-                            
+                                    );
                                 }}
                                 
                             />
@@ -91,8 +96,19 @@ const restStyles = StyleSheet.create({
     },
     white22:{
         fontSize:22*w,
-        color:'#FFF'
+        color:'#FFF',
+        paddingHorizontal:23*w,
+        paddingVertical:12*w,
+      
+    },
+    rad9:{
+        borderRadius:9,
+        overflow:'hidden'
+    },
+    purple:{
+        backgroundColor: '#848DFF'
     }
+    
 });
 
 export default RestaurantPreview;

@@ -11,7 +11,7 @@ const styles=StyleSheet.create({
         fontSize:22*w
     },  
     spaceRight: {
-        marginRight:10
+        marginRight:18*w
     },
     jBold: {
         fontFamily:'josefin-bold'
