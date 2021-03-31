@@ -10,8 +10,8 @@ const HomeSection = ({index, title, number, data, renderItem, extraData, childre
         return(
             <View style={{marginTop:20}}>
                 <View style={sectionStyles.titleContainer}>
-                    <Text style={sectionStyles.title, {fontSize:100}, styles.jBold}>{title}</Text>
-                    <Text style={sectionStyles.seeall, styles.jReg}>See all ({number})</Text>
+                    <Text style={[sectionStyles.title, styles.jBold]}>{title}</Text>
+                    <Text style={[sectionStyles.seeall, styles.jReg]}>See all ({number})</Text>
                 </View>
                {children}
             </View>
@@ -25,7 +25,7 @@ const sectionStyles = StyleSheet.create({
         justifyContent:'space-between'
     },
     title:{
-        fontSize:70,
+        fontSize:60*w,
         color: '#222455',
     },
     seeall:{

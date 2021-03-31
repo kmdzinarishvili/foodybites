@@ -11,36 +11,29 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
 
                         friends=[1,2,3];
     return(
-        <View style={{borderRadius:10, overflow:'hidden', position:'relative', margin:27*w}}>
-            <Text style={{backgroundColor:'#FFF', position:'absolute', zIndex:1000, top:36*h, left: 31*w,
-            overflow:'hidden', padding:31*w, borderRadius:10, color:'#4CD964', fontSize:25*w}}>OPEN</Text>
-        
-        
-            <View style={{borderRadius:10,backgroundColor:'#FFF', position:'absolute', zIndex:1000, top:36*h, right: 31*w,
-            overflow:'hidden', flexDirection: 'row',justifyContent:'space-between', alignItems:'center', padding:31*w}}>
+        <View style={restStyles.containter}>
+            <Text style={[restStyles.whiteButton, restStyles.left, styles.jBold]}>OPEN</Text>
+            <View style={[restStyles.whiteButton, restStyles.right, {flexDirection: 'row', justifyContent:'space-between', alignItems:'center'}]}>
                 <Image 
-                style={{width:28.7*w, height:27.37*h}}
+                style={{width:28.7*w, height:27.37*h, marginRight:2}}
                 source={require("../../imgs/star.png")}/>
-                <Text style={{color:"#222455", fontSize:25*w}}>  {rating}</Text>
+                <Text style={[restStyles.darkBlue, restStyles.size25, styles.jSemi, ]}>{rating}</Text>
             </View>
               
-    
-
-
           <Image 
             style={{
-               width:Dimensions.get('window').width*907.85/1125,
-                height:Dimensions.get('window').height*482.83/2436
+               width:907.85*w,
+                height:482.83*h
             }}
             source={{
                 uri: item['urls']['regular']
             }}
             />
-            <View style={{height:225*h, width:'100%', backgroundColor:"#FFF", flexDirection:'column', justifyContent:'space-around'}}>
-               <View style={{flexDirection:'row', alignContent:'center'}}> 
-                    <Text style={styles.font50, styles.spaceRight, styles.jBold}>{name}</Text> 
-                    <Text  style={styles.font50, styles.spaceRight}>{category}</Text>
-                    <Text style={styles.jReg}>{distance}</Text>
+            <View style={restStyles.bottom}>
+               <View style={{flexDirection:'row', alignItems:'center'}}> 
+                    <Text style={[styles.font50, styles.spaceRight, styles.jBold, {color:'#3E3F68'}]}>{name}</Text> 
+                    <Text  style={[restStyles.white22, styles.spaceRight]}>{category}</Text>
+                    <Text style={[styles.jReg, restStyles.white22]}>{distance}</Text>
                     <FlatList
                                 contentContainerStyle={{flexDirection:'row', alignSelf:'flex-end'}}
                                 data={friends}
@@ -63,6 +56,43 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
     );
 };
 
+const restStyles = StyleSheet.create({
+    containter:{
+        borderRadius:10,
+        overflow:'hidden', 
+        position:'relative',
+        margin:27*w
+    },
+    whiteButton:{
+        backgroundColor:'#FFF', position:'absolute', zIndex:1000, top:36*h, 
+            overflow:'hidden', padding:31*w, borderRadius:10, color:'#4CD964', fontSize:25*w
+    },
+    left:{
+        left: 31*w,
 
+    },
+    right:{
+        right:31*w
+    },
+    darkBlue:{
+        color:'#222455'
+    },
+    size25:{
+        fontSize:25*w
+    },
+    bottom:{
+        height:225*h, 
+        width:'100%',
+         backgroundColor:"#FFF",
+          flexDirection:'column', 
+          justifyContent:'space-around',
+          padding:25*w
+
+    },
+    white22:{
+        fontSize:22*w,
+        color:'#FFF'
+    }
+});
 
 export default RestaurantPreview;

@@ -4,7 +4,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
 
 import * as Font from 'expo-font';
-import { AppLoading } from 'expo-app-loading';
 
 import Home from './screens/Home';
 import { useEffect } from 'react';
@@ -13,7 +12,8 @@ import { useEffect } from 'react';
 const fetchFonts = async() => {
   return Font.loadAsync({
   'josefin-bold': require('./assets/fonts/JosefinSans-Bold.ttf'),
-  'josefin-regular': require('./assets/fonts/JosefinSans-Regular.ttf')
+  'josefin-regular': require('./assets/fonts/JosefinSans-Regular.ttf'),
+  'josefin-semibold':require('./assets/fonts/JosefinSans-SemiBold.ttf')
   });
   };
 

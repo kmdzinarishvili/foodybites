@@ -18,6 +18,9 @@ const styles=StyleSheet.create({
     },
     jReg:{
         fontFamily:'josefin-regular'
+    }, 
+    jSemi:{
+        fontFamily:'josefin-semibold'
     }
 
 });
