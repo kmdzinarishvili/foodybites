@@ -59,8 +59,8 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
                     </LinearGradient>
                     <Text style={[styles.jReg, restStyles.white22, restStyles.purple,restStyles.rad9]}>{distance} km</Text>
                     <FlatList
-                                contentContainerStyle={{flexDirection:'row', alignSelf:'flex-end'}}
-                                data={friends}
+                                contentContainerStyle={{flexDirection:'row-reverse', alignSelf:'flex-end'}}
+                                data={friends.reverse()}
                                 keyExtractor={(item) => `item${item.id}`}
                                 renderItem={({item})=>{
                                     return (
