@@ -1,28 +1,28 @@
 import React, {useState} from 'react';
 import {View, Image, TextInput, StyleSheet} from 'react-native';
 import {w,h} from '../proportion';
-
+import styles from '../styles/styles';
 const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     return(
-    <View style={styles.SectionStyle}>
-    <Image source={require('../imgs/home/magnifying_glass.png')} style={styles.ImageStyle} />
+    <View style={searchStyles.SectionStyle}>
+    <Image source={require('../imgs/home/magnifying_glass.png')} style={searchStyles.ImageStyle} />
     <TextInput
-        style={{position: 'absolute', left:60}}
+        style={[{position: 'absolute', left:60,fontSize:48*w, paddingTop:10 },styles.jReg ]}
         value={searchTerm}
         onChangeText={(text) => setSearchTerm(text)}
         placeholder="Find Restaurants"
     
     />
-    <Image source={require('../imgs/home/search_sliders.png')} style={styles.ImageStyle} />
+    <Image source={require('../imgs/home/search_sliders.png')} style={searchStyles.ImageStyle} />
     </View>);
 }
 
 
 
 
-const styles = StyleSheet.create({
+const searchStyles = StyleSheet.create({
     SectionStyle: {
         marginTop:20,
         flexDirection: 'row',
