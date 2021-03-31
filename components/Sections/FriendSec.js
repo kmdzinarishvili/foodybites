@@ -8,7 +8,7 @@ import HomeSection from '../HomeSection';
 
 
 
-const FriendSec = () =>{
+const FriendSec = ({goTo}) =>{
     const [friends, setFriends] = useState();
 
     const fetch_friend_pictures= async () =>{
@@ -25,7 +25,7 @@ const FriendSec = () =>{
     }, [] );
 
     return(
-        <HomeSection title='Friends' number={56}>    
+        <HomeSection title='Friends' number={56} goTo={goTo}>    
         <FlatList
             showsHorizontalScrollIndicator={false}
 

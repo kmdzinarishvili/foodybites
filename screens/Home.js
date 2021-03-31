@@ -25,9 +25,9 @@ const Home = ({navigation}) => {
             <View >
                 <SearchBar placeholder="Find Restaurants"/>
                 <RestSec  goTo={() =>navigation.navigate('Restaurant')}/>
-                <CatSec/>
+                <CatSec goTo={() =>navigation.navigate('Category')}/>
               
-                <FriendSec/>
+                <FriendSec  goTo={() =>navigation.navigate('Friend')}/>
            </View>
            <FooterNavigation/>
            </View>

@@ -6,7 +6,7 @@ import HomeSection from '../HomeSection';
 
 
 
-const CatSec = () =>{
+const CatSec = ({goTo}) =>{
     const [categories, setCategories] = useState();
     const fetch_category_pictures= async () =>{
         const result = await fetch(
@@ -24,7 +24,7 @@ const CatSec = () =>{
     }, []);
 
     return(
-        <HomeSection title='Category' number={9}>    
+        <HomeSection title='Category' number={9} goTo={goTo}>    
         <FlatList
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{flexDirection:'row'}}

@@ -7,6 +7,10 @@ import * as Font from 'expo-font';
 
 import Home from './screens/Home';
 import RestaurantPage from './screens/RestaurantPage';
+import CategoryPage from './screens/CategoryPage';
+
+import FriendPage from './screens/FriendPage';
+
 import styles from './styles/styles';
 import SafeView from './components/SafeView';
 import Header from './components/Header';
@@ -66,6 +70,31 @@ export default function App() {
                   )}
             }}
           />
+            <RootStack.Screen
+            name="Category"
+            component={CategoryPage}
+            options={{
+              header:({navigation}) =>{ 
+                return (
+                <Header 
+                navigateBack = {() => {navigation.goBack()}}
+                name='Categories' search={true}/>
+                  )}
+            }}
+          />
+            <RootStack.Screen
+            name="Friend"
+            component={FriendPage}
+            options={{
+              header:({navigation}) =>{ 
+                return (
+                <Header 
+                navigateBack = {() => {navigation.goBack()}}
+                name='Friends' search={true}/>
+                  )}
+            }}
+          />
+
 
      
     
