@@ -61,9 +61,7 @@ export default function App() {
               header:({navigation}) =>{ 
                 return (
                 <Header 
-                
-                navigateBack={() => navigation.goBack()} 
-                // navigateBack = {() => console.log('going back ')}
+                navigateBack = {() => {navigation.goBack()}}
                 name='Trending Restaurant' search={true}/>
                   )}
             }}

@@ -4,12 +4,15 @@ import SafeView from './SafeView';
 import {w, h} from '../proportion';
 import styles from '../styles/styles';
 
- const Header = ({navigateBack, name, search}) =>{
+ const Header = ({ navigateBack, name, search}) =>{
+    //  console.log(navigateBack());
 return (
         <SafeView>
             <View style={{ flexDirection:'row', height:155*h, backgroundColor:'#FAFAFA', justifyContent:'space-between',
                     alignItems: 'center'}}> 
-                   <Pressable onPress={() =>navigateBack()}><Image
+                   <Pressable 
+                            onPress={()=>navigateBack()}>
+                       <Image
                     style={[{width: 41.1*w, height:74.61*h}, space.space]}
                     source={require('../imgs/header/backArrow.png')}
                     />

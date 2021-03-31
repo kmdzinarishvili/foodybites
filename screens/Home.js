@@ -37,17 +37,4 @@ const Home = ({navigation}) => {
 }
 
 
-
-const styles= {
-    restStyles:{
-
-    },
-    catStyles:{
-
-    },
-    friendStyles:{
-
-    }
-}
-
 export default Home;

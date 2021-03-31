@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import { h } from '../proportion';
+import { w,h } from '../proportion';
 
 
-const PageTemplate = ({children, style}) =>{
+const PageTemplate = ({children}) =>{
     return(
-        <View style={[{marginTop:155*h, backgroundColor:'#FAFAFA', marginHorizontal: 100}, style]}>
-            {children}
+        <View style={[{paddingTop:155*h, backgroundColor:'#FAFAFA', marginHorizontal:68*w }]}>
+            {/* {children} */}
         </View>
     );
 }
