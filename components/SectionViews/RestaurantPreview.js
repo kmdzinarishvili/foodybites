@@ -11,7 +11,25 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
                     address='394 Broome St, New York, NY 10013, USA',
                     friends=[]}) =>{
 
-                        friends=[1,2,3];
+        friends=[{
+            id:1,
+            url: 'https://images.unsplash.com/photo-1579783483458-83d02161294e?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwxfHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400'    
+        },{
+            id:2,
+            url:"https://images.unsplash.com/photo-1511367461989-f85a21fda167?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwyfHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
+        },{
+            id:3,
+            url:"https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwzfHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
+        },{
+            id:4,
+            url:"https://images.unsplash.com/photo-1457449940276-e8deed18bfff?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHw0fHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
+        },
+        {
+            id:5,
+            url:"https://images.unsplash.com/photo-1497316730643-415fac54a2af?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHw1fHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
+        },
+
+        ];
     return(
         <View style={restStyles.containter}>
             <Text style={[restStyles.whiteButton, restStyles.left, styles.jBold]}>OPEN</Text>
@@ -43,10 +61,10 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
                     <FlatList
                                 contentContainerStyle={{flexDirection:'row', alignSelf:'flex-end'}}
                                 data={friends}
-                                keyExtractor={(item) => `item${item}`}
+                                keyExtractor={(item) => `item${item.id}`}
                                 renderItem={({item})=>{
                                     return (
-                                <Text>{item} </Text>
+                                <Image style={restStyles.miniFriend} source={{url: item.url}}/>
                                     );
                                 }}
                                 
@@ -109,6 +127,18 @@ const restStyles = StyleSheet.create({
     address:{
         color:'#8A98BA',
         fontSize:36*w
+    },
+    miniFriend:{
+        // position:'absolute',
+        // right:0,
+        // bottom:0,
+        width:55*w,
+        height:55*w,
+        borderRadius:55*w/2,
+        borderColor:'#FFF',
+        borderWidth:3*w,
+        marginLeft:-10
+
     }
     
 });
