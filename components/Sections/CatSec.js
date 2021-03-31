@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList} from 'react-native';
 
 import CatView from '../SectionViews/CatView';
-
 import HomeSection from '../HomeSection';
-
 
 
 

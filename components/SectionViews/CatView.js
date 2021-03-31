@@ -10,13 +10,14 @@ const CatView = ({image, index, name='Italian'}) => {
                 uri:image
             }}
             >
-                   {index%3==0&& <LinearGradient colors={gradients.pink} 
-                        style={styles.linearGradient}/>}
-                    {index%3==1&&<LinearGradient colors={gradients.purple} 
-                        style={styles.linearGradient}/>}
-                    {index%3==2 &&<LinearGradient colors={gradients.blue} 
-                        style={styles.linearGradient}>
-                             </LinearGradient>}
+                   <LinearGradient colors={
+                       index%3==0? gradients.pink:
+                       index%3==1? gradients.purple:
+                       gradients.blue
+                    } 
+                        style={styles.linearGradient}/>
+
+
             <Text style={{color:'white', fontSize:50*w}}>{name + 'test'}</Text>
             </ImageBackground>
 
