@@ -26,7 +26,7 @@ const sectionStyles = StyleSheet.create({
     },
     title:{
         fontSize:60*w,
-        color: '#222455',
+        color: '#3E3F68',
     },
     seeall:{
         fontSize:40*w,
