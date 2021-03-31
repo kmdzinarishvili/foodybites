@@ -24,6 +24,9 @@ const styles=StyleSheet.create({
     }, 
     jSemi:{
         fontFamily:'josefin-semibold'
+    },
+    blue:{
+        color:'#222455'
     }
 
 });

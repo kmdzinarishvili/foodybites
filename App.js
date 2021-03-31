@@ -8,6 +8,10 @@ import * as Font from 'expo-font';
 import Home from './screens/Home';
 import RestaurantPage from './screens/RestaurantPage';
 import styles from './styles/styles';
+import SafeView from './components/SafeView';
+
+
+import {w} from './proportion';
 
 
 const fetchFonts = async() => {
@@ -49,18 +53,28 @@ export default function App() {
     return (
       <NavigationContainer >
         <RootStack.Navigator>
-          <RootStack.Screen
+        <RootStack.Screen
             name="Home"
             component={Home}
             options={{
               headerShown: false,
             }}
           />
-           <RootStack.Screen
+       
+        <RootStack.Screen
             name="Restaurant"
             component={RestaurantPage}
-           
+            options={{
+              header:(props) =>{ 
+                return (<SafeView>
+                 <View style={{ height:155*w, backgroundColor:'#FAFAFA', justifyContent:'center',
+                        alignItems: 'center'}}> 
+                        <Text style={[styles.jBold, styles.font60, styles.blue]}>Trending Restaurant</Text>
+                 </View>
+                  </SafeView>)}
+            }}
           />
+
 
         </RootStack.Navigator>
 

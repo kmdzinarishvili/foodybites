@@ -19,7 +19,7 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
                 <Image 
                 style={{width:28.7*w, height:27.37*h, marginRight:2}}
                 source={require("../../imgs/star.png")}/>
-                <Text style={[restStyles.darkBlue, restStyles.size25, styles.jSemi, ]}>{rating}</Text>
+                <Text style={[styles.blue, restStyles.size25, styles.jSemi, ]}>{rating}</Text>
             </View>
               
           <Image 
@@ -79,9 +79,7 @@ const restStyles = StyleSheet.create({
     right:{
         right:31*w
     },
-    darkBlue:{
-        color:'#222455'
-    },
+ 
     size25:{
         fontSize:25*w
     },
