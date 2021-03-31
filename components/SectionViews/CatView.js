@@ -17,7 +17,7 @@ const CatView = ({image, index, name='Italian'}) => {
                     {index%3==2 &&<LinearGradient colors={gradients.blue} 
                         style={styles.linearGradient}>
                              </LinearGradient>}
-            <Text style={{color:'white', fontSize:50*w}}>{name}</Text>
+            <Text style={{color:'white', fontSize:50*w}}>{name + 'test'}</Text>
             </ImageBackground>
 
     )
