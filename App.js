@@ -1,12 +1,13 @@
-import React,{useState} from 'react';
-import {Text} from 'react-native';
+import React,{useState, useEffect} from 'react';
+import {Text, View} from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
 
 import * as Font from 'expo-font';
 
 import Home from './screens/Home';
-import { useEffect } from 'react';
+import RestaurantPage from './screens/RestaurantPage';
+import styles from './styles/styles';
 
 
 const fetchFonts = async() => {
@@ -30,6 +31,14 @@ export default function App() {
     loadFonts();
   });
 
+
+
+  // MyScreen.navigationOptions = {
+  //   header: ( /* Your custom header */
+
+  //   )
+  // };
+
   if(!dataLoaded){
     return(
       <Text>LOADING</Text>
@@ -47,6 +56,12 @@ export default function App() {
               headerShown: false,
             }}
           />
+           <RootStack.Screen
+            name="Restaurant"
+            component={RestaurantPage}
+           
+          />
+
         </RootStack.Navigator>
 
       </NavigationContainer>

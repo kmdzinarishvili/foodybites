@@ -7,6 +7,9 @@ const styles=StyleSheet.create({
     font50: {
         fontSize:50*w
     },
+    font60: {
+        fontSize:50*w
+    },
     font22:{
         fontSize:22*w
     },  

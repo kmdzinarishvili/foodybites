@@ -8,7 +8,8 @@ import HomeSection from '../HomeSection';
 
 
 
-const RestSec = () =>{
+const RestSec = ({goToPage}) =>{
+    console.log(goToPage);
     const [restaurants, setRestaurants] = useState();
     const fetch_restaurant_pictures= async () =>{
         const result = await fetch(
@@ -26,7 +27,7 @@ const RestSec = () =>{
     }, []);
 
     return(
-        <HomeSection title='Trending Restaurants' number={45}>
+        <HomeSection title='Trending Restaurants' number={45} goToPage={goToPage}>
         <FlatList
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{flexDirection:'row'}}

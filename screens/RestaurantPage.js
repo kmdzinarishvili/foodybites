@@ -2,16 +2,16 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 
-import SafeView from '../components/SafeView';
+import PageTemplate from '../components/PageTemplate';
 
 
 const RestaurantPage = () =>{
     return(
-        <SafeView>
+        <PageTemplate>
             <Text>
                 Restaurant Page 
             </Text>
-        </SafeView>
+        </PageTemplate>
     );
 
 }
