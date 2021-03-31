@@ -5,17 +5,14 @@ import SafeView from './SafeView';
 
 
 
-const Header = () =>{
-    return (
-        <View></View>
-    ); 
-}
-const PageTemplate = ({children}) =>{
+
+const PageTemplate = ({children, style}) =>{
+    console.log(style)
     return(
         <SafeView>
-            <Header/>
-            <Text>This is the page Template </Text>
+            <View style={style}>
             {children}
+            </View>
         </SafeView>
     );
 }

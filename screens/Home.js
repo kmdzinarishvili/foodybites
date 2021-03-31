@@ -24,7 +24,7 @@ const Home = ({navigation}) => {
                 backgroundColor:'#F9F9f9'
             }}>
             <View >
-                <SearchBar />
+                <SearchBar placeholder="Find Restaurants"/>
                 <RestSec goToPage={() =>navigation.navigate('Restaurant')}/>
                 <CatSec/>
               

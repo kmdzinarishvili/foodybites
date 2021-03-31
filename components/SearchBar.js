@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Image, TextInput, StyleSheet} from 'react-native';
 import {w,h} from '../proportion';
 import styles from '../styles/styles';
-const SearchBar = () => {
+const SearchBar = ({placeholder}) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     return(
@@ -12,7 +12,7 @@ const SearchBar = () => {
         style={[{position: 'absolute', left:60,fontSize:48*w, paddingTop:10 },styles.jReg ]}
         value={searchTerm}
         onChangeText={(text) => setSearchTerm(text)}
-        placeholder="Find Restaurants"
+        placeholder={placeholder}
     
     />
     <Image source={require('../imgs/home/search_sliders.png')} style={searchStyles.ImageStyle} />

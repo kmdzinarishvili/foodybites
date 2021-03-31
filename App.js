@@ -9,6 +9,7 @@ import Home from './screens/Home';
 import RestaurantPage from './screens/RestaurantPage';
 import styles from './styles/styles';
 import SafeView from './components/SafeView';
+import Header from './components/Header';
 
 
 import {w} from './proportion';
@@ -35,14 +36,6 @@ export default function App() {
     loadFonts();
   });
 
-
-
-  // MyScreen.navigationOptions = {
-  //   header: ( /* Your custom header */
-
-  //   )
-  // };
-
   if(!dataLoaded){
     return(
       <Text>LOADING</Text>
@@ -54,6 +47,21 @@ export default function App() {
       <NavigationContainer >
         <RootStack.Navigator>
         <RootStack.Screen
+            name="Restaurant"
+            component={RestaurantPage}
+            options={{
+              header:({navigation}) =>{ 
+                return (
+                <Header 
+                
+                navigateBack={() => navigation.goBack()} 
+                // navigateBack = {() => console.log('going back ')}
+                name='Trending Restaurant' search={true}/>
+                  )}
+            }}
+          />
+
+        <RootStack.Screen
             name="Home"
             component={Home}
             options={{
@@ -61,20 +69,7 @@ export default function App() {
             }}
           />
        
-        <RootStack.Screen
-            name="Restaurant"
-            component={RestaurantPage}
-            options={{
-              header:(props) =>{ 
-                return (<SafeView>
-                 <View style={{ height:155*w, backgroundColor:'#FAFAFA', justifyContent:'center',
-                        alignItems: 'center'}}> 
-                        <Text style={[styles.jBold, styles.font60, styles.blue]}>Trending Restaurant</Text>
-                 </View>
-                  </SafeView>)}
-            }}
-          />
-
+    
 
         </RootStack.Navigator>
 
