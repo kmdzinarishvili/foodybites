@@ -21,7 +21,6 @@ const FriendSec = () =>{
         });
     }
     useEffect(() =>{
-        // fetch_restaurant_pictures();
         fetch_friend_pictures();
     }, [] );
 
