@@ -52,7 +52,7 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
                                 
                             />
                 </View>
-                    <Text >{address}</Text>
+                    <Text style={[restStyles.address, styles.jReg]} >{address}</Text>
 
             </View>
 
@@ -107,6 +107,10 @@ const restStyles = StyleSheet.create({
     },
     purple:{
         backgroundColor: '#848DFF'
+    },
+    address:{
+        color:'#8A98BA',
+        fontSize:36*w
     }
     
 });

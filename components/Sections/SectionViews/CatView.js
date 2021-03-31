@@ -1,7 +1,9 @@
 import React from 'react';
-import {View,StyleSheet, ImageBackground, Text} from 'react-native';
+import {StyleSheet, ImageBackground, Text} from 'react-native';
 import {w, h} from '../../proportion';
 import { LinearGradient } from 'expo-linear-gradient';
+import gradients from '../../styles/gradients';
+import styles from '../../styles/styles';
 const CatView = ({image, index, name='Italian'}) => {
     return(
             <ImageBackground
@@ -15,15 +17,15 @@ const CatView = ({image, index, name='Italian'}) => {
                        index%3==1? gradients.purple:
                        gradients.blue
                     } 
-                        style={styles.linearGradient}/>
+                        style={linearStyles.linearGradient}/>
 
 
-            <Text style={{color:'white', fontSize:50*w}}>{name + 'test'}</Text>
+            <Text style={[{color:'#FFF', fontSize:50*w}, styles.jBold ]}>{name}</Text>
             </ImageBackground>
 
     )
 }
-const styles = StyleSheet.create({
+const linearStyles = StyleSheet.create({
     linearGradient:{
         position:'absolute',
         width:'100%',
@@ -32,9 +34,5 @@ const styles = StyleSheet.create({
     }
 });
 
-const gradients= {
-    pink: ['#FF5673', '#FF8C48'],
-    purple: ['#832BF6', '#FF4665'],
-    blue: ['#2DCEF8', '#3B40FE']
-}
+
 export default CatView;
