@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Image, TextInput, StyleSheet} from 'react-native';
 import {w,h} from '../proportion';
 
-const SearchBar = (searchTerm, setSearchTerm) => {
+const SearchBar = () => {
+    const [searchTerm, setSearchTerm] = useState('');
+
     return(
     <View style={styles.SectionStyle}>
     <Image source={require('../imgs/home/magnifying_glass.png')} style={styles.ImageStyle} />
