@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, Dimensions, FlatList, Image} from 'react-native';
+import React from 'react';
+import {View} from 'react-native';
 
 
 import SafeView from '../components/SafeView';
@@ -11,11 +11,13 @@ import RestSec from '../components/Sections/RestSec';
 import CatSec from '../components/Sections/CatSec';
 import FriendSec from '../components/Sections/FriendSec';
 
+import {w} from '../proportion';
+
 const Home = () => {
     return (
         <SafeView >
             <View style={{
-                paddingHorizontal: 0.06044444444*Dimensions.get('window').width,
+                paddingHorizontal: 68*w,
                 flex:1,
                 justifyContent:'space-between',
                 backgroundColor:'#F9F9f9'
