@@ -1,9 +1,6 @@
-Importing fonts
-
-make flatlists scrollable (only works with direction column )
-
-
-linear gradient
-
-vertical padding on searchbar (styling in general)
-make footer white 
+add customizable linear gradient in restaurant preview 
+center plus button 
+friends recommendations in restaurant preview
+spacing on star button
+make linear gradients correspond to inputed category
+make multiple categories 
