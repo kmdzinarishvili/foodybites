@@ -47,6 +47,14 @@ export default function App() {
       <NavigationContainer >
         <RootStack.Navigator>
         <RootStack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerShown: false,
+            }}
+          />
+       
+        <RootStack.Screen
             name="Restaurant"
             component={RestaurantPage}
             options={{
@@ -61,14 +69,7 @@ export default function App() {
             }}
           />
 
-        <RootStack.Screen
-            name="Home"
-            component={Home}
-            options={{
-              headerShown: false,
-            }}
-          />
-       
+     
     
 
         </RootStack.Navigator>

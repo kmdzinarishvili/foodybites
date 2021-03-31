@@ -8,7 +8,7 @@ import PageTemplate from '../components/PageTemplate';
 
 const RestaurantPage = () =>{
     return(
-        <PageTemplate  style={{flexDirection:'column', justifyContent:'flex-end'}}>
+        <PageTemplate >
 
             <SearchBar placeholder="Search"/>
         

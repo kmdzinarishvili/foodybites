@@ -7,7 +7,7 @@ import styles from '../styles/styles';
  const Header = ({navigateBack, name, search}) =>{
 return (
         <SafeView>
-            <View style={{ flexDirection:'row', height:155*w, backgroundColor:'#FAFAFA', justifyContent:'space-between',
+            <View style={{ flexDirection:'row', height:155*h, backgroundColor:'#FAFAFA', justifyContent:'space-between',
                     alignItems: 'center'}}> 
                    <Pressable onPress={() =>navigateBack()}><Image
                     style={[{width: 41.1*w, height:74.61*h}, space.space]}

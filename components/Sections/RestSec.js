@@ -8,8 +8,7 @@ import HomeSection from '../HomeSection';
 
 
 
-const RestSec = ({goToPage}) =>{
-    console.log(goToPage);
+const RestSec = ({navigation, goTo}) =>{
     const [restaurants, setRestaurants] = useState();
     const fetch_restaurant_pictures= async () =>{
         const result = await fetch(
@@ -19,15 +18,14 @@ const RestSec = ({goToPage}) =>{
         .catch((error) => {
             throw error;
         });
-    }
-    
+    }    
     
     useEffect(()=>{
         fetch_restaurant_pictures();
     }, []);
 
     return(
-        <HomeSection title='Trending Restaurants' number={45} goToPage={goToPage}>
+        <HomeSection title='Trending Restaurants' number={45} goTo={goTo}>
         <FlatList
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{flexDirection:'row'}}

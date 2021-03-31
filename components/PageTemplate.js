@@ -1,19 +1,13 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-
-import SafeView from './SafeView';
-
-
+import { h } from '../proportion';
 
 
 const PageTemplate = ({children, style}) =>{
-    console.log(style)
     return(
-        <SafeView>
-            <View style={style}>
+        <View style={[{marginTop:155*h, backgroundColor:'#FAFAFA', marginHorizontal: 100}, style]}>
             {children}
-            </View>
-        </SafeView>
+        </View>
     );
 }
 
