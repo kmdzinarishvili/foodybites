@@ -12,7 +12,7 @@ import styles from '../styles/styles';
 
 const Dividor = ({title}) =>{
     return (
-        <View style={{backgroundColor: 'rgba(86, 99, 255, 0.05)'}}>
+        <View style={{backgroundColor: 'rgba(86, 99, 255, 0.05)', width:1125*w}}>
             <Text style={[styles.jSemi, {color: 'rgba(34, 36, 85, 0.5)', margin:68*w, fontSize:46*w}]}>{title}</Text>
         </View>
 
@@ -39,10 +39,13 @@ const FriendPage = () =>{
                 <View style={{paddingHorizontal:68*w}}>
                 <SearchBar placeholder="Search"/>
                 </View>
-                <Dividor title='Contacts'/>
                 <FlatList
+                    ListHeaderComponent={
+                        <Dividor title='Contacts'/>
+
+                    }
                         showsVerticalScrollIndicator={false}
-                        contentContainerStyle={{flexDirection:'column', justifyContent:'center', alignItems:'center'}}
+                        contentContainerStyle={{flexDirection:'column', justifyContent:'center', alignItems:'center', paddingBottom:10}}
                         data={friends}
                         keyExtractor={(item) => `item${item.id}`}
                     renderItem={({item})=>{

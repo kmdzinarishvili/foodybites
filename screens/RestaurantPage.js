@@ -30,6 +30,7 @@ const RestaurantPage = () =>{
                 contentContainerStyle={{alignItems:'center',}} 
             data={restaurants}
               keyExtractor={(item) => `item${item.id}`}
+              showsVerticalScrollIndicator={false}
               renderItem={({item})=>{
               return (
                   <View>
