@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
-import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { View, Text, Image, StyleSheet, Pressable, SafeAreaView, StatusBar } from 'react-native';
 import SafeView from './SafeView';
 import {w, h} from '../proportion';
 import styles from '../styles/styles';
 
  const Header = ({ navigateBack, name, search}) =>{
 return (
-        <SafeView>
-            <View style={{ flexDirection:'row', height:155*h, backgroundColor:'#FAFAFA', justifyContent:'space-between',
+    <SafeAreaView>
+            <View style={{ 
+                marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+                flexDirection:'row', height:155*h, backgroundColor:'#FAFAFA', justifyContent:'space-between',
                     alignItems: 'center'}}>  
                    <Pressable 
                             onPress={navigateBack}>
@@ -24,7 +26,7 @@ return (
                     source={require('../imgs/header/blueSearch.png')}
                     />}
             </View>
-        </SafeView>
+    </SafeAreaView>
 
 );
 }

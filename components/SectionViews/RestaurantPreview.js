@@ -17,17 +17,19 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
         },{
             id:2,
             url:"https://images.unsplash.com/photo-1511367461989-f85a21fda167?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwyfHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
-        },{
-            id:3,
-            url:"https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwzfHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
-        },{
-            id:4,
-            url:"https://images.unsplash.com/photo-1457449940276-e8deed18bfff?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHw0fHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
         },
-        {
-            id:5,
-            url:"https://images.unsplash.com/photo-1497316730643-415fac54a2af?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHw1fHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
-        },
+        // {
+        //     id:3,
+        //     url:"https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwzfHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
+        // },
+        // {
+        //     id:4,
+        //     url:"https://images.unsplash.com/photo-1457449940276-e8deed18bfff?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHw0fHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
+        // },
+        // {
+        //     id:5,
+        //     url:"https://images.unsplash.com/photo-1497316730643-415fac54a2af?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHw1fHxwcm9maWxlfGVufDB8fHx8MTYxNzE3MjgxNg\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
+        // },
 
         ];
     return(
@@ -57,19 +59,18 @@ const RestaurantPreview = ({item="https://images.unsplash.com/photo-1552566626-5
                         style={[styles.linearGradient,  styles.spaceRight, restStyles.rad9, {opacity:0.65}]}>
                     <Text  style={[restStyles.white22, ]}>{category}</Text>
                     </LinearGradient>
-                    <Text style={[styles.jReg, restStyles.white22, restStyles.purple,restStyles.rad9]}>{distance} km</Text>
-                    <FlatList
-                                contentContainerStyle={{flexDirection:'row-reverse', alignSelf:'flex-end'}}
-                                data={friends.reverse()}
-                                keyExtractor={(item) => `item${item.id}`}
-                                renderItem={({item})=>{
-                                    return (
-                                <Image style={restStyles.miniFriend} source={{url: item.url}}/>
-                                    );
-                                }}
-                                
-                            />
+                     
+                        <Text style={[styles.jReg, restStyles.white22, restStyles.purple,restStyles.rad9]}>{distance} km</Text>
+                        <FlatList 
+                        contentContainerStyle={{flexDirection:'row-reverse'}}
+                        data={friends.reverse()}
+                        keyExtractor={(item) => `item${item.id}`}
+
+                        renderItem={({item})=>
+                            <Image style={restStyles.miniFriend} source={{uri:item.url}}/>
+                            } /> 
                 </View>
+               
                     <Text style={[restStyles.address, styles.jReg]} >{address}</Text>
 
             </View>
@@ -129,9 +130,7 @@ const restStyles = StyleSheet.create({
         fontSize:36*w
     },
     miniFriend:{
-        // position:'absolute',
-        // right:0,
-        // bottom:0,
+       
         width:55*w,
         height:55*w,
         borderRadius:55*w/2,

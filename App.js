@@ -17,6 +17,7 @@ import Header from './components/Header';
 
 
 import {w} from './proportion';
+import { TapGestureHandler } from 'react-native-gesture-handler';
 
 
 const fetchFonts = async() => {
@@ -60,7 +61,7 @@ export default function App() {
        
         <RootStack.Screen
             name="Restaurant"
-            component={RestaurantPage}
+            component={RestaurantPage }
             options={{
               header:({navigation}) =>{ 
                 return (
@@ -85,14 +86,14 @@ export default function App() {
             <RootStack.Screen
             name="Friend"
             component={FriendPage}
-            options={{
-              header:({navigation}) =>{ 
-                return (
-                <Header 
-                navigateBack = {() => {navigation.goBack()}}
-                name='Friends' search={true}/>
-                  )}
-            }}
+            // options={{
+            //   header:({navigation}) =>{ 
+            //     return (
+            //     <Header 
+            //     navigateBack = {() => {navigation.goBack()}}
+            //     name='Friends' search={true}/>
+            //       )}
+            // }}
           />
 
 

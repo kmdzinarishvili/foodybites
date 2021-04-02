@@ -1,20 +1,17 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import SearchBar from '../components/SearchBar';
-
 
 import PageTemplate from '../components/PageTemplate';
+import SearchBar from '../components/SearchBar';
 
-
-const RestaurantPage = () =>{
+const CategoryPage = () =>{
     return(
-        <PageTemplate >
-
-            <SearchBar placeholder="Search"/>
+        <View >
+                <Text style={{fontSize:100}}> Hello</Text>
         
-        </PageTemplate>
+        </View>
     );
 
 }
 
-export default RestaurantPage;
+export default CategoryPage;

@@ -26,6 +26,9 @@ const RestaurantPage = () =>{
     return(
         <PageTemplate>
 
+
+
+
             <SearchBar placeholder="Search"/>
             <FlatList
                     showsVerticalScrollIndicator={false}
