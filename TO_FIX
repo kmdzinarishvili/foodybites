@@ -1,8 +1,11 @@
 add customizable linear gradient in restaurant preview 
 center plus button 
-friends recommendations in restaurant preview
-spacing on star button
-make linear gradients correspond to inputed category
+friends recommendations in restaurant preview -- check if working on ios (glitching on android)
+
+
+
 make multiple categories 
 
 opacity of italian 
+
+mixed background colors on trending restaurant page 
