@@ -24,15 +24,24 @@ const RestaurantPage = () =>{
         fetch_restaurant_pictures();
     }, []);
     return(
-        <PageTemplate>
-
-
-
-
+        <View style={{paddingHorizontal:68*w, paddingBottom:100}} >
             <SearchBar placeholder="Search"/>
-            <FlatList
+            <FlatList 
+                contentContainerStyle={{alignItems:'center',}} 
+            data={restaurants}
+              keyExtractor={(item) => `item${item.id}`}
+              renderItem={({item})=>{
+              return (
+                  <View>
+                      <RestaurantPreview item={item}></RestaurantPreview>
+                  </View>
+
+             )}}/>
+
+           
+            {/* <FlatList
                     showsVerticalScrollIndicator={false}
-                    contentContainerStyle={{flexDirection:'column', alignSelf:'flex-end'}}
+                    contentContainerStyle={{flexDirection:'column'}}
                     data={restaurants}
                     keyExtractor={(item) => `item${item.id}`}
                 renderItem={({item})=>{
@@ -43,10 +52,10 @@ const RestaurantPage = () =>{
 
                );
             }}                    
-            />
+            /> */}
 
         
-        </PageTemplate>
+        </View>
     );
 
 }

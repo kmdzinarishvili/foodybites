@@ -8,11 +8,17 @@ const FollowingButton = ({following}) => { //bool
     return (
     <Pressable
         style={
-            {backgroundColor:'blue',
+            {
+                
+            backgroundColor:'#5663FF',
+            borderRadius:10,
             width: 100,
             height:30}
         }>
-        <Text>FOLLOWING</Text>
+        <Text 
+        style={{
+            color:'#FFF'
+        }}>FOLLOW</Text>
     </Pressable>);
 
 }

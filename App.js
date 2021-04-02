@@ -86,14 +86,14 @@ export default function App() {
             <RootStack.Screen
             name="Friend"
             component={FriendPage}
-            // options={{
-            //   header:({navigation}) =>{ 
-            //     return (
-            //     <Header 
-            //     navigateBack = {() => {navigation.goBack()}}
-            //     name='Friends' search={true}/>
-            //       )}
-            // }}
+            options={{
+              header:({navigation}) =>{ 
+                return (
+                <Header 
+                navigateBack = {() => {navigation.goBack()}}
+                name='Friends' search={true}/>
+                  )}
+            }}
           />
 
 

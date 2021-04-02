@@ -3,10 +3,21 @@ import {View, Text, FlatList} from 'react-native';
 import SearchBar from '../components/SearchBar';
 
 
-import PageTemplate from '../components/PageTemplate';
 import FriendInfo from '../components/FriendInfo';
 import FriendView from '../components/SectionViews/FriendView';
 
+import {w,h} from '../proportion';
+import styles from '../styles/styles';
+
+
+const Dividor = ({title}) =>{
+    return (
+        <View style={{backgroundColor: 'rgba(86, 99, 255, 0.05)'}}>
+            <Text style={[styles.jSemi, {color: 'rgba(34, 36, 85, 0.5)', margin:68*w, fontSize:46*w}]}>{title}</Text>
+        </View>
+
+    );
+}
 
 const FriendPage = () =>{
     const [friends, setFriends] = useState();
@@ -24,25 +35,27 @@ const FriendPage = () =>{
         fetch_friend_pictures();
     }, [] );
     return(
-        <PageTemplate >
+        <View style={{backgroundColor:'#FAFAFA'}}>
+                <View style={{paddingHorizontal:68*w}}>
+                <SearchBar placeholder="Search"/>
+                </View>
+                <Dividor title='Contacts'/>
+                <FlatList
+                        showsVerticalScrollIndicator={false}
+                        contentContainerStyle={{flexDirection:'column', justifyContent:'center', alignItems:'center'}}
+                        data={friends}
+                        keyExtractor={(item) => `item${item.id}`}
+                    renderItem={({item})=>{
+                    return (
+                        <View>
+                        <FriendInfo  picture={<FriendView width={160*w} height={160*h} image={item['urls']['regular']} marginTop={10}/>}/>                    
+                        </View>
 
-            <SearchBar placeholder="Search"/>
-            <FlatList
-                    showsVerticalScrollIndicator={false}
-                    contentContainerStyle={{flexDirection:'column', justifyContent:'center', alignItems:'center'}}
-                    data={friends}
-                    keyExtractor={(item) => `item${item.id}`}
-                renderItem={({item})=>{
-                return (
-                    <View>
-                    <FriendInfo picture={<FriendView image={item['urls']['regular']}/>}/>                    
-                    </View>
+                );
+                }}                    
+                />
 
-               );
-            }}                    
-            />
-        
-        </PageTemplate>
+        </View>
     );
 
 }

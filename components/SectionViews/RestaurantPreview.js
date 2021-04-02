@@ -104,7 +104,7 @@ const restStyles = StyleSheet.create({
     },
     bottom:{
         height:225*h, 
-        width:'100%',
+        width: 907.85*w,
          backgroundColor:"#FFF",
           flexDirection:'column', 
           justifyContent:'space-around',

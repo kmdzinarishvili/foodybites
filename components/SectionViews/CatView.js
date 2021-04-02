@@ -4,10 +4,11 @@ import {w, h} from '../../proportion';
 import { LinearGradient } from 'expo-linear-gradient';
 import gradients from '../../styles/gradients';
 import styles from '../../styles/styles';
-const CatView = ({image, index, name='Italian'}) => {
+const CatView = ({image, index, name='Italian', width=300*w, height=300*h, marginVertical=26*w, marginHorizontal=26*w}) => {
     return(
             <ImageBackground
-            style={{alignItems:'center', justifyContent:'center', borderRadius:10, overflow:'hidden', width:300*w, height:300*h, margin:26*w}}
+            style={{alignItems:'center', justifyContent:'center', borderRadius:10, overflow:'hidden', width:width, height:height,
+             marginVertical:marginVertical, marginHorizontal}}
             source={{
                 uri:image
             }}
