@@ -5283,6 +5283,11 @@ expo-asset@~8.2.1:
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
 
+expo-blur@~8.2.2:
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/expo-blur/-/expo-blur-8.2.2.tgz#a7643d893afb7aed5512b25d5df22ee6083832c1"
+  integrity sha512-Xiklw60RUPIchHKzfvLTIuccVDTIQEAIPv02yJY2xFDujQKjE0NU0/Z5Z+zsEI9QOi82jX9NbR8gQ+8Mm3hDhA==
+
 expo-cli@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/expo-cli/-/expo-cli-4.3.2.tgz#456c2bf3ff47335b775f36bc5ac304facf2600e8"

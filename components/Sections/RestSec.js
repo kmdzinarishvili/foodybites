@@ -33,7 +33,7 @@ const RestSec = ({navigation, goTo}) =>{
                 horizontal={true}
                 renderItem={({item})=>{
                     return (
-                        <RestaurantPreview item={item} /> 
+                        <RestaurantPreview navigation={navigation} item={item} /> 
                     )
             
                 }}

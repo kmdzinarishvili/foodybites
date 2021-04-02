@@ -18,6 +18,7 @@ import Header from './components/Header';
 
 import {w} from './proportion';
 import { TapGestureHandler } from 'react-native-gesture-handler';
+import IndRestaurant from './screens/individualPages/IndRestaurant';
 
 
 const fetchFonts = async() => {
@@ -97,7 +98,13 @@ export default function App() {
           />
 
 
-     
+        <RootStack.Screen
+            name="Individual Restaurant"
+            component={IndRestaurant}
+            options={{
+            headerShown:false
+            }}
+          />
     
 
         </RootStack.Navigator>
