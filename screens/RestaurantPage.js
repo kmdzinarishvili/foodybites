@@ -5,6 +5,7 @@ import SearchBar from '../components/SearchBar';
 import {w} from '../proportion';
 
 import PageTemplate from '../components/PageTemplate';
+import RestaurantPreview from '../components/SectionViews/RestaurantPreview';
 
 const RestaurantPage = () =>{
 
@@ -27,12 +28,16 @@ const RestaurantPage = () =>{
 
             <SearchBar placeholder="Search"/>
             <FlatList
+                    showsVerticalScrollIndicator={false}
                     contentContainerStyle={{flexDirection:'column', alignSelf:'flex-end'}}
                     data={restaurants}
-                    keyExtractor={(item) => `item${item}`}
+                    keyExtractor={(item) => `item${item.id}`}
                 renderItem={({item})=>{
                 return (
-                    <Text>{item} </Text>
+                    <View>
+                    <RestaurantPreview item={item}/>                    
+                    </View>
+
                );
             }}                    
             />
