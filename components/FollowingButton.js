@@ -1,24 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Pressable ,Text} from 'react-native';
+import { h, w } from '../proportion';
 
 
 
 const FollowingButton = ({following}) => { //bool 
+    const [isFollowing, setIsFollowing] = useState(following);
 
     return (
     <Pressable
         style={
             {
                 
-            backgroundColor:'#5663FF',
-            borderRadius:10,
-            width: 100,
-            height:30}
-        }>
+            backgroundColor:!isFollowing?'#5663FF': '#FFF',
+            borderRadius:5,
+            width: 235*w,
+            height:90*h,
+            justifyContent:'center',
+            alignItems:'center',
+            borderWidth: isFollowing? 1*w: 0,
+            borderColor:'#8A98BA'
+            }
+        }
+        onPress={()=>{
+            setIsFollowing((prev) => !prev); 
+        }}
+        >
         <Text 
         style={{
-            color:'#FFF'
-        }}>FOLLOW</Text>
+            color:!isFollowing?'#FFF': '#8A98BA'
+        }}>{isFollowing? 'Unfollow':
+            'Follow'
+        }</Text>
     </Pressable>);
 
 }
