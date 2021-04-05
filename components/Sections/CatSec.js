@@ -6,7 +6,7 @@ import HomeSection from '../HomeSection';
 
 
 
-const CatSec = ({goTo}) =>{
+const CatSec = ({goTo, navigation}) =>{
     const [categories, setCategories] = useState();
     const fetch_category_pictures= async () =>{
         const result = await fetch(
@@ -33,7 +33,7 @@ const CatSec = ({goTo}) =>{
 
             renderItem={({item, index})=>{
                 return (
-                    <CatView image={item['urls']['regular']}  index={index}/>);
+                    <CatView navigation={navigation}image={item['urls']['regular']}  index={index}/>);
            
             }}
             keyExtractor={(item) => item.id}

@@ -19,6 +19,7 @@ import Header from './components/Header';
 import {w} from './proportion';
 import { TapGestureHandler } from 'react-native-gesture-handler';
 import IndRestaurant from './screens/individualPages/IndRestaurant';
+import IndCategory from './screens/individualPages/IndCategory';
 
 
 const fetchFonts = async() => {
@@ -105,6 +106,14 @@ export default function App() {
             headerShown:false
             }}
           />
+          <RootStack.Screen
+            name="Individual Category"
+            component={IndCategory}
+            options={{
+            headerShown:false
+            }}
+          />
+    
     
 
         </RootStack.Navigator>

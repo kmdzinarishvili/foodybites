@@ -1,11 +1,16 @@
 import React from 'react';
-import {StyleSheet, ImageBackground, Text, View} from 'react-native';
+import {StyleSheet, ImageBackground, Text, View, Pressable} from 'react-native';
 import {w, h} from '../../proportion';
 import { LinearGradient } from 'expo-linear-gradient';
 import gradients from '../../styles/gradients';
 import styles from '../../styles/styles';
-const CatView = ({image, index, name='Italian', width=300*w, height=300*h, marginVertical=26*w, marginHorizontal=26*w, showStripe=false}) => {
+const CatView = ({navigation, image, index, name='Italian', width=300*w, height=300*h, marginVertical=26*w, marginHorizontal=26*w, showStripe=false}) => {
     return(
+        <Pressable 
+        style={{backgroundColor:'blue'}}
+            onPress={() => {
+            navigation.navigate('Individual Category')
+            }}>
         <View>
             <ImageBackground
             style={{alignItems:'center', justifyContent:'center', borderRadius:10, overflow:'hidden', width:width, height:height,
@@ -14,7 +19,6 @@ const CatView = ({image, index, name='Italian', width=300*w, height=300*h, margi
                 uri:image
             }}
             >
-
                    <LinearGradient colors={
                        index%3==0? gradients.pink:
                        index%3==1? gradients.purple:
@@ -27,6 +31,7 @@ const CatView = ({image, index, name='Italian', width=300*w, height=300*h, margi
                        {showStripe&& <View style={{width:15*w, height: '50%', backgroundColor:'#FFF', position:'absolute', right:60*w,
                                 bottom:20, opacity:0.5, borderRadius:8*w }}></View>}
                         </View>
+        </Pressable>
 
     )
 }
