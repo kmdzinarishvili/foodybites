@@ -7,18 +7,23 @@ import FollowingButton from './FollowingButton';
 
 
 
-const FriendInfo = ({image, name="Collin Fields", numReviews=72,  following=false}) =>{
+
+const FriendInfo = ({text="lwejowije", image, name="Collin Fields", numReviews=72,  following=false, showFollow=true, star, justifyContent='space-around', children}) =>{
+    console.log(children);
     return(
         <View
-            style={{flexDirection:'row', width:'100%', justifyContent: 'space-around', alignItems:'center'}}>
+            style={{flexDirection:'row', width:'100%', justifyContent: justifyContent, alignItems:'center'}}>
                 {image}
             <View  >
                 
                 <Text style={[{color: '#3E3F68', fontSize:50*w, marginTop:19*w}, styles.jSemi]}>{name}</Text>
-
-                <Text style={[{color: 'rgba(110, 127, 170, 0.8)', marginTop:19*w,fontSize:40*w}, styles.jReg]}>{numReviews} Review{numReviews!==1?"s":""}</Text>
+                {showFollow?<Text style={[{color: 'rgba(110, 127, 170, 0.8)', marginTop:19*w,fontSize:40*w}, styles.jReg]}>{numReviews} Review{numReviews!==1?"s":""}</Text>:
+                <Text style={[styles.jReg, {marginRight:280*w, color: 'rgba(110, 127, 170, 0.8)' }]}>{text}</Text>}
+            
+            
             </View>
-            <FollowingButton following={following}/>
+           {showFollow? <FollowingButton following={following}/>:
+       [star]}
 
         </View>
     );  

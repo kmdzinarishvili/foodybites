@@ -103,8 +103,13 @@ const IndRestaurant = ({route, navigation}) =>{
 
 return (
     <View>
-    <ImageBackground style={{width:'100%', height:909*h}} source={{uri:image}}>
+         <Image style={[indStyles.imgTest, {backgroundColor:black}]} source={require('../../imgs/restaurantPage/share.png')}/>
+
+    <Image style={indStyles.imgTest} source={require('../../imgs/restaurantPage/bookmark.png')}/>
+    <Image  style={indStyles.imgTest} source={require('../../imgs/restaurantPage/back_arrow.png')}/>
+
    
+    <ImageBackground style={{width:'100%', height:909*h}} source={{uri:image}}>
    
    <Pressable onPress={()=> console.warn('pressed')}>
         <BlurView style={{width:'90%', height:142*h, position:'absolute', top:716*h , 
@@ -131,6 +136,7 @@ return (
 
                 </Circle>
 
+
             <Text style={[indStyles.text, styles.jSemi]}>Direction</Text>
             </View>
 
@@ -139,7 +145,7 @@ return (
     </ImageBackground> 
 
 
-    <View style={{marginHorizontal:66*w, marginVertical:38*h}}>
+    <View style={{marginHorizontal:66*w, marginVertical:38*h, marginBottom:340*h}}>
 
 
             <FlatList 
@@ -153,7 +159,7 @@ return (
                 horizontal={true}
                 data={food}
                 scrollEnabled={true}
-                keyExtractor={(item) => item}
+                keyExtractor={(item) => item.id}
                 renderItem ={({item})=>{
                     return<Image 
                     style={{width:450*w, height:336.57*h, borderRadius:22*w, marginHorizontal:45*w/2}}
@@ -167,11 +173,19 @@ return (
             data={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]}
             keyExtractor={(item) => item}
             renderItem ={({item})=>{
-                return<FriendInfo image={
+                return<FriendInfo 
+                showFollow={false}
+                justifyContent='space-between'
+                text="Lorem ipsum dolor sit amet consectetur"
+                image={
                     <FriendView  image="https://images.unsplash.com/photo-1579783483458-83d02161294e?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwxfHxwcm9maWxlfGVufDB8fHx8MTYxNzYwMTMwMQ\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
-                    width={160*w} height={160*h}/>
-            
-                 }/>
+                        width={160*w} height={160*h}/>}
+                    star={
+                        <Star rating={rating}/>
+                    }
+                    >
+                    </FriendInfo>
+                    
             }}/>
 
         </View>
@@ -193,6 +207,9 @@ const indStyles = StyleSheet.create({
     },
     margin20:{
         marginVertical:20*h
+    },
+    imgTest:{
+        width:100, height:100
     }
 })
 
