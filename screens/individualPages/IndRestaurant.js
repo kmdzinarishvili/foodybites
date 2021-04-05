@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Image, StyleSheet, Pressable, ImageBackground, FlatList} from 'react-native';
+import {View, Text, Image, StyleSheet, Pressable, ImageBackground, FlatList, SafeAreaView, StatusBar, } from 'react-native';
 import { BlurView } from 'expo-blur';
 import BlueFooter from '../../components/BlueFooter';
-import SafeView from '../../components/SafeView';
+
+
+
 import { h, w } from '../../proportion';
 import styles from '../../styles/styles';
 import {LinearGradient} from 'expo-linear-gradient';
@@ -11,10 +13,6 @@ import gradients from '../../styles/gradients';
 import HomeSection from '../../components/HomeSection';
 import FriendInfo from '../../components/FriendInfo';
 
-
-
-
-import RestaurantPreview from '../../components/SectionViews/RestaurantPreview';
 import FriendView from '../../components/SectionViews/FriendView';
 
 const RestaurantInfo = ({name, category, distance, rating, address, isOpen, dailyTime}) =>{
@@ -71,6 +69,27 @@ const Star = ({rating})=>{
     )
 }
 
+const HeaderIcons= ({onPress}) =>{
+    return(
+        <SafeAreaView>
+            <View style={{flexDirection:'row', justifyContent:'space-between', 
+                            paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+                        }}>
+                <Pressable  onPress={onPress}>
+                <Image  style={{width:34.1*w, height: 67.61*h, margin:70*w}} source={require('../../imgs/restaurantPage/back_arrow.png')}/>
+
+                </Pressable>
+
+                    <View style={{flexDirection:'row'}}>
+                        <Image style={{width: 60.91*w, height:73.1*h, margin:70*w, marginRight:0 }} source={require('../../imgs/restaurantPage/share.png')}/>
+                        <Image style={{width: 60.91*w, height:73.1*h , margin:70*w}} source={require('../../imgs/restaurantPage/bookmark.png')}/>
+                    </View>
+            </View>
+        </SafeAreaView>
+    );
+
+}
+
 
 
 const IndRestaurant = ({route, navigation}) =>{
@@ -103,16 +122,12 @@ const IndRestaurant = ({route, navigation}) =>{
 
 return (
     <View>
-         <Image style={[indStyles.imgTest, {backgroundColor:black}]} source={require('../../imgs/restaurantPage/share.png')}/>
-
-    <Image style={indStyles.imgTest} source={require('../../imgs/restaurantPage/bookmark.png')}/>
-    <Image  style={indStyles.imgTest} source={require('../../imgs/restaurantPage/back_arrow.png')}/>
-
+  
    
     <ImageBackground style={{width:'100%', height:909*h}} source={{uri:image}}>
-   
+    <HeaderIcons onPress={()=> navigation.goBack()}/>
    <Pressable onPress={()=> console.warn('pressed')}>
-        <BlurView style={{width:'90%', height:142*h, position:'absolute', top:716*h , 
+        <BlurView style={{width:'90%', height:142*h, position:'absolute', top:400*h , 
         marginBottom:48, marginHorizontal:'7%', borderRadius:100, overflow:'hidden',
         flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
             <View style={{ flexDirection:'row', alignItems:'center', overflow:'hidden' }}>
@@ -189,6 +204,7 @@ return (
             }}/>
 
         </View>
+        <BlueFooter/>
 </View>
         );
 

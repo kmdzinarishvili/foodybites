@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import { h } from '../proportion';
+import { w, h } from '../proportion';
 import styles from '../styles/styles';
 
 const BlueFooter = ({text}) =>{

@@ -8,7 +8,7 @@ import HomeSection from '../HomeSection';
 
 
 
-const FriendSec = ({goTo}) =>{
+const FriendSec = ({goTo, navigation}) =>{
     const [friends, setFriends] = useState();
 
     const fetch_friend_pictures= async () =>{
@@ -33,7 +33,7 @@ const FriendSec = ({goTo}) =>{
             horizontal={true}
             renderItem={({item})=>{
                 return (
-                <FriendView image={item['urls']['regular']}
+                <FriendView navigation={navigation} image={item['urls']['regular']}
                 />
                 )
            

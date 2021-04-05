@@ -47,7 +47,7 @@ const FriendPage = () =>{
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={{flexDirection:'column', justifyContent:'center', alignItems:'center', paddingBottom:10}}
                         data={friends}
-                        keyExtractor={(item) => `item${item.id}`}
+                        keyExtractor={(item) => `i${item.id}`}
                     renderItem={({item})=>{
                     return (
                         <View>

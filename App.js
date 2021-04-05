@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import {Text, View} from 'react-native';
+import {Text} from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -20,6 +20,7 @@ import {w} from './proportion';
 import { TapGestureHandler } from 'react-native-gesture-handler';
 import IndRestaurant from './screens/individualPages/IndRestaurant';
 import IndCategory from './screens/individualPages/IndCategory';
+import IndFriend from './screens/individualPages/IndFriend';
 
 
 const fetchFonts = async() => {
@@ -109,6 +110,13 @@ export default function App() {
           <RootStack.Screen
             name="Individual Category"
             component={IndCategory}
+            options={{
+            headerShown:false
+            }}
+          />
+          <RootStack.Screen
+            name="Individual Friend"
+            component={IndFriend}
             options={{
             headerShown:false
             }}
