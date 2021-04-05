@@ -7,7 +7,6 @@ import styles from '../../styles/styles';
 const CatView = ({navigation, image, index, name='Italian', width=300*w, height=300*h, marginVertical=26*w, marginHorizontal=26*w, showStripe=false}) => {
     return(
         <Pressable 
-        style={{backgroundColor:'blue'}}
             onPress={() => {
             navigation.navigate('Individual Category')
             }}>
