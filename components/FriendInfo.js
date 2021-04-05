@@ -7,11 +7,11 @@ import FollowingButton from './FollowingButton';
 
 
 
-const FriendInfo = ({picture, name="Collin Fields", numReviews=72,  following=false}) =>{
+const FriendInfo = ({image, name="Collin Fields", numReviews=72,  following=false}) =>{
     return(
         <View
             style={{flexDirection:'row', width:'100%', justifyContent: 'space-around', alignItems:'center'}}>
-            {picture}
+                {image}
             <View  >
                 
                 <Text style={[{color: '#3E3F68', fontSize:50*w, marginTop:19*w}, styles.jSemi]}>{name}</Text>

@@ -4,7 +4,6 @@ import SearchBar from '../components/SearchBar';
 
 import {w} from '../proportion';
 
-import PageTemplate from '../components/PageTemplate';
 import RestaurantPreview from '../components/SectionViews/RestaurantPreview';
 
 const RestaurantPage = () =>{

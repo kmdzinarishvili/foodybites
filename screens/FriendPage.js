@@ -51,7 +51,7 @@ const FriendPage = () =>{
                     renderItem={({item})=>{
                     return (
                         <View>
-                        <FriendInfo  picture={<FriendView width={160*w} height={160*h} image={item['urls']['regular']} marginTop={10}/>}/>                    
+                        <FriendInfo  image={<FriendView width={160*w} height={160*h} image={item['urls']['regular']} marginTop={10}/>}   />               
                         </View>
 
                 );
