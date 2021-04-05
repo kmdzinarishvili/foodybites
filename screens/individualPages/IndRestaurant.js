@@ -1,13 +1,12 @@
-import { BlurView } from 'expo-blur';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, Image, StyleSheet, Pressable, ImageBackground, FlatList} from 'react-native';
+import { BlurView } from 'expo-blur';
 import BlueFooter from '../../components/BlueFooter';
 import SafeView from '../../components/SafeView';
 import { h, w } from '../../proportion';
 import styles from '../../styles/styles';
 import {LinearGradient} from 'expo-linear-gradient';
 import gradients from '../../styles/gradients';
-import openMap from 'react-native-open-maps';
 
 import HomeSection from '../../components/HomeSection';
 import FriendInfo from '../../components/FriendInfo';
@@ -20,7 +19,7 @@ import FriendView from '../../components/SectionViews/FriendView';
 
 const RestaurantInfo = ({name, category, distance, rating, address, isOpen, dailyTime}) =>{
     return (
-    <View style={{marginHorizontal:66*w, marginVertical:38*h}}>
+        <View>
     <View style={{flexDirection:'row', alignItems:'center'}}> 
                     <Text style={[styles.font50, styles.spaceRight, styles.jBold, {color:'#3E3F68'}, indStyles.margin20]}>{name}</Text> 
                     <LinearGradient colors={gradients.pink} 
@@ -72,6 +71,8 @@ const Star = ({rating})=>{
     )
 }
 
+
+
 const IndRestaurant = ({route, navigation}) =>{
     const {image} = route.params 
     const phoneNumber='+1 212-673-3754'
@@ -82,6 +83,24 @@ const IndRestaurant = ({route, navigation}) =>{
     const isOpen = false;
     const dailyTime = "9:30 am to 11:00 pm";
     const rating = 4.5
+
+
+    const [food, setFood] = useState();
+    const fetch_food= async () =>{
+        const result = await fetch(
+            'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food'
+        ).then(res=>res.json()).then(res=>res['results'])
+        .then(json => {setFood(json)})
+        .catch((error) => {
+            throw error;
+        });
+    }    
+    
+    useEffect(()=>{
+        fetch_food();
+    }, []);
+    
+
 return (
     <View>
     <ImageBackground style={{width:'100%', height:909*h}} source={{uri:image}}>
@@ -117,27 +136,29 @@ return (
 
             </BlurView> 
          </Pressable> 
-         </ImageBackground> 
+    </ImageBackground> 
 
 
+    <View style={{marginHorizontal:66*w, marginVertical:38*h}}>
 
 
             <FlatList 
+            showsVerticalScrollIndicator={false}
             ListHeaderComponent={
                 <View>
                 <RestaurantInfo name={name} category={category} distance={distance} rating={rating} address={address} isOpen={isOpen} dailyTime={dailyTime}/>
                 <HomeSection title='Menu & Photos' number ={32}/>
                 <FlatList 
-                data={[1,2,3,4,5]}
+                showsHorizontalScrollIndicator={false}
+                horizontal={true}
+                data={food}
                 scrollEnabled={true}
                 keyExtractor={(item) => item}
                 renderItem ={({item})=>{
-                    return<FriendInfo image={
-                        <FriendView  image="https://images.unsplash.com/photo-1579783483458-83d02161294e?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwxfHxwcm9maWxlfGVufDB8fHx8MTYxNzYwMTMwMQ\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
-                        width={160*w} height={160*h}/>
-
-                    }/>
-                }}
+                    return<Image 
+                    style={{width:450*w, height:336.57*h, borderRadius:22*w, marginHorizontal:45*w/2}}
+                    source={{uri:item['urls']['regular']}}
+                    />}}
                 /> 
                 <HomeSection title='Review & Ratings' number ={32}/>
                 </View>
@@ -154,7 +175,7 @@ return (
             }}/>
 
         </View>
-
+</View>
         );
 
 }
