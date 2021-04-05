@@ -15,6 +15,9 @@ import FriendInfo from '../../components/FriendInfo';
 
 import FriendView from '../../components/SectionViews/FriendView';
 
+
+
+
 const RestaurantInfo = ({name, category, distance, rating, address, isOpen, dailyTime}) =>{
     return (
         <View>

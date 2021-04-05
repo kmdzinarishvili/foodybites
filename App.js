@@ -10,14 +10,10 @@ import RestaurantPage from './screens/RestaurantPage';
 import CategoryPage from './screens/CategoryPage';
 
 import FriendPage from './screens/FriendPage';
-
-import styles from './styles/styles';
-import SafeView from './components/SafeView';
 import Header from './components/Header';
 
 
 import {w} from './proportion';
-import { TapGestureHandler } from 'react-native-gesture-handler';
 import IndRestaurant from './screens/individualPages/IndRestaurant';
 import IndCategory from './screens/individualPages/IndCategory';
 import IndFriend from './screens/individualPages/IndFriend';
