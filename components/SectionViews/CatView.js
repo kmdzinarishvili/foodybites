@@ -14,6 +14,7 @@ const CatView = ({image, index, name='Italian', width=300*w, height=300*h, margi
                 uri:image
             }}
             >
+
                    <LinearGradient colors={
                        index%3==0? gradients.pink:
                        index%3==1? gradients.purple:
