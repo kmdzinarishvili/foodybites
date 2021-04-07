@@ -5,10 +5,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 import gradients from '../../styles/gradients';
 import styles from '../../styles/styles';
 const CatView = ({navigation, image, index, name='Italian', width=300*w, height=300*h, marginVertical=26*w, marginHorizontal=26*w, showStripe=false}) => {
+    const gradient =  index%3==0? gradients.pink:index%3==1? gradients.purple:gradients.blue;
     return(
         <Pressable 
             onPress={() => {
-            navigation.navigate('Individual Category')
+            navigation.navigate('Individual Category', gradient)
             }}>
         <View>
             <ImageBackground
@@ -19,9 +20,7 @@ const CatView = ({navigation, image, index, name='Italian', width=300*w, height=
             }}
             >
                    <LinearGradient colors={
-                       index%3==0? gradients.pink:
-                       index%3==1? gradients.purple:
-                       gradients.blue
+                       gradient
                     } 
                         style={linearStyles.linearGradient}/>
                     <Text style={[{color:'#FFF', fontSize:50*w}, styles.jBold ]}>{name}</Text>
