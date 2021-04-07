@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, Image} from 'react-native';
 import { h, w } from '../proportion';
 import styles from '../styles/styles';
 
@@ -42,6 +42,7 @@ const Filter = ({distance}) =>{
         <View style={{width:'100%'}}>
         <View style={{width: distance+'%', height: 27*h, backgroundColor:'#5663FF', borderRadius:14*w,
         borderBottomRightRadius:0, borderTopRightRadius:0, position:'absolute', left:0}}></View>
+            <Image />
             <View style={{width: 100-distance+'%', height: 27*h, backgroundColor:'#EDEEFF', borderRadius:14*w,
         borderBottomLeftRadius:0, borderTopLeftRadius:0, position:'absolute', right:0}}></View>
         </View>
