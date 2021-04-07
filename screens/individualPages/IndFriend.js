@@ -1,12 +1,17 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text,Pressable} from 'react-native';
 
 const IndFriend =() =>{
+    const navigation = useNavigation();
     return (
-        <View>
-            <Text>
-                Individual Friend Page 
-            </Text>
+        <View style={{flexDirection:'row',justifyContent:'center', alignItems:'center'}}>
+            <Pressable
+            onPress={()=>navigation.goBack()}>
+                <Text style={{fontSize:100}}>
+                    Individual Friend Page 
+                </Text>
+            </Pressable>
         </View>
     );
 }

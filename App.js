@@ -5,18 +5,24 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import * as Font from 'expo-font';
 
-import Home from './screens/Home';
-import RestaurantPage from './screens/RestaurantPage';
-import CategoryPage from './screens/CategoryPage';
-
-import FriendPage from './screens/FriendPage';
 import Header from './components/Header';
 
 
-import {w} from './proportion';
+import Home from './screens/Home';
+
+import RestaurantPage from './screens/RestaurantPage';
+import CategoryPage from './screens/CategoryPage';
+import FriendPage from './screens/FriendPage';
+
+
+
+
 import IndRestaurant from './screens/individualPages/IndRestaurant';
 import IndCategory from './screens/individualPages/IndCategory';
 import IndFriend from './screens/individualPages/IndFriend';
+
+import Filter from './screens/Filter';
+
 
 
 
@@ -105,7 +111,17 @@ const RootApp = () =>{
         }}
       />
 
-
+  <RootStack.Screen
+          name="Filter"
+          component={Filter}
+          options={{
+            header:() =>{ 
+              return (
+              <Header 
+              name='Filter' search={true}/>
+                )}
+          }}          
+        />
 
     </RootStack.Navigator>
 

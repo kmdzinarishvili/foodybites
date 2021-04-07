@@ -1,10 +1,11 @@
+import { useNavigation } from '@react-navigation/native';
 import React, {useState} from 'react';
-import {View, Image, TextInput, StyleSheet} from 'react-native';
+import {View, Image, TextInput, StyleSheet, Pressable} from 'react-native';
 import {w,h} from '../proportion';
 import styles from '../styles/styles';
 const SearchBar = ({placeholder}) => {
     const [searchTerm, setSearchTerm] = useState('');
-
+    const navigation=useNavigation();
     return(
     <View style={searchStyles.SectionStyle}>
     <Image source={require('../imgs/home/magnifying_glass.png')} style={searchStyles.ImageStyle} />
@@ -15,7 +16,10 @@ const SearchBar = ({placeholder}) => {
         placeholder={placeholder}
     
     />
-    <Image source={require('../imgs/home/search_sliders.png')} style={searchStyles.ImageStyle} />
+    <Pressable
+        onPress={()=>navigation.navigate('Filter')}>
+        <Image source={require('../imgs/home/search_sliders.png')} style={searchStyles.ImageStyle} />
+    </Pressable>
     </View>);
 }
 
@@ -42,7 +46,6 @@ const searchStyles = StyleSheet.create({
         margin: 5,
         height: 50*h,
         width: 50*h,
-        // resizeMode : 'stretch',
         alignItems: 'center'
     },
     
