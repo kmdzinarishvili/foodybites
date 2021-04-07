@@ -35,7 +35,8 @@ const RestSec = () =>{
                 horizontal={true}
                 renderItem={({item})=>{
                     return (
-                        <RestaurantPreview item={item} /> 
+                        <RestaurantPreview open={Math.random() < 0.5}
+                         item={item} /> 
                     )
             
                 }}
