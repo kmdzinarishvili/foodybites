@@ -10,7 +10,8 @@ const RestaurantPreview = ({item={urls:{regular:"https://images.unsplash.com/pho
      name ='Happy Bones',
                     category = 'Italian', distance=1.2, rating=4.5,
                     address='394 Broome St, New York, NY 10013, USA',
-                    friends=[]}) =>{
+                    friends=[],
+                    open=true}) =>{
 
         friends=[{
             id:1,
@@ -39,7 +40,7 @@ const RestaurantPreview = ({item={urls:{regular:"https://images.unsplash.com/pho
             onPress={() => 
             navigation.navigate('Individual Restaurant', {image:item['urls']['regular']})}>
             <View style={restStyles.containter}>
-                <Text style={[restStyles.whiteButton, restStyles.left, styles.jBold]}>OPEN</Text>
+                <Text style={[restStyles.whiteButton, restStyles.left, styles.jBold, {color: open?'#4CD964': '#FF3B30'}]}>{open?'OPEN':'CLOSED'}</Text>
                 <View style={[restStyles.whiteButton, restStyles.right, {flexDirection: 'row', justifyContent:'space-between', alignItems:'center'}]}>
                     <Image 
                     style={{width:28.7*w, height:27.37*h, marginRight:2}}
@@ -91,7 +92,7 @@ const restStyles = StyleSheet.create({
     },
     whiteButton:{
         backgroundColor:'#FFF', position:'absolute', zIndex:1000, top:36*h, 
-            overflow:'hidden', padding:31*w, borderRadius:10, color:'#4CD964', fontSize:25*w
+            overflow:'hidden', padding:31*w, borderRadius:10, fontSize:25*w
     },
     left:{
         left: 31*w,
