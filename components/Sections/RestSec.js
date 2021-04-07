@@ -4,11 +4,13 @@ import {FlatList} from 'react-native';
 import RestaurantPreview from '../SectionViews/RestaurantPreview';
 
 import HomeSection from '../HomeSection';
+import { useNavigation } from '@react-navigation/native';
 
 
 
 
-const RestSec = ({navigation, goTo}) =>{
+const RestSec = () =>{
+    const navigation= useNavigation();
     const [restaurants, setRestaurants] = useState();
     const fetch_restaurant_pictures= async () =>{
         const result = await fetch(
@@ -25,7 +27,7 @@ const RestSec = ({navigation, goTo}) =>{
     }, []);
 
     return(
-        <HomeSection title='Trending Restaurants' number={45} goTo={goTo}>
+        <HomeSection title='Trending Restaurants' number={45} goTo={() =>navigation.navigate('Restaurant')}>
         <FlatList
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{flexDirection:'row'}}
@@ -33,7 +35,7 @@ const RestSec = ({navigation, goTo}) =>{
                 horizontal={true}
                 renderItem={({item})=>{
                     return (
-                        <RestaurantPreview navigation={navigation} item={item} /> 
+                        <RestaurantPreview item={item} /> 
                     )
             
                 }}

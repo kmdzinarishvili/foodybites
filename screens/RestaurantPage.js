@@ -38,22 +38,6 @@ const RestaurantPage = () =>{
 
              )}}/>
 
-           
-            {/* <FlatList
-                    showsVerticalScrollIndicator={false}
-                    contentContainerStyle={{flexDirection:'column'}}
-                    data={restaurants}
-                    keyExtractor={(item) => `item${item.id}`}
-                renderItem={({item})=>{
-                return (
-                    <View>
-                    <RestaurantPreview item={item}/>                    
-                    </View>
-
-               );
-            }}                    
-            /> */}
-
         
         </View>
     );

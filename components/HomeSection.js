@@ -9,7 +9,7 @@ const HomeSection = ({title, number, children, goTo}) =>{
         return(
             <View style={{marginTop:20}}>
                 <View style={sectionStyles.titleContainer}>
-                    <Text style={[sectionStyles.title, styles.jBold]}>{title}</Text>
+                    <Text style={styles.title}>{title}</Text>
                     <Pressable onPress={() => goTo()}>
                     <Text style={[sectionStyles.seeall, styles.jReg]}>See all ({number})</Text>
                     </Pressable>

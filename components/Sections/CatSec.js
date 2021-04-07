@@ -3,10 +3,12 @@ import {FlatList} from 'react-native';
 
 import CatView from '../SectionViews/CatView';
 import HomeSection from '../HomeSection';
+import { useNavigation } from '@react-navigation/native';
 
 
 
-const CatSec = ({goTo, navigation}) =>{
+const CatSec = () =>{
+    const navigation = useNavigation();
     const [categories, setCategories] = useState();
     const fetch_category_pictures= async () =>{
         const result = await fetch(
@@ -24,7 +26,7 @@ const CatSec = ({goTo, navigation}) =>{
     }, []);
 
     return(
-        <HomeSection title='Category' number={9} goTo={goTo}>    
+        <HomeSection title='Category' number={9} goTo={()=> navigation.navigate('Category')}>    
         <FlatList
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{flexDirection:'row'}}

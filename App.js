@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -19,6 +19,10 @@ import IndCategory from './screens/individualPages/IndCategory';
 import IndFriend from './screens/individualPages/IndFriend';
 
 
+
+
+
+
 const fetchFonts = async() => {
   return Font.loadAsync({
   'josefin-bold': require('./assets/fonts/JosefinSans-Bold.ttf'),
@@ -29,6 +33,84 @@ const fetchFonts = async() => {
 
 const RootStack = createStackNavigator();
 
+
+
+const RootApp = () =>{
+
+  return (
+    <RootStack.Navigator>
+
+    <RootStack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: false,
+        }}
+      />
+   
+    <RootStack.Screen
+        name="Restaurant"
+        component={RestaurantPage }
+        options={{
+          header:() =>{ 
+            return (
+            <Header 
+            name='Trending Restaurant' search={true}/>
+              )}
+        }}
+      />
+        <RootStack.Screen
+        name="Category"
+        component={CategoryPage}
+        options={{
+          header:() =>{ 
+            return (
+            <Header 
+            name='Categories' search={true}/>
+              )}
+        }}
+      />
+      <RootStack.Screen
+        name="Friend"
+        component={FriendPage}
+        options={{
+          header:() =>{ 
+            return (
+            <Header 
+            name='Friends' search={true}/>
+              )}
+        }}
+      />
+
+
+    <RootStack.Screen
+        name="Individual Restaurant"
+        component={IndRestaurant}
+        options={{
+        headerShown:false
+        }}
+      />
+      <RootStack.Screen
+        name="Individual Category"
+        component={IndCategory}
+        options={{
+        headerShown:false
+        }}
+      />
+      <RootStack.Screen
+        name="Individual Friend"
+        component={IndFriend}
+        options={{
+        headerShown:false
+        }}
+      />
+
+
+
+    </RootStack.Navigator>
+
+  );
+}
 export default function App() {
   const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -42,86 +124,17 @@ export default function App() {
 
   if(!dataLoaded){
     return(
-      <Text>LOADING</Text>
+      <View style={{justifyContent:'center', alignItems:'center'}}>
+         <Text>LOADING</Text>
+      </View>
 
     );
 
   }else{
+
     return (
-      <NavigationContainer >
-        <RootStack.Navigator>
-        <RootStack.Screen
-            name="Home"
-            component={Home}
-            options={{
-              headerShown: false,
-            }}
-          />
-       
-        <RootStack.Screen
-            name="Restaurant"
-            component={RestaurantPage }
-            options={{
-              header:({navigation}) =>{ 
-                return (
-                <Header 
-                navigateBack = {() => {navigation.goBack()}}
-                name='Trending Restaurant' search={true}/>
-                  )}
-            }}
-          />
-            <RootStack.Screen
-            name="Category"
-            component={CategoryPage}
-            options={{
-              header:({navigation}) =>{ 
-                return (
-                <Header 
-                navigateBack = {() => {navigation.goBack()}}
-                name='Categories' search={true}/>
-                  )}
-            }}
-          />
-            <RootStack.Screen
-            name="Friend"
-            component={FriendPage}
-            options={{
-              header:({navigation}) =>{ 
-                return (
-                <Header 
-                navigateBack = {() => {navigation.goBack()}}
-                name='Friends' search={true}/>
-                  )}
-            }}
-          />
-
-
-        <RootStack.Screen
-            name="Individual Restaurant"
-            component={IndRestaurant}
-            options={{
-            headerShown:false
-            }}
-          />
-          <RootStack.Screen
-            name="Individual Category"
-            component={IndCategory}
-            options={{
-            headerShown:false
-            }}
-          />
-          <RootStack.Screen
-            name="Individual Friend"
-            component={IndFriend}
-            options={{
-            headerShown:false
-            }}
-          />
-    
-    
-
-        </RootStack.Navigator>
-
+      <NavigationContainer>
+        <RootApp/>
       </NavigationContainer>
     );
   }

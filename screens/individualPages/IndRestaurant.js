@@ -14,6 +14,7 @@ import HomeSection from '../../components/HomeSection';
 import FriendInfo from '../../components/FriendInfo';
 
 import FriendView from '../../components/SectionViews/FriendView';
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -95,7 +96,8 @@ const HeaderIcons= ({onPress}) =>{
 
 
 
-const IndRestaurant = ({route, navigation}) =>{
+const IndRestaurant = ({route}) =>{
+    const navigation = useNavigation();
     const {image} = route.params 
     const phoneNumber='+1 212-673-3754'
     const category = "Italian";
@@ -168,36 +170,37 @@ return (
 
             <FlatList 
             showsVerticalScrollIndicator={false}
+            data={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]}
+
+            keyExtractor={(item)=>`ahhhhhhhhhh${item}`}
+
             ListHeaderComponent={
                 <View>
                 <RestaurantInfo name={name} category={category} distance={distance} rating={rating} address={address} isOpen={isOpen} dailyTime={dailyTime}/>
                 <HomeSection title='Menu & Photos' number ={32}/>
                 <FlatList 
-                showsHorizontalScrollIndicator={false}
-                horizontal={true}
-                data={food}
-                scrollEnabled={true}
-                keyExtractor={(item) => item.id}
-                renderItem ={({item})=>{
-                    return<Image 
-                    style={{width:450*w, height:336.57*h, borderRadius:22*w, marginHorizontal:45*w/2}}
-                    source={{uri:item['urls']['regular']}}
-                    />}}
+                    showsHorizontalScrollIndicator={false}
+                    horizontal={true}
+                    data={food}
+                    scrollEnabled={true}
+                    keyExtractor={(item)=>item.id}
+                    renderItem ={({item})=>{
+                        return<Image 
+                        style={{width:450*w, height:336.57*h, borderRadius:22*w, marginHorizontal:45*w/2}}
+                        source={{uri:item['urls']['regular']}}
+                        />}}
                 /> 
                 <HomeSection title='Review & Ratings' number ={32}/>
                 </View>
             }
       
-            data={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]}
-            keyExtractor={(item) => item}
             renderItem ={({item})=>{
                 return<FriendInfo 
                 showFollow={false}
                 justifyContent='space-between'
                 text="Lorem ipsum dolor sit amet consectetur"
                 image={
-                    <FriendView  image="https://images.unsplash.com/photo-1579783483458-83d02161294e?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwxfHxwcm9maWxlfGVufDB8fHx8MTYxNzYwMTMwMQ\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=400"
-                        width={160*w} height={160*h}/>}
+                    <FriendView  width={160*w} height={160*h}/>}
                     star={
                         <Star rating={rating}/>
                     }

@@ -33,11 +33,10 @@ const CategoryPage = () =>{
                 renderItem={({item, index})=>{
                 
                 return (
-                            <CatView image ={item['urls']['regular']} index={index}  width={993.15*w} height={231.72*h} marginHorizontal={0} showStripe={true} />
+                    <CatView image ={item['urls']['regular']} index={index}  width={993.15*w} height={231.72*h} marginHorizontal={0} showStripe={true} />
                );
             }}                    
             />
-            <SearchBar placeholder="Search"/>        
         </PageTemplate>
     );
    

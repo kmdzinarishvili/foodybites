@@ -3,8 +3,11 @@ import { View, Text, Image, StyleSheet, Pressable, SafeAreaView, StatusBar } fro
 import SafeView from './SafeView';
 import {w, h} from '../proportion';
 import styles from '../styles/styles';
+import { useNavigation } from '@react-navigation/native';
 
  const Header = ({ navigateBack, name, search}) =>{
+    const navigation = useNavigation();
+    
 return (
     <SafeAreaView>
             <View style={{ 
@@ -12,7 +15,7 @@ return (
                 flexDirection:'row', height:155*h, backgroundColor:'#FAFAFA', justifyContent:'space-between',
                     alignItems: 'center'}}>  
                    <Pressable 
-                            onPress={navigateBack}>
+                            onPress={()=>navigation.goBack()}>
                        <Image
                     style={[{width: 41.1*w, height:74.61*h}, space.space]}
                     source={require('../imgs/header/backArrow.png')}

@@ -27,7 +27,13 @@ const styles=StyleSheet.create({
     },
     blue:{
         color:'#222455'
-    }
+    },
+    title:{
+        fontSize:60*w,
+        color: '#3E3F68',
+        fontFamily:'josefin-semibold'
+
+    },
 
 });
 

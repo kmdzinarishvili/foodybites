@@ -4,11 +4,13 @@ import {FlatList} from 'react-native';
 import FriendView from '../SectionViews/FriendView';
 
 import HomeSection from '../HomeSection';
+import { useNavigation } from '@react-navigation/native';
 
 
 
 
-const FriendSec = ({goTo, navigation}) =>{
+const FriendSec = () =>{
+    const navigation= useNavigation()
     const [friends, setFriends] = useState();
 
     const fetch_friend_pictures= async () =>{
@@ -25,7 +27,7 @@ const FriendSec = ({goTo, navigation}) =>{
     }, [] );
 
     return(
-        <HomeSection title='Friends' number={56} goTo={goTo}>    
+        <HomeSection title='Friends' number={56} goTo={()=>navigation.navigate('Friend')}>    
         <FlatList
             showsHorizontalScrollIndicator={false}
 
@@ -33,7 +35,7 @@ const FriendSec = ({goTo, navigation}) =>{
             horizontal={true}
             renderItem={({item})=>{
                 return (
-                <FriendView navigation={navigation} image={item['urls']['regular']}
+                <FriendView image={item['urls']['regular']}
                 />
                 )
            
