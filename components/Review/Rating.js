@@ -26,12 +26,12 @@ const Review = () =>{
                 contentContainerStyle={{justifyContent:'space-around', alignItems:'center', width:'100%'}}
                 data={empty}
                 keyExtractor={(star, id)=>`empty-star${id}`}
-                renderItem = {({item})=>{
+                renderItem = {({item, index})=>{
                     console.log(item);
                     return  <Pressable onPress={()=>setNumStars(item)}>
-                    <View style={{width:114.47*w, height:109.15*h, backgroundColor:'black'}}>
+                   {index<numStars? <Image source={require('../../imgs/star.png')}/>: <View style={{width:114.47*w, height:109.15*h, backgroundColor:'black'}}>
                         <Text style={{color:'#FFF'}}>{item}</Text>
-                        </View>
+                        </View>}
 
                 </Pressable>
                 }} />
