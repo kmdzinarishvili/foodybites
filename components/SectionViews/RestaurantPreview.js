@@ -67,14 +67,10 @@ const RestaurantPreview = ({item={urls:{regular:"https://images.unsplash.com/pho
                         </LinearGradient>
                         
                             <Text style={[styles.jReg, restStyles.white22, restStyles.purple,restStyles.rad9]}>{distance} km</Text>
-                            <FlatList 
-                            contentContainerStyle={{flexDirection:'row-reverse'}}
-                            data={friends.reverse()}
-                            keyExtractor={(item) => `item${item.id}`}
-
-                            renderItem={({item})=>
-                                <Image style={restStyles.miniFriend} source={{uri:item.url}}/>
-                                } /> 
+                           <View style={{flexDirection:'row-reverse' , paddingRight:230*w}}>
+                               {friends.reverse().map((item)=>  <Image style={restStyles.miniFriend} source={{uri:item.url}}/>)}
+                           </View> 
+                            
                     </View>
                         <Text style={[restStyles.address, styles.jReg]} >{address}</Text>
                 </View>
