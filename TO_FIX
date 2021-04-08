@@ -57,3 +57,11 @@ add hitslop to back arrow (export as separate component )
 
 
 maybe add random rating 
+
+
+  <Swipeable
+      onSwipeableLeftOpen={()=>console.log('Swiped Leftt')}
+      onSwipeableRightOpen={()=>console.log('Swiped right')}
+      renderLeftActions={() => <LeftItem/>}
+      renderRightActions={() => <RightItem  />}
+    >

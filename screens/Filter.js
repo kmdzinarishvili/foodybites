@@ -6,6 +6,7 @@ import styles from '../styles/styles';
 import Rating from '../components/Review/Rating';
 import gradients from '../styles/gradients';
 import {LinearGradient} from 'expo-linear-gradient';
+import { PanGestureHandler } from 'react-native-gesture-handler';
 
 
 const Category = ({country, id, pressedId, setPressedId }) =>{
@@ -42,9 +43,9 @@ const FilterTitle = ({style,text})=>{
 }
 
 
-const Filter = ({distance}) =>{
+const Filter = () =>{
  
-    distance= 50;
+    const [distance, setDistance]= useState(0);
 
     const [pressedId, setPressedId] = useState();
     // //pressed.id 
@@ -65,13 +66,17 @@ const Filter = ({distance}) =>{
                     />)}
         </View>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Distance'/>
-        <View style={{width:'100%'}}>
-        <View style={{width: distance+'%', height: 27*h, backgroundColor:'#5663FF', borderRadius:14*w,
-        borderBottomRightRadius:0, borderTopRightRadius:0, position:'absolute', left:0}}></View>
-             <Image /> 
-            <View style={{width: 100-distance+'%', height: 27*h, backgroundColor:'#EDEEFF', borderRadius:14*w,
-        borderBottomLeftRadius:0, borderTopLeftRadius:0, position:'absolute', right:0}}></View>
-        </View>
+        <PanGestureHandler 
+        onGestureEvent={(event)=>console.log(event)}
+        onHandlerStateChange={(event)=> console.log(event)}>
+            <View style={{width:'100%'}}>
+            <View style={{width: distance+'%', height: 27*h, backgroundColor:'#5663FF', borderRadius:14*w,
+            borderBottomRightRadius:0, borderTopRightRadius:0, position:'absolute', left:0}}></View>
+                <Image /> 
+                <View style={{width: 100-distance+'%', height: 27*h, backgroundColor:'#EDEEFF', borderRadius:14*w,
+            borderBottomLeftRadius:0, borderTopLeftRadius:0, position:'absolute', right:0}}></View>
+            </View>
+        </PanGestureHandler>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Ratings'/>
         
         <Rating />
