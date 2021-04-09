@@ -1,13 +1,12 @@
 import React, {useState, useRef, useCallback} from 'react';
-import {View, Text, Pressable, Image,Animated} from 'react-native';
+import {View, Text, Pressable, Image} from 'react-native';
 import { h, w } from '../proportion';
 import styles from '../styles/styles';
 
 import Rating from '../components/Review/Rating';
 import gradients from '../styles/gradients';
 import {LinearGradient} from 'expo-linear-gradient';
-import { PanGestureHandler } from 'react-native-gesture-handler';
-
+import DistanceSlider from  '../components/Filter/DistanceSlider';
 
 const Category = ({country, id, pressedId, setPressedId }) =>{
 
@@ -42,55 +41,6 @@ const FilterTitle = ({style,text})=>{
     return(<Text style={[styles.title, style]}>{text}</Text>);
 }
 
-const Comp = () => {
-	const translationXRef = useRef(new Animated.Value(0));
-
-	const onGestureEvent = useCallback(
-		Animated.event(
-			[{
-				nativeEvent: {
-					translationX: translationXRef.current,
-				},
-			}],
-			{ useNativeDriver: true },
-		),
-		[],
-	);
-
-
-
-	return (
-		<PanGestureHandler onGestureEvent={onGestureEvent}>
-			<Animated.View
-				style={{
-					width: 200,
-					height: 200,
-					backgroundColor: 'blue',
-					transform: [
-						{ translateX: translationXRef.current },
-					],
-				}}
-			/>
-		</PanGestureHandler>
-	);
-};
-
-const Distance = ()=>{
-    const [distance, setDistance]= useState(0);
-
-    return(<PanGestureHandler 
-    onGestureEvent={(event)=>console.log(event)}
-    onHandlerStateChange={(event)=> console.log(event)}>
-        <View style={{width:'100%'}}>
-        <View style={{width: distance+'%', height: 27*h, backgroundColor:'#5663FF', borderRadius:14*w,
-        borderBottomRightRadius:0, borderTopRightRadius:0, position:'absolute', left:0}}></View>
-            <Image /> 
-            <View style={{width: 100-distance+'%', height: 27*h, backgroundColor:'#EDEEFF', borderRadius:14*w,
-        borderBottomLeftRadius:0, borderTopLeftRadius:0, position:'absolute', right:0}}></View>
-        </View>
-    </PanGestureHandler>);
-}
-
 const Filter = () =>{
  
 
@@ -113,7 +63,7 @@ const Filter = () =>{
                     />)}
         </View>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Distance'/>
-                    <Comp/>
+        <DistanceSlider/>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Ratings'/>
         
         <Rating />

@@ -7,7 +7,6 @@ import {PanGestureHandler} from 'react-native-gesture-handler';
 
 const Review = () =>{
     const [numStars, setNumStars] = useState(0);
-    console.log(numStars);
     let myStars = [];
     let empty = [1,2,3,4,5];
     for (let i = 1; i<=5 ; i++) {
@@ -28,11 +27,9 @@ const Review = () =>{
                 data={empty}
                 keyExtractor={(star, id)=>`empty-star${id}`}
                 renderItem = {({item, index})=>{
-                    console.log(item);
                     return  <Pressable onPress={()=>setNumStars(item)}>
                    {index<numStars? <Image style={sStyles.star} source={require('../../imgs/star.png')}/>: 
                                 <Image  style={sStyles.star} source ={require('../../imgs/gray_star.png')}/>}
-                      
 
                 </Pressable>
                 }} />
