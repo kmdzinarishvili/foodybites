@@ -65,3 +65,6 @@ maybe add random rating
       renderLeftActions={() => <LeftItem/>}
       renderRightActions={() => <RightItem  />}
     >
+
+
+    maybe change star component to have state inside so the whole thing doesn't rerender on a single press 
