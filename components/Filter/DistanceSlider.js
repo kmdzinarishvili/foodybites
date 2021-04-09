@@ -27,9 +27,16 @@ const DistanceSlider =() =>{
         ctx.offsetX = translateX.value
         },
         onActive: (event, ctx) => {
+        const clamp = (value, lowerBound, upperBound) => {
+            return Math.min(Math.max(lowerBound, value), upperBound)
+        }
         isSliding.value = true
-        translateX.value = event.translationX + ctx.offsetX
-        },
+        translateX.value = clamp(
+            event.translationX + ctx.offsetX,
+            0 - KNOB_WIDTH/2,
+            SLIDER_WIDTH -KNOB_WIDTH/2
+            
+          )},
         onEnd: () => {
         isSliding.value = false
         },
