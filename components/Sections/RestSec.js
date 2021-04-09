@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, Text} from 'react-native';
 
 import RestaurantPreview from '../SectionViews/RestaurantPreview';
 
@@ -25,7 +25,7 @@ const RestSec = () =>{
     useEffect(()=>{
         fetch_restaurant_pictures();
     }, []);
-
+    let i = 0;
     return(
         <HomeSection title='Trending Restaurants' number={45} goTo={() =>navigation.navigate('Restaurant')}>
         <FlatList
@@ -33,6 +33,12 @@ const RestSec = () =>{
                 contentContainerStyle={{flexDirection:'row'}}
                 data={restaurants}
                 horizontal={true}
+                keyExtractor={(item) => {
+                    return (`${item.id}`);
+
+                }
+                }
+
                 renderItem={({item})=>{
                     return (
                         <RestaurantPreview open={Math.random() < 0.5}
@@ -40,7 +46,6 @@ const RestSec = () =>{
                     )
             
                 }}
-                keyExtractor={(item) => item.id}
         />
         </HomeSection>
     );

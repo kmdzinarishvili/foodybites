@@ -68,7 +68,7 @@ const RestaurantPreview = ({item={urls:{regular:"https://images.unsplash.com/pho
                         
                             <Text style={[styles.jReg, restStyles.white22, restStyles.purple,restStyles.rad9]}>{distance} km</Text>
                            <View style={{flexDirection:'row-reverse' , paddingRight:230*w}}>
-                               {friends.reverse().map((item)=>  <Image style={restStyles.miniFriend} source={{uri:item.url}}/>)}
+                               {friends.reverse().map((item)=>  <Image key={item.id} style={restStyles.miniFriend} source={{uri:item.url}}/>)}
                            </View> 
                             
                     </View>
