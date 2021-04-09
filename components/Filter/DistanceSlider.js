@@ -19,12 +19,12 @@ const KNOB_OFFSET = 69*h;
 const BORDER_RADIUS =14;
 // const MAX_RANGE = 20;
 
-const DistanceSlider =() =>{
-    const translateX = useSharedValue(0);
+const DistanceSlider =({style}) =>{
+    const translateX = useSharedValue(0-KNOB_WIDTH/2);
     const isSliding= useSharedValue(false);
     const onGestureEvent = useAnimatedGestureHandler({
         onStart: (_, ctx) => {
-        ctx.offsetX = translateX.value
+        ctx.offsetX = translateX.value 
         },
         onActive: (event, ctx) => {
         const clamp = (value, lowerBound, upperBound) => {
@@ -35,7 +35,7 @@ const DistanceSlider =() =>{
             event.translationX + ctx.offsetX,
             0 - KNOB_WIDTH/2,
             SLIDER_WIDTH -KNOB_WIDTH/2
-            
+
           )},
         onEnd: () => {
         isSliding.value = false
@@ -56,7 +56,7 @@ const DistanceSlider =() =>{
 
     return(
         
-        <View style={styles.slider}>
+        <View style={[styles.slider, style]}>
             <Animated.View style={[styles.progress, progressStyle]} />
             <PanGestureHandler onGestureEvent={onGestureEvent}>
                 <Animated.View style={[ scrollTransitionStyle]}>
@@ -80,8 +80,7 @@ const styles = StyleSheet.create({
     progress: {
       ...StyleSheet.absoluteFillObject,
       backgroundColor: '#5663FF',
-      borderTopLeftRadius: BORDER_RADIUS,
-      borderBottomLeftRadius: BORDER_RADIUS
+      borderRadius: BORDER_RADIUS,
     },
     knob: {
         width:KNOB_WIDTH, 

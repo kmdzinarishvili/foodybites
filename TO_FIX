@@ -68,3 +68,10 @@ maybe add random rating
 
 
     maybe change star component to have state inside so the whole thing doesn't rerender on a single press 
+
+
+
+    the s in restaurants is getting cut off in the search bar 
+
+
+    https://thewidlarzgroup.com/reanimated2-slider/#useanimatedgesturehandler

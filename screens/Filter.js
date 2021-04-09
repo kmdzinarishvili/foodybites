@@ -63,7 +63,7 @@ const Filter = () =>{
                     />)}
         </View>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Distance'/>
-        <DistanceSlider/>
+        <DistanceSlider style={{marginTop:172*h}}/>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Ratings'/>
         
         <Rating />

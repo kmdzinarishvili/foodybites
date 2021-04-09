@@ -10,7 +10,7 @@ const SearchBar = ({placeholder}) => {
     <View style={searchStyles.SectionStyle}>
     <Image source={require('../imgs/home/magnifying_glass.png')} style={searchStyles.ImageStyle} />
     <TextInput
-        style={[{position: 'absolute', left:60,fontSize:48*w, paddingTop:10 },styles.jReg ]}
+        style={[{ position: 'absolute', left:60,fontSize:48*w },styles.jReg ]}
         value={searchTerm}
         onChangeText={(text) => setSearchTerm(text)}
         placeholder={placeholder}
@@ -38,6 +38,7 @@ const searchStyles = StyleSheet.create({
         height: 154*h,
         borderRadius: 5 ,
         paddingHorizontal:54*w,
+
     },
     
     ImageStyle: {

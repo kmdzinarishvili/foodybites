@@ -22,7 +22,7 @@ import IndCategory from './screens/individualPages/IndCategory';
 import IndFriend from './screens/individualPages/IndFriend';
 
 import Filter from './screens/Filter';
-
+import ReviewPage from './screens/ReviewPage';
 
 
 
@@ -107,8 +107,12 @@ const RootApp = () =>{
         name="Individual Friend"
         component={IndFriend}
         options={{
-        headerShown:false
-        }}
+          header:() =>{ 
+            return (
+            <Header 
+            name='Profile' search={true}/>
+              )}
+        }}       
       />
 
   <RootStack.Screen
@@ -123,6 +127,18 @@ const RootApp = () =>{
           }}          
         />
 
+
+  <RootStack.Screen
+          name="Review"
+          component={ReviewPage}
+          options={{
+            header:() =>{ 
+              return (
+              <Header 
+              name='Review & Rating' search={true}/>
+                )}
+          }}          
+        />
     </RootStack.Navigator>
 
   );

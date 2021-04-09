@@ -3,7 +3,7 @@ import { SafeAreaView, StatusBar, Platform, StyleSheet } from 'react-native';
 
 const SafeView = ({ children, style }) => {
     return (
-        <SafeAreaView style={[styles.view, style]}>
+        <SafeAreaView forceInset={{top:'always'}}style={[styles.view, style]}>
             {children}
         </SafeAreaView>
     );

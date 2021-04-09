@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/native';
     const navigation = useNavigation();
     
 return (
-    <SafeAreaView>
+    <SafeAreaView forceInset={{top:'always'}}>
             <View style={{ 
                 marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
                 flexDirection:'row', height:155*h, backgroundColor:'#FAFAFA', justifyContent:'space-between',
