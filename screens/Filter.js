@@ -6,8 +6,7 @@ import styles from '../styles/styles';
 import Rating from '../components/Review/Rating';
 import gradients from '../styles/gradients';
 import {LinearGradient} from 'expo-linear-gradient';
-import '../components/Filter/DistanceSlider'
-import DistanceSlider from '../components/Filter/DistanceSlider';
+import DistanceSlider from  '../components/Filter/DistanceSlider';
 
 const Category = ({country, id, pressedId, setPressedId }) =>{
 
@@ -42,24 +41,6 @@ const FilterTitle = ({style,text})=>{
     return(<Text style={[styles.title, style]}>{text}</Text>);
 }
 
-
-const Distance = ()=>{
-    const [distance, setDistance]= useState(0);
-
-    return(
-        <View style={{width:'100%'}}>
-        <View style={{width: '50%', height: 27*h, 
-        backgroundColor:'#5663FF', borderRadius:14*w,
-        borderBottomRightRadius:0, borderTopRightRadius:0,
-         position:'absolute', left:0}}></View>
-            <Image /> 
-        <View style={{width: '50%',
-         height: 27*h, backgroundColor:'#EDEEFF', 
-         borderRadius:14*w,
-        borderBottomLeftRadius:0, borderTopLeftRadius:0, position:'absolute', right:0}}></View>
-        </View>);
-}
-
 const Filter = () =>{
  
 
@@ -82,7 +63,6 @@ const Filter = () =>{
                     />)}
         </View>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Distance'/>
-        <Distance/>
         <DistanceSlider/>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Ratings'/>
         

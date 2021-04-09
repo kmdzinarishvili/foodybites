@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Image, Pressable, Text, StyleSheet} from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { h, w } from '../../proportion';
+import {PanGestureHandler} from 'react-native-gesture-handler';
 
 
 const Review = () =>{

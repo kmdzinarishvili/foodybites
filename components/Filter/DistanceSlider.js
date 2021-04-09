@@ -7,13 +7,11 @@ import Animated, {
 } from 'react-native-reanimated'
 import { PanGestureHandler } from 'react-native-gesture-handler';
 
-import {w,h} from '../../proportion';
 
 
-const SLIDER_WIDTH = '95%';
-const KNOB_WIDTH = 98.11*w;
-const KNOB_HEIGHT = 144.95*h;
-const SLIDER_HEIGHT = 27*h;
+
+const SLIDER_WIDTH = 300;
+const KNOB_WIDTH = 70;
 // const MAX_RANGE = 20;
 
 const DistanceSlider =() =>{
@@ -38,7 +36,7 @@ const DistanceSlider =() =>{
 
     const progressStyle = useAnimatedStyle(()=>{
         return{
-            width:translateX.value+KNOB_WIDTH/2
+            width:translateX.value+KNOB_WIDTH
         }
     });
     
@@ -49,8 +47,8 @@ const DistanceSlider =() =>{
         <View style={styles.slider}>
             <Animated.View style={[styles.progress, progressStyle]} />
             <PanGestureHandler onGestureEvent={onGestureEvent}>
-                <Animated.View style={[  scrollTransitionStyle]}>
-                        <Image  style={styles.knob} source={require('../../imgs/dist_knob.png')}/>
+                <Animated.View style={[ styles.knob, scrollTransitionStyle]}>
+                        <Image style={{bottom:100}}source={require('../../imgs/dist_knob.png')}/>
                     </Animated.View>
             </PanGestureHandler>
         </View>
@@ -61,22 +59,20 @@ const DistanceSlider =() =>{
 
 const styles = StyleSheet.create({
     slider: {
-      height: SLIDER_HEIGHT,
+      height: KNOB_WIDTH,
       width: SLIDER_WIDTH,
       borderRadius: KNOB_WIDTH / 2,
-      backgroundColor: '#EDEEFF',
+      backgroundColor: '#ddd',
       justifyContent: 'center',
     },
     progress: {
       ...StyleSheet.absoluteFillObject,
-      backgroundColor: '#5663FF',
+      backgroundColor: '#3f51b5',
       borderRadius: KNOB_WIDTH / 2,
-      
     },
     knob: {
-        width:KNOB_WIDTH,
-        height:KNOB_HEIGHT,
-        bottom:69*h
+        width:0, 
+        height:0,
    
     },
   })
