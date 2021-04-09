@@ -34,6 +34,16 @@ const styles=StyleSheet.create({
         fontFamily:'josefin-semibold'
 
     },
+    blueText:{
+        color: '#5663FF'
+    },
+    blueBackground:{
+        backgroundColor:'#5663FF'
+    },
+    lightGrayText:{
+        color:'#6E7FAA',
+        opacity: 0.8
+    }
 
 });
 

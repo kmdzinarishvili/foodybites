@@ -4,8 +4,9 @@ import { h, w } from '../proportion';
 
 
 
-const FollowingButton = ({following}) => { //bool 
+const FollowingButton = ({following, style}) => { //bool 
     const [isFollowing, setIsFollowing] = useState(following);
+    
 
     return (
     <Pressable
@@ -19,7 +20,8 @@ const FollowingButton = ({following}) => { //bool
             justifyContent:'center',
             alignItems:'center',
             borderWidth: isFollowing? 1*w: 0,
-            borderColor:'#8A98BA'
+            borderColor:'#8A98BA',
+            ...style
             }
         }
         onPress={()=>{
