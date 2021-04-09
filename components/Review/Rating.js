@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Image, Pressable, Text} from 'react-native';
+import {View, Image, Pressable, Text, StyleSheet} from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { h, w } from '../../proportion';
 import {PanGestureHandler} from 'react-native-gesture-handler';
@@ -30,14 +30,21 @@ const Review = () =>{
                 renderItem = {({item, index})=>{
                     console.log(item);
                     return  <Pressable onPress={()=>setNumStars(item)}>
-                   {index<numStars? <Image source={require('../../imgs/star.png')}/>: <View style={{width:114.47*w, height:109.15*h, backgroundColor:'black'}}>
-                        <Text style={{color:'#FFF'}}>{item}</Text>
-                        </View>}
+                   {index<numStars? <Image style={sStyles.star} source={require('../../imgs/star.png')}/>: 
+                                <Image  style={sStyles.star} source ={require('../../imgs/gray_star.png')}/>}
+                      
 
                 </Pressable>
                 }} />
         </View>
     )
 }
+
+const sStyles= StyleSheet.create({
+    star:{
+        width: 114.47*w,
+        height:109.15*h
+    }
+})
 
 export default Review;
