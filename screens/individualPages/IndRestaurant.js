@@ -16,7 +16,7 @@ import FriendInfo from '../../components/FriendInfo';
 import FriendView from '../../components/SectionViews/FriendView';
 import { useNavigation } from '@react-navigation/native';
 
-
+import Star from '../../components/Star';
 
 
 const RestaurantInfo = ({name, category, distance, rating, address, isOpen, dailyTime}) =>{
@@ -60,18 +60,6 @@ const Circle=({children})=>{
     </View>
 }
 
-const Star = ({rating})=>{
-    return(
-    <View style={[restStyles.whiteButton, restStyles.right, {flexDirection: 'row', justifyContent:'space-between',
-    alignItems:'center',
-    backgroundColor: 'rgba(47, 53, 128, 0.05)', width:135.32*w, height: 68.1*h}]}>
-       <Image 
-       style={{width:33.4*w, height:31.85*h, marginRight:2}}
-       source={require("../../imgs/star.png")}/>
-       <Text style={[styles.blue, {fontSize:36*w}, styles.jSemi, ]}>{rating}</Text>
-   </View>
-    )
-}
 
 const HeaderIcons= ({onPress}) =>{
     return(
@@ -168,7 +156,7 @@ return (
     <View style={{marginHorizontal:66*w, marginVertical:38*h, marginBottom:340*h}}>
 
 
-            <FlatList 
+         <FlatList 
             showsVerticalScrollIndicator={false}
             data={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]}
 
@@ -195,19 +183,14 @@ return (
             }
       
             renderItem ={({item})=>{
-                return<FriendInfo 
-                showFollow={false}
-                justifyContent='space-between'
-                text="Lorem ipsum dolor sit amet consectetur"
-                image={
-                    <FriendView  width={160*w} height={160*h}/>}
-                    star={
-                        <Star rating={rating}/>
-                    }
-                    >
-                    </FriendInfo>
+                return <FriendInfo showFollow={false}  justifyContent='space-between'
+           
+                star={
+                    <Star key={item.id} rating={rating}/>
+                }
+                />
                     
-            }}/>
+            }}/> 
 
         </View>
         <BlueFooter/>

@@ -62,7 +62,7 @@ const Filter = () =>{
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Select Category'/>
 
         <View style={{flexDirection:'row', flexWrap:'wrap',  justifyContent:'space-around'}}>
-            {countries.map((c, index)=> <Category country = {c} id={index} pressedId={pressedId} setPressedId={setPressedId}
+            {countries.map((c, index)=> <Category key={`${c}${index}`}country = {c} id={index} pressedId={pressedId} setPressedId={setPressedId}
                     />)}
         </View>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Distance'/>

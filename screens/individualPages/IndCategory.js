@@ -34,7 +34,7 @@ const IndCategory = ({ name='Italian',  route}) =>{
                      top:0}}>
                 </LinearGradient>
                 <View style={{flexDirection:'row', margin:268*w }}>
-                {[1,2,3,4,5,6,7,8,9].map((num)=><View style={{margin:10*w,width:52*w, height: 15*w, backgroundColor:'#FFF', opacity:1, borderRadius:8*w }}></View>)}
+                {[1,2,3,4,5,6,7,8,9].map((num)=><View key={num} style={{margin:10*w,width:52*w, height: 15*w, backgroundColor:'#FFF', opacity:1, borderRadius:8*w }}></View>)}
                 </View>
 
                 <Text style={[styles.title, {color:"#FFF", position:'absolute', zIndex:1000,
