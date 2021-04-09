@@ -5,7 +5,7 @@ import {w, h} from '../proportion';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
 
- const Header = ({ navigateBack, name, search}) =>{
+ const Header = ({  name, search}) =>{
     const navigation = useNavigation();
     
 return (

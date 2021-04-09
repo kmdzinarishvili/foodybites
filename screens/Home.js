@@ -13,7 +13,7 @@ import FriendSec from '../components/Sections/FriendSec';
 
 import {w} from '../proportion';
 
-const Home = ({navigation}) => {
+const Home = () => {
     return (
         <SafeView >
             <View style={{
@@ -24,9 +24,9 @@ const Home = ({navigation}) => {
             }}>
             <View >
                 <SearchBar placeholder="Find Restaurants"/>
-                <RestSec  navigation={navigation} goTo={() =>navigation.navigate('Restaurant')}/>
-                <CatSec navigation={navigation} goTo={() =>navigation.navigate('Category')}/>
-                <FriendSec navigation={navigation} goTo={() =>navigation.navigate('Friend')}/>
+                <RestSec  />
+                <CatSec />
+                <FriendSec />
            </View>
            <FooterNavigation/>
            </View>

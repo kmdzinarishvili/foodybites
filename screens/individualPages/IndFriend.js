@@ -16,4 +16,4 @@ const IndFriend =() =>{
     );
 }
 
-export default IndFriend;
+export default IndFriend;x
