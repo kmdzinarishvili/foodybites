@@ -20,7 +20,8 @@ const BORDER_RADIUS =14;
 // const MAX_RANGE = 20;
 
 const DistanceSlider =({style}) =>{
-    const translateX = useSharedValue(0-KNOB_WIDTH/2);
+    const translateX = useSharedValue(20);
+
     const isSliding= useSharedValue(false);
     const onGestureEvent = useAnimatedGestureHandler({
         onStart: (_, ctx) => {
@@ -59,8 +60,9 @@ const DistanceSlider =({style}) =>{
         <View style={[styles.slider, style]}>
             <Animated.View style={[styles.progress, progressStyle]} />
             <PanGestureHandler onGestureEvent={onGestureEvent}>
-                <Animated.View style={[ scrollTransitionStyle]}>
-                        <Image style={styles.knob} source={require('../../imgs/dist_knob.png')}/>
+                <Animated.View style={[ scrollTransitionStyle, styles.knob, {bottom:KNOB_OFFSET}]}>
+
+                        <Image style={[styles.knob]} source={require('../../imgs/dist_knob.png')}/>
                     </Animated.View>
             </PanGestureHandler>
         </View>
@@ -85,7 +87,6 @@ const styles = StyleSheet.create({
     knob: {
         width:KNOB_WIDTH, 
         height:KNOB_HEIGHT,
-        bottom:KNOB_OFFSET
    
     },
   })
