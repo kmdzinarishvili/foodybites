@@ -4,18 +4,19 @@ import openMap from 'react-native-open-maps';
 
 
 
-const RedirecToMaps = ({children}) =>{
+const RedirecToMaps = ({children, style}) =>{
     const goToMap = () =>{
         // /"My Location"
         openMap({ end:'Stamba', start:'My Location' });
     };
     return (
-        // <View style={{width:'100%', height:'100%', justifyContent:'center', alignItems:'center'}}>
             <Pressable
                 onPress={goToMap}>
+                <View style={style}>
                 {children}
+                </View>
             </Pressable>
-        // </View>
+            
     )
 }
 

@@ -47,6 +47,7 @@ const RootApp = () =>{
   Animated.addWhitelistedNativeProps({text: true});
 
 
+ 
   return (
     <RootStack.Navigator>
 

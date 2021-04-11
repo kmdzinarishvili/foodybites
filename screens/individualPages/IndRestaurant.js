@@ -17,6 +17,7 @@ import FriendView from '../../components/SectionViews/FriendView';
 import { useNavigation } from '@react-navigation/native';
 
 import Star from '../../components/Star';
+import RedirecToMaps from '../../components/Maps/RedirecToMaps';
 
 
 const RestaurantInfo = ({name, category, distance, rating, address, isOpen, dailyTime}) =>{
@@ -119,7 +120,7 @@ return (
    
     <ImageBackground style={{width:'100%', height:909*h}} source={{uri:image}}>
     <HeaderIcons onPress={()=> navigation.goBack()}/>
-   <Pressable onPress={()=> console.warn('pressed')}>
+    <View>
         <BlurView style={{width:'90%', height:142*h, position:'absolute', top:400*h , 
         marginBottom:48, marginHorizontal:'7%', borderRadius:100, overflow:'hidden',
         flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
@@ -135,8 +136,11 @@ return (
             </View>
 
 
-            <View style={{ flexDirection:'row', alignItems:'center', overflow:'hidden' }}>
+            <View >
         
+           <RedirecToMaps style={{ flexDirection:'row', alignItems:'center', overflow:'hidden' }}>
+        
+         
             <Circle>
             <Image 
                         style={{width:36.1*w, height:38.94*h}}
@@ -146,10 +150,12 @@ return (
 
 
             <Text style={[indStyles.text, styles.jSemi]}>Direction</Text>
-            </View>
+            </RedirecToMaps>
 
+            </View>
             </BlurView> 
-         </Pressable> 
+
+    </View>
     </ImageBackground> 
 
 
@@ -165,6 +171,7 @@ return (
             ListHeaderComponent={
                 <View>
                 <RestaurantInfo name={name} category={category} distance={distance} rating={rating} address={address} isOpen={isOpen} dailyTime={dailyTime}/>
+       
                 <HomeSection title='Menu & Photos' number ={32}/>
                 <FlatList 
                     showsHorizontalScrollIndicator={false}
