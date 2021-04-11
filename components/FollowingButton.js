@@ -4,8 +4,8 @@ import { h, w } from '../proportion';
 
 
 
-const FollowingButton = ({type="following", bool, style}) => { //bool 
-    const [isFollowing, setIsFollowing] = useState(bool);
+const FollowingButton = ({following, style}) => { //bool 
+    const [isFollowing, setIsFollowing] = useState(following);
     
 
     return (
@@ -31,8 +31,8 @@ const FollowingButton = ({type="following", bool, style}) => { //bool
         <Text 
         style={{
             color:!isFollowing?'#FFF': '#8A98BA'
-        }}>{type=='following'? isFollowing? 'Unfollow':
-            'Follow':!isFollowing?"Unblock":"Block"
+        }}>{isFollowing? 'Unfollow':
+            'Follow'
         }</Text>
     </Pressable>);
 

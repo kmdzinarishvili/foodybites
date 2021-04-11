@@ -37,7 +37,7 @@ const IndFriend =({name ='Jayson Acevedo',
             <Stats/>
             <View style={{flexDirection:'row',marginTop:67 *h}}>
                 <FollowingButton style={profileStyles.button}></FollowingButton>
-                <FollowingButton type="blocking" bool={false} style={profileStyles.button}></FollowingButton>
+                <FollowingButton style={profileStyles.button}></FollowingButton>
 
             </View>
         </View>
