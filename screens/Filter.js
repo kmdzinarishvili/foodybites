@@ -7,7 +7,6 @@ import Rating from '../components/Review/Rating';
 import gradients from '../styles/gradients';
 import {LinearGradient} from 'expo-linear-gradient';
 import DistanceSlider from  '../components/Filter/DistanceSlider';
-import Test from '../components/Filter/Test';
 
 const Category = ({country, id, pressedId, setPressedId }) =>{
 

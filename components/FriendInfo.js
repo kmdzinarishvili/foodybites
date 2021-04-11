@@ -27,7 +27,7 @@ const FriendInfo = ({text="Lorem ipsum dolor sit amet consectetur",
             
             
             </View>
-           {showFollow? <FollowingButton following={following}/>:
+           {showFollow? <FollowingButton bool={following}/>:
        <Star rating={rating}/>}
 
         </View>

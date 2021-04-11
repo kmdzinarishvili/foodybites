@@ -26,6 +26,7 @@ import ReviewPage from './screens/ReviewPage';
 
 import Animated from 'react-native-reanimated';
 
+import RedirecToMaps from './components/Maps/RedirecToMaps';
 
 
 
