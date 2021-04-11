@@ -7,6 +7,7 @@ import Rating from '../components/Review/Rating';
 import gradients from '../styles/gradients';
 import {LinearGradient} from 'expo-linear-gradient';
 import DistanceSlider from  '../components/Filter/DistanceSlider';
+import Test from '../components/Filter/Test';
 
 const Category = ({country, id, pressedId, setPressedId }) =>{
 
@@ -41,10 +42,18 @@ const FilterTitle = ({style,text})=>{
     return(<Text style={[styles.title, style]}>{text}</Text>);
 }
 
+const CategoryButtons = ({countries}) =>{
+    const [pressedId, setPressedId] = useState();
+
+   return( <View style={{flexDirection:'row', flexWrap:'wrap',  justifyContent:'space-around'}}>
+    {countries.map((c, index)=> <Category key={`${c}${index}`}country = {c} id={index} pressedId={pressedId} setPressedId={setPressedId}
+            />)}
+</View>);
+}
+
 const Filter = () =>{
  
 
-    const [pressedId, setPressedId] = useState();
     // //pressed.id 
     // //then change accordingly
     const countries = ['Italian', 'Chinese', 'Mexican',
@@ -57,11 +66,8 @@ const Filter = () =>{
                 alignItems:'center'
                 }}>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Select Category'/>
-
-        <View style={{flexDirection:'row', flexWrap:'wrap',  justifyContent:'space-around'}}>
-            {countries.map((c, index)=> <Category key={`${c}${index}`}country = {c} id={index} pressedId={pressedId} setPressedId={setPressedId}
-                    />)}
-        </View>
+                <CategoryButtons countries={countries}/>
+     
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Distance'/>
         <DistanceSlider style={{marginTop:172*h}}/>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Ratings'/>

@@ -1,12 +1,16 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, Text, ImageBackground} from 'react-native';
 import Animated, { 
     useAnimatedGestureHandler, 
     useAnimatedStyle, 
-    useSharedValue
+    useDerivedValue, 
+    useSharedValue,
+    useAnimatedProps
 } from 'react-native-reanimated'
 import { PanGestureHandler } from 'react-native-gesture-handler';
 
+
+import AnimatedText from './AnimatedText';
 import {w,h} from '../../proportion';
 
 
@@ -17,7 +21,7 @@ const KNOB_WIDTH = 98.11*w;
 const KNOB_HEIGHT = 144.95*h;
 const KNOB_OFFSET = 69*h;
 const BORDER_RADIUS =14;
-// const MAX_RANGE = 20;
+const MAX_RANGE = 100;
 
 const DistanceSlider =({style}) =>{
     const translateX = useSharedValue(20);
@@ -52,8 +56,17 @@ const DistanceSlider =({style}) =>{
             width:translateX.value+KNOB_WIDTH/2
         }
     });
-    
+    const stepText = useDerivedValue(() => {
+        const sliderRange = SLIDER_WIDTH - KNOB_WIDTH
+        const oneStepValue = sliderRange / MAX_RANGE
+        const step = Math.ceil(translateX.value / oneStepValue)
+        return String(step)
+      });
+    // const AnimatedImageBackground = Animated.createAnimatedComponent(ImageBackground);
 
+    // console.log(stepText);
+    console.log('rendering');
+    console.log(stepText.value);
 
     return(
         
@@ -61,8 +74,9 @@ const DistanceSlider =({style}) =>{
             <Animated.View style={[styles.progress, progressStyle]} />
             <PanGestureHandler onGestureEvent={onGestureEvent}>
                 <Animated.View style={[ scrollTransitionStyle, styles.knob, {bottom:KNOB_OFFSET}]}>
-
-                        <Image style={[styles.knob]} source={require('../../imgs/dist_knob.png')}/>
+                        <ImageBackground style={[styles.knob]} source={require('../../imgs/dist_knob.png')}>
+                            <AnimatedText text={stepText}/>
+                        </ImageBackground>
                     </Animated.View>
             </PanGestureHandler>
         </View>
@@ -90,5 +104,8 @@ const styles = StyleSheet.create({
    
     },
   })
+
+
+
 
 export default DistanceSlider;

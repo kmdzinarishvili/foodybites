@@ -24,6 +24,7 @@ import IndFriend from './screens/individualPages/IndFriend';
 import Filter from './screens/Filter';
 import ReviewPage from './screens/ReviewPage';
 
+import Animated from 'react-native-reanimated';
 
 
 
@@ -42,6 +43,8 @@ const RootStack = createStackNavigator();
 
 
 const RootApp = () =>{
+  Animated.addWhitelistedNativeProps({text: true});
+
 
   return (
     <RootStack.Navigator>
