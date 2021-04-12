@@ -65,9 +65,7 @@ const DistanceSlider =({style}) =>{
         const step = Math.ceil(translateX.value / oneStepValue) +5
         return String(step)
       });
-    // const AnimatedImageBackground = Animated.createAnimatedComponent(ImageBackground);
 
-    // console.log(stepText);
     console.log('rendering');
     console.log(stepText.value);
 

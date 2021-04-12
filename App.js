@@ -26,6 +26,7 @@ import ReviewPage from './screens/ReviewPage';
 
 import Animated from 'react-native-reanimated';
 import HomeSearch from './screens/HomeSearch';
+import Photos from './screens/Photos';
 
 
 const fetchFonts = async() => {
@@ -147,6 +148,13 @@ const RootApp = () =>{
   <RootStack.Screen
             name="Home Search"
             component={HomeSearch}
+            options={{
+              headerShown:false
+            }}          
+          />
+      <RootStack.Screen
+            name="Photos"
+            component={Photos}
             options={{
               headerShown:false
             }}          
