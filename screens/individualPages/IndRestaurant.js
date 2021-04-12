@@ -3,85 +3,21 @@ import {View, Text, Image, StyleSheet, Pressable, ImageBackground, FlatList, Saf
 import { BlurView } from 'expo-blur';
 import BlueFooter from '../../components/BlueFooter';
 
-
-
 import { h, w } from '../../proportion';
 import styles from '../../styles/styles';
-import {LinearGradient} from 'expo-linear-gradient';
-import gradients from '../../styles/gradients';
 
 import HomeSection from '../../components/HomeSection';
 import FriendInfo from '../../components/FriendInfo';
 
-import FriendView from '../../components/SectionViews/FriendView';
 import { useNavigation } from '@react-navigation/native';
 
 import Star from '../../components/Star';
 import RedirecToMaps from '../../components/Maps/RedirecToMaps';
 
+import RestaurantInfo from '../../components/Restaurant/RestaurantInfo';
+import Circle from '../../components/Restaurant/Circle';
+import HeaderIcons from '../../components/Restaurant/HeaderIcons';
 
-const RestaurantInfo = ({name, category, distance, rating, address, isOpen, dailyTime}) =>{
-    return (
-        <View>
-    <View style={{flexDirection:'row', alignItems:'center'}}> 
-                    <Text style={[styles.font50, styles.spaceRight, styles.jBold, {color:'#3E3F68'}, indStyles.margin20]}>{name}</Text> 
-                    <LinearGradient colors={gradients.pink} 
-                        style={[styles.linearGradient,  styles.spaceRight, restStyles.rad9, {opacity:0.65}]}>
-                    <Text  style={[restStyles.white22, ]}>{category}</Text>
-                    </LinearGradient>
-                    <Text style={[styles.jReg, restStyles.white22, restStyles.purple,restStyles.rad9]}>{distance} km</Text>
-            <Star rating={rating} />
-                    </View>
-
-                    <Text style={[restStyles.address, styles.jReg,  indStyles.margin20]} >{address}</Text>
-                    <View style={[{flexDirection:'row'},, indStyles.margin20]}>
-                        <Text style={[restStyles.address, styles.jReg, restStyles.red]}>{isOpen? "Open Now": "Closed Now"}</Text>
-                        
-                        <Text style={[restStyles.address, styles.jReg]}> daily time </Text> 
-                        <View style={[{flexDirection:'row', alignItems:'center'}]}>
-                            <Text style={[restStyles.address, styles.jReg,
-                                restStyles.red]}>{dailyTime}</Text> 
-                            <Image
-                                style={{width: 21.95*w, height:12.52*h }}
-                                source={require('../../imgs/restaurantPage/downarrow.png')}
-                            />
-                        </View>
-                    </View>
-    
-        
-        </View> 
-    );
-}
-
-const Circle=({children})=>{
-    return <View style={{width:74*w, height:74*h, backgroundColor:'#FFF', marginRight:10,
-             borderRadius:74*h/2, justifyContent:'center', alignItems:'center'}}>
-                 {children}
-
-    </View>
-}
-
-
-const HeaderIcons= ({onPress}) =>{
-    return(
-        <SafeAreaView>
-            <View style={{flexDirection:'row', justifyContent:'space-between', 
-                            paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-                        }}>
-                <Pressable  onPress={onPress}>
-                <Image  style={{width:34.1*w, height: 67.61*h, margin:70*w}} source={require('../../imgs/restaurantPage/back_arrow.png')}/>
-
-                </Pressable>
-
-                    <View style={{flexDirection:'row'}}>
-                        <Image style={{width: 60.91*w, height:73.1*h, margin:70*w, marginRight:0 }} source={require('../../imgs/restaurantPage/share.png')}/>
-                        <Image style={{width: 60.91*w, height:73.1*h , margin:70*w}} source={require('../../imgs/restaurantPage/bookmark.png')}/>
-                    </View>
-            </View>
-        </SafeAreaView>
-    );
-
-}
 
 
 
