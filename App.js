@@ -27,6 +27,7 @@ import ReviewPage from './screens/ReviewPage';
 import Animated from 'react-native-reanimated';
 
 import RedirecToMaps from './components/Maps/RedirecToMaps';
+import BlueFooter from './components/BlueFooter';
 
 
 
@@ -47,7 +48,6 @@ const RootApp = () =>{
   Animated.addWhitelistedNativeProps({text: true});
 
 
- 
   return (
     <RootStack.Navigator>
 
@@ -167,7 +167,10 @@ export default function App() {
 
     );
 
-  }else{
+  }
+
+
+  else{
 
     return (
       <NavigationContainer>
