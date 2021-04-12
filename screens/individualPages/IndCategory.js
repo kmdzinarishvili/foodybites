@@ -2,12 +2,11 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, ImageBackground, Pressable, Image,  StatusBar} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import { w, h } from '../../proportion';
-import gradients from '../../styles/gradients';
 import { useNavigation } from '@react-navigation/native';
-import { FlatList } from 'react-native-gesture-handler';
 import styles from '../../styles/styles';
-import RestSec from '../../components/Sections/RestSec';
-import RestaurantPage from '../RestaurantPage';
+
+
+import RestaurantFlatList from '../../components/Restaurant/RestaurantFlatList';
 
 
 const IndCategory = ({ name='Italian',  route}) =>{
@@ -48,7 +47,7 @@ const IndCategory = ({ name='Italian',  route}) =>{
                          source={require('../../imgs/restaurantPage/back_arrow.png')}/>
                 </Pressable>
             </ImageBackground>
-            <RestaurantPage/>
+            <RestaurantFlatList type="full"/>
 
         
         </Pressable>

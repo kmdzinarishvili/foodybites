@@ -5,6 +5,7 @@ import FollowingButton from '../../components/FollowingButton';
 import FriendView from '../../components/SectionViews/FriendView';
 import {w, h } from '../../proportion';
 import styles from '../../styles/styles';
+import RestaurantFlatList from '../../components/Restaurant/RestaurantFlatList';
 
 const Stat = ({number, type}) =>{
     return (
@@ -26,8 +27,8 @@ const Stats = () =>{
 
 const IndFriend =({name ='Jayson Acevedo', 
             email = 'jayson.acevedo@gmail.com'}) =>{
-    const navigation = useNavigation();
     return (
+        <View style={{backgroundColor:'#FFF'}}>
         <View style={profileStyles.container}>
             <FriendView marginTop={146*h} width={374*w} 
                 height={374*h}/>
@@ -37,9 +38,11 @@ const IndFriend =({name ='Jayson Acevedo',
             <Stats/>
             <View style={{flexDirection:'row',marginTop:67 *h}}>
                 <FollowingButton style={profileStyles.button}></FollowingButton>
-                <FollowingButton type="blocking" bool={false} style={profileStyles.button}></FollowingButton>
-
+                <FollowingButton type="blocking" bool={true} style={profileStyles.button}></FollowingButton>
             </View>
+            <View style={{width:'100%', height:3*w, backgroundColor:'#E2E2E2', marginTop:71.5*w}} />
+        </View>
+            <RestaurantFlatList/>
         </View>
     );
 }
@@ -49,6 +52,7 @@ const profileStyles= StyleSheet.create({
         flexDirection:'column',
         justifyContent:'center', 
         alignItems:'center',
+        backgroundColor:'#FFF',
     
         
     },

@@ -26,10 +26,6 @@ import ReviewPage from './screens/ReviewPage';
 
 import Animated from 'react-native-reanimated';
 
-import RedirecToMaps from './components/Maps/RedirecToMaps';
-import BlueFooter from './components/BlueFooter';
-
-
 
 
 const fetchFonts = async() => {
@@ -66,7 +62,9 @@ const RootApp = () =>{
           header:() =>{ 
             return (
             <Header 
-            name='Trending Restaurant' search={true}/>
+            color='#FFF'
+            search={false}
+            name='Trending Restaurant'/>
               )}
         }}
       />
@@ -115,6 +113,7 @@ const RootApp = () =>{
           header:() =>{ 
             return (
             <Header 
+            color='#FFF'
             name='Profile' search={true}/>
               )}
         }}       
