@@ -22,7 +22,7 @@ const Home = ({navigation}) => {
                 paddingHorizontal: 68*w,
                 flex:1,
                 justifyContent:'space-between',
-                backgroundColor:'#F9F9f9'
+                backgroundColor:'#F9F9f9',
             }}>
             <View >
                 <SearchBar placeholder="Find Restaurants" editable={false} action={()=> navigation.navigate('Home Search')}/>

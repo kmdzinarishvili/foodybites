@@ -26,7 +26,7 @@ const FriendPage = () =>{
         const result = await fetch(
             'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile'
         ).then(res=>res.json()).then(res=>res['results'])
-        .then(json => {setFriends(json)})
+        .then(json => {setFriends(json.slice(0,3))})
         .catch((error) => {
             throw error;
         });
@@ -39,9 +39,31 @@ const FriendPage = () =>{
                 <View style={{paddingHorizontal:68*w}}>
                 <SearchBar placeholder="Search"/>
                 </View>
-                <FlatList
+     
+                 <FlatList
                     ListHeaderComponent={
-                        <Dividor title='Contacts'/>
+                        <View>
+                        <FlatList
+                        ListHeaderComponent={
+                            <Dividor title='Contacts'/>
+    
+                        }
+                            showsVerticalScrollIndicator={false}
+                            contentContainerStyle={{flexDirection:'column', justifyContent:'center', alignItems:'center', paddingBottom:10}}
+                            data={friends}
+                            keyExtractor={(item) => `i${item.id}`}
+                        renderItem={({item})=>{
+                        return (
+                            <View>
+                            <FriendInfo  image={<FriendView width={160*w} height={160*h} image={item['urls']['regular']} marginTop={10}/>}   />               
+                            </View>
+    
+                    );
+                    }}                    
+                    />
+                        <Dividor title='Suggested'/>
+
+                    </View>
 
                     }
                         showsVerticalScrollIndicator={false}

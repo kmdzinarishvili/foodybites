@@ -5,9 +5,9 @@ import styles from '../styles/styles';
 
 
   
-const HomeSection = ({title, number, children, goTo}) =>{
+const HomeSection = ({title, number, children, goTo, style}) =>{
         return(
-            <View style={{marginTop:20}}>
+            <View style={[{marginTop:20}, style]}>
                 <View style={sectionStyles.titleContainer}>
                     <Text style={styles.title}>{title}</Text>
                     <Pressable onPress={() => goTo()}>

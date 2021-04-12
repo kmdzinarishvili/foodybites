@@ -111,7 +111,7 @@ return (
                 <View>
                 <RestaurantInfo name={name} category={category} distance={distance} rating={rating} address={address} isOpen={isOpen} dailyTime={dailyTime}/>
        
-                <HomeSection title='Menu & Photos' number ={32}/>
+                <HomeSection title='Menu & Photos' number ={32} style={{marginBottom:54*h, marginTop:0}}/>
                 <FlatList 
                     showsHorizontalScrollIndicator={false}
                     horizontal={true}
@@ -124,7 +124,7 @@ return (
                         source={{uri:item['urls']['regular']}}
                         />}}
                 /> 
-                <HomeSection title='Review & Ratings' number ={32}/>
+                <HomeSection title='Review & Ratings' number ={32} />
                 </View>
             }
       
