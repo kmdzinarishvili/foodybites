@@ -8,13 +8,12 @@ import RestaurantFlatList from '../components/Restaurant/RestaurantFlatList';
 const RestaurantPage = () =>{
 
     return(
-        <View style={{ paddingBottom:100, backgroundColor:'#FFF'}} >
+        <View style={{backgroundColor:'#FFF'}} >
            <View style={{paddingHorizontal:68*w}}>
                  <SearchBar placeholder="Search"/>
            </View>
             <RestaurantFlatList />
        
-
         
         </View>
     );

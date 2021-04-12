@@ -22,7 +22,7 @@ const RestaurantPage = ({type='full', url = 'https://api.unsplash.com/search/pho
         fetch_restaurant_pictures();
     }, []);
     return(
-        <View style={{paddingHorizontal:68*w, paddingBottom:100}} >
+        <View style={{paddingHorizontal:68*w, paddingBottom:125}} >
             <FlatList 
                 contentContainerStyle={{alignItems:'center',}}  
             data={restaurants}

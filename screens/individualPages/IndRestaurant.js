@@ -21,8 +21,7 @@ import HeaderIcons from '../../components/Restaurant/HeaderIcons';
 
 
 
-const IndRestaurant = ({route}) =>{
-    const navigation = useNavigation();
+const IndRestaurant = ({route, navigation}) =>{
     const {image} = route.params 
     const phoneNumber='+1 212-673-3754'
     const category = "Italian";
@@ -49,11 +48,10 @@ const IndRestaurant = ({route}) =>{
         fetch_food();
     }, []);
     
+     
 
 return (
-    <View>
-  
-   
+    <View style={{height:'100%'}}>
     <ImageBackground style={{width:'100%', height:909*h}} source={{uri:image}}>
     <HeaderIcons onPress={()=> navigation.goBack()}/>
     <View>
@@ -141,8 +139,9 @@ return (
             }}/> 
 
         </View>
-        <BlueFooter/>
-</View>
+            <BlueFooter text='Rate Your Experience' action={()=>navigation.navigate('Review')} />
+
+        </View>
         );
 
 }

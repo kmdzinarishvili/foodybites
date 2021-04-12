@@ -41,7 +41,8 @@ const IndCategory = ({ name='Italian',  route}) =>{
                 
                 <Pressable 
                     style={{ position:'absolute', top:140*h, left:68*w}}
-                    onPress={()=>navigation.goBack()}>
+                    onPress={()=>navigation.goBack()}
+                    hitSlop={50*w}>
                     <Image
                         style={{width:34.1*h, height: 67.61*w}}
                          source={require('../../imgs/restaurantPage/back_arrow.png')}/>
@@ -51,7 +52,6 @@ const IndCategory = ({ name='Italian',  route}) =>{
 
         
         </Pressable>
-        // </LinearGradient>
        
     );
 }
