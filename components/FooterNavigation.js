@@ -12,13 +12,11 @@ const FooterNavigation = () =>{
         <Image source={require('../imgs/footer/home.png')} style={styles.home} />
         <Image source={require('../imgs/footer/bookmark.png')} style={styles.bookmark} />
         
-        <Pressable style = {styles.blueCircle} onPress={()=>{
-            navigation.navigate('Review');
-        }} >
+        <View style = {styles.blueCircle} >
 
             <Image style={styles.cross} source={require('../imgs/footer/cross.png')} />
 
-            </Pressable>
+            </View>
         <View style={{width:40}}></View>
         <Image source={require('../imgs/footer/bell.png')} style={styles.bell} />
         <Image source={require('../imgs/footer/person.png')} style={styles.person} />
@@ -58,7 +56,7 @@ const styles = StyleSheet.create({
         width: 0,
         height: 16,
     },
-    shadowOpacity: 0.25, //achvenebs 16s
+    shadowOpacity: 0.25, 
     shadowRadius: 15,
     elevation: 16,
 
