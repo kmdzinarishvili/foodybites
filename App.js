@@ -126,7 +126,7 @@ const RootApp = () =>{
             header:() =>{ 
               return (
               <Header 
-              name='Filter' search={true}/>
+              name='Filter' search={false}/>
                 )}
           }}          
         />
