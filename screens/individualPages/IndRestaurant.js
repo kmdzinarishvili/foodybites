@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Image, StyleSheet, Pressable, ImageBackground, FlatList, SafeAreaView, StatusBar, } from 'react-native';
+import {View, Text, Image, StyleSheet, Pressable, ImageBackground, FlatList, SafeAreaView, StatusBar, Linking } from 'react-native';
 import { BlurView } from 'expo-blur';
 import BlueFooter from '../../components/BlueFooter';
 
@@ -124,6 +124,9 @@ return (
         <BlurView style={{width:'90%', height:142*h, position:'absolute', top:400*h , 
         marginBottom:48, marginHorizontal:'7%', borderRadius:100, overflow:'hidden',
         flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
+ 
+        <Pressable
+            onPress={()=>Linking.openURL(`tel:${phoneNumber}`)} >
             <View style={{ flexDirection:'row', alignItems:'center', overflow:'hidden' }}>
         
                 <Circle>
@@ -135,21 +138,23 @@ return (
                 <Text style={[{color:'#FFF', fontSize:40*w},styles.jSemi]}>{phoneNumber}</Text>
             </View>
 
-
+            </Pressable>            
             <View >
+
         
+
            <RedirecToMaps style={{ flexDirection:'row', alignItems:'center', overflow:'hidden' }}>
         
          
-            <Circle>
-            <Image 
-                        style={{width:36.1*w, height:38.94*h}}
-                        source={require('../../imgs/restaurantPage/arrows.png')}/>
+                <Circle>
+                <Image 
+                            style={{width:36.1*w, height:38.94*h}}
+                            source={require('../../imgs/restaurantPage/arrows.png')}/>
 
-                </Circle>
+                    </Circle>
 
 
-            <Text style={[indStyles.text, styles.jSemi]}>Direction</Text>
+                <Text style={[indStyles.text, styles.jSemi]}>Direction</Text>
             </RedirecToMaps>
 
             </View>
