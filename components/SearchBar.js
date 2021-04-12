@@ -1,25 +1,35 @@
 import { useNavigation } from '@react-navigation/native';
 import React, {useState} from 'react';
-import {View, Image, TextInput, StyleSheet, Pressable} from 'react-native';
+import {View, Image, TextInput, StyleSheet, Pressable, Text} from 'react-native';
 import {w,h} from '../proportion';
 import styles from '../styles/styles';
-const SearchBar = ({placeholder}) => {
+const SearchBar = ({placeholder, action, editable=true, autoFocus=false, rightComponent}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const navigation=useNavigation();
     return(
     <View style={searchStyles.SectionStyle}>
     <Image source={require('../imgs/home/magnifying_glass.png')} style={searchStyles.ImageStyle} />
-    <TextInput
-        style={[{ position: 'absolute', left:60,fontSize:48*w },styles.jReg ]}
-        value={searchTerm}
-        onChangeText={(text) => setSearchTerm(text)}
-        placeholder={placeholder}
     
-    />
-    <Pressable
+    <Pressable 
+        
+      style={[{ position: 'absolute',  width:'70%', left:60, }]}
+        onPress={action}
+        >
+    
+            <TextInput
+                autoFocus={autoFocus}
+                style={{fontSize:48*w },styles.jReg}
+                editable={editable}
+                value={searchTerm}
+                onChangeText={(text) => setSearchTerm(text)}
+                placeholder={placeholder}
+                />
+    </Pressable>
+
+    {!rightComponent? <Pressable
         onPress={()=>navigation.navigate('Filter')}>
         <Image source={require('../imgs/home/search_sliders.png')} style={searchStyles.ImageStyle} />
-    </Pressable>
+    </Pressable>:rightComponent}
     </View>);
 }
 

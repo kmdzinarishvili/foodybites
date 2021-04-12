@@ -13,6 +13,8 @@ import FriendSec from '../components/Sections/FriendSec';
 
 import {w} from '../proportion';
 
+
+
 const Home = ({navigation}) => {
     return (
         <SafeView >
@@ -23,7 +25,7 @@ const Home = ({navigation}) => {
                 backgroundColor:'#F9F9f9'
             }}>
             <View >
-                <SearchBar placeholder="Find Restaurants"/>
+                <SearchBar placeholder="Find Restaurants" editable={false} action={()=> navigation.navigate('Home Search')}/>
                 <RestSec  navigation={navigation} goTo={() =>navigation.navigate('Restaurant')}/>
                 <CatSec navigation={navigation} goTo={() =>navigation.navigate('Category')}/>
                 <FriendSec navigation={navigation} goTo={() =>navigation.navigate('Friend')}/>

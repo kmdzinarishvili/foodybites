@@ -25,7 +25,7 @@ import Filter from './screens/Filter';
 import ReviewPage from './screens/ReviewPage';
 
 import Animated from 'react-native-reanimated';
-
+import HomeSearch from './screens/HomeSearch';
 
 
 const fetchFonts = async() => {
@@ -143,7 +143,16 @@ const RootApp = () =>{
                 )}
           }}          
         />
+
+  <RootStack.Screen
+            name="Home Search"
+            component={HomeSearch}
+            options={{
+              headerShown:false
+            }}          
+          />
     </RootStack.Navigator>
+    
 
   );
 }
