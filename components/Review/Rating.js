@@ -5,7 +5,7 @@ import { h, w } from '../../proportion';
 import {PanGestureHandler} from 'react-native-gesture-handler';
 
 
-const Review = () =>{
+const Rating = ({style}) =>{
     const [numStars, setNumStars] = useState(0);
     let myStars = [];
     let empty = [1,2,3,4,5];
@@ -18,9 +18,7 @@ const Review = () =>{
    
   
     return (
-        <View style={{width: 894*w, height:207*h,
-         backgroundColor: 'rgba(238, 247, 255, 0.51)', borderRadius:10,
-        flexDirection:'row', justifyContent:'space-around', alignItems:'center'}}>
+        <View style={[sStyles.container, style]}>
             <FlatList 
                 horizontal={true}
                 contentContainerStyle={{justifyContent:'space-around', alignItems:'center', width:'100%'}}
@@ -38,10 +36,19 @@ const Review = () =>{
 }
 
 const sStyles= StyleSheet.create({
+    container:
+        {width: 894*w,
+             height:207*h,
+            backgroundColor: 'rgba(238, 247, 255, 0.51)', 
+            borderRadius:10,
+           flexDirection:'row',
+            justifyContent:'space-around',
+             alignItems:'center'}
+    ,
     star:{
         width: 114.47*w,
         height:109.15*h
     }
 })
 
-export default Review;
+export default Rating;

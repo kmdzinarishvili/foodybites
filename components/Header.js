@@ -10,10 +10,7 @@ import { useNavigation } from '@react-navigation/native';
     
 return (
     <SafeAreaView forceInset={{top:'always'}}>
-            <View style={{ 
-                marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-                flexDirection:'row', height:155*h, backgroundColor:'#FAFAFA', justifyContent:'space-between',
-                    alignItems: 'center'}}>  
+            <View style={space.container}>  
                    <Pressable 
                             onPress={()=>navigation.goBack()}>
                        <Image
@@ -34,6 +31,16 @@ return (
 );
 }
 const space=StyleSheet.create({
+    container:{ 
+        marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        flexDirection:'row',
+         height:155*h, 
+         backgroundColor:'#FAFAFA',
+        justifyContent:'space-between',
+        alignItems: 'center',
+            paddingTop:120*w
+        }
+            ,
     space:{
         margin: 68*w
     }

@@ -8,7 +8,7 @@ const styles=StyleSheet.create({
         fontSize:50*w
     },
     font60: {
-        fontSize:50*w
+        fontSize:60*w
     },
     font22:{
         fontSize:22*w
