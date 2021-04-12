@@ -26,12 +26,13 @@ const SLIDER_WIDTH = 984*w - KNOB_WIDTH ;
 const SLIDER_HEIGHT =27 *h;
 
 const DistanceSlider =({style}) =>{
-    const translateX = useSharedValue(20);
+    const translateX = useSharedValue(0);
 
     const isSliding= useSharedValue(false);
     const onGestureEvent = useAnimatedGestureHandler({
         onStart: (_, ctx) => {
-        ctx.offsetX = translateX.value 
+            
+            ctx.offsetX = translateX.value 
         },
         onActive: (event, ctx) => {
         const clamp = (value, lowerBound, upperBound) => {
@@ -40,7 +41,7 @@ const DistanceSlider =({style}) =>{
         isSliding.value = true
         translateX.value = clamp(
             event.translationX + ctx.offsetX,
-            0,
+            0 -KNOB_WIDTH/2,
             SLIDER_WIDTH
 
           )},
@@ -59,9 +60,9 @@ const DistanceSlider =({style}) =>{
         }
     });
     const stepText = useDerivedValue(() => {
-        const sliderRange = SLIDER_WIDTH
+        const sliderRange = SLIDER_WIDTH+KNOB_WIDTH/2
         const oneStepValue = sliderRange / MAX_RANGE
-        const step = Math.ceil(translateX.value / oneStepValue)
+        const step = Math.ceil(translateX.value / oneStepValue) +5
         return String(step)
       });
     // const AnimatedImageBackground = Animated.createAnimatedComponent(ImageBackground);
