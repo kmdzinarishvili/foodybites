@@ -9,7 +9,6 @@ import styles from '../../styles/styles';
 import HomeSection from '../../components/HomeSection';
 import FriendInfo from '../../components/FriendInfo';
 
-import { useNavigation } from '@react-navigation/native';
 
 import Star from '../../components/Star';
 import RedirecToMaps from '../../components/Maps/RedirecToMaps';
@@ -119,12 +118,22 @@ return (
                     scrollEnabled={true}
                     keyExtractor={(item)=>item.id}
                     renderItem ={({item})=>{
-                        return<Image 
-                        style={{width:450*w, height:336.57*h, borderRadius:22*w, marginHorizontal:45*w/2}}
-                        source={{uri:item['urls']['regular']}}
-                        />}}
+                        return(
+                        <Pressable
+                            onPress={()=>{
+                                navigation.navigate('Photo');
+                            }}>
+                            <Image 
+                            style={{width:450*w, height:336.57*h, borderRadius:22*w, marginHorizontal:45*w/2}}
+                            source={{uri:item['urls']['regular']}}
+                            />
+                        </Pressable>
+                    
+                        )}}
+
+
                 /> 
-                <HomeSection title='Review & Ratings' number ={32} />
+                <HomeSection title='Review & Ratings' number ={32} goTo={()=>navigation.navigate('All Reviews')}/>
                 </View>
             }
       
