@@ -17,13 +17,14 @@ const BlueFooter = ({text="Footer", action}) =>{
             <Pressable
                 onPress={action[0]}
             >
-                <Text style={[footerStyles.text, {padding:145*w}]}>{text[0]}</Text>
+                <Text style={[footerStyles.text, {paddingHorizontal:145*w,  paddingVertical:60*h}]}>{text[0]}</Text>
                 </Pressable>
             <View style={{height:'100%', width:1, backgroundColor:'blue' }}></View>
             <Pressable
+
                 onPress={action[1]}
             >
-            <Text style={[footerStyles.text, {padding:145*w}]}>{text[1]}</Text>
+            <Text style={[footerStyles.text, {paddingHorizontal:145*w, paddingVertical:60*h}]}>{text[1]}</Text>
             </Pressable>
 
         </View>)

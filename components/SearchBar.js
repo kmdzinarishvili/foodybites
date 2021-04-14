@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {View, Image, Platform, TextInput, StyleSheet, Pressable, Text} from 'react-native';
 import {w,h} from '../proportion';
 import styles from '../styles/styles';
-const SearchBar = ({placeholder, action, autoFocus=false, rightComponent}) => {
+const SearchBar = ({placeholder, action,  rightComponent}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const navigation=useNavigation();
     return(
@@ -15,13 +15,13 @@ const SearchBar = ({placeholder, action, autoFocus=false, rightComponent}) => {
         >
     <Pressable style={{marginBottom: Platform.OS === "android" ? 25 : 0}}onPress={ action}>
     <View pointerEvents="none">
-    <TextInput />
 
             <TextInput
-                style={{fontSize:48*w },styles.jReg}
+                style={{fontSize:48*w, backgroundColor:'red' },styles.jReg}
                 value={searchTerm}
                 onChangeText={(text) => setSearchTerm(text)}
                 placeholder={placeholder}
+
                 />
 
         </View>

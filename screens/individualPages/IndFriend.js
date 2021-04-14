@@ -26,12 +26,14 @@ const Stats = () =>{
 }
 
 const IndFriend =({name ='Jayson Acevedo', 
-            email = 'jayson.acevedo@gmail.com'}) =>{
+            email = 'jayson.acevedo@gmail.com', route}) =>{
+                const {image} = route.params;
+                console.log(image);
     return (
         <View style={{backgroundColor:'#FFF'}}>
         <View style={profileStyles.container}>
-            <FriendView marginTop={146*h} width={374*w} 
-                height={374*h}/>
+            <FriendView image={image} marginTop={146*h} width={374*w} 
+                height={374*h} />
 
             <Text style={profileStyles.name}>{name}</Text>
             <Text style={profileStyles.email}>{email}</Text> 

@@ -47,9 +47,14 @@ const styles = StyleSheet.create({
         width: 61.58*w,
         height: 61.58*h
     },
-    blueCircle: {backgroundColor:"#5663FF", borderRadius:176.11*w, width:176.11*w, height:176.11*h,
+    blueCircle: {backgroundColor:"#5663FF",
+     borderRadius:176.11*w/2,
+      width:176.11*w,
+       height:176.11*h,
     justifyContent:'center', alignItems:'center',
-    position:'absolute', bottom:30, left: Dimensions.get('window').width/2 -176.11*w +33 ,
+    position:'absolute', 
+    bottom:30, 
+    left: Dimensions.get('screen').width/2  -176*w/2,
     shadowColor: '#000',
     zIndex: 1,
     shadowOffset: {

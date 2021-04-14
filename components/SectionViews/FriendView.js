@@ -9,7 +9,7 @@ const FriendView = ({ image= "https://images.unsplash.com/photo-1579783483458-83
     return(
 
         <Pressable
-            onPress={()=>navigation.navigate('Individual Friend')}>
+            onPress={()=>navigation.navigate('Individual Friend', {image:image})}>
             <Image
             style={[{borderRadius:100, width:width, height:height, marginHorizontal:22*w,
                     marginTop:marginTop}, style]}

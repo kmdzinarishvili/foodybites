@@ -119,7 +119,7 @@ const RootApp = () =>{
             return (
             <Header 
             color='#FFF'
-            name='Profile' search={true}/>
+            name='Profile' />
               )}
         }}       
       />

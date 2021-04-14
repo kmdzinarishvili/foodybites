@@ -9,8 +9,8 @@ import styles from '../../styles/styles';
 import RestaurantFlatList from '../../components/Restaurant/RestaurantFlatList';
 
 
-const IndCategory = ({ name='Italian',  route}) =>{
-    const {image, gradient} = (route.params);
+const IndCategory = ({  route}) =>{
+    const {image, gradient, name} = (route.params);
     const navigation = useNavigation();
 
     

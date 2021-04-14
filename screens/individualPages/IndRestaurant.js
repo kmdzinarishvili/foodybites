@@ -121,7 +121,7 @@ return (
                         return(
                         <Pressable
                             onPress={()=>{
-                                navigation.navigate('Photo');
+                                navigation.navigate('Photo', {image:item['urls']['regular'] });
                             }}>
                             <Image 
                             style={{width:450*w, height:336.57*h, borderRadius:22*w, marginHorizontal:45*w/2}}
