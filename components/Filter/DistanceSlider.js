@@ -5,7 +5,6 @@ import Animated, {
     useAnimatedStyle, 
     useDerivedValue, 
     useSharedValue,
-    useAnimatedProps
 } from 'react-native-reanimated'
 import { PanGestureHandler } from 'react-native-gesture-handler';
 
@@ -76,7 +75,7 @@ const DistanceSlider =({style}) =>{
             <PanGestureHandler onGestureEvent={onGestureEvent}>
                 <Animated.View style={[ scrollTransitionStyle, styles.knob, {bottom:KNOB_OFFSET}]}>
                         <ImageBackground style={[styles.knob]} source={require('../../imgs/dist_knob.png')}>
-                            <AnimatedText text={stepText}/>
+                            <AnimatedText style={{marginTop:Platform.OS === "android" ?0: 30*w}} text={stepText}/>
                         </ImageBackground>
                     </Animated.View>
             </PanGestureHandler>
@@ -103,6 +102,7 @@ const styles = StyleSheet.create({
         width:KNOB_WIDTH, 
         height:KNOB_HEIGHT,
         alignItems:'center',
+        paddingTop:  Platform.OS === "android" ?0: 1*w
    
     },
   })

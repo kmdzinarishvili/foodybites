@@ -5,7 +5,7 @@ import styles from '../../styles/styles'
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput)
 
-const AnimatedText = ({ text }) => {
+const AnimatedText = ({ text, style }) => {
   const animatedProps = useAnimatedProps(() => {
     return {
       text: text.value,
@@ -15,7 +15,7 @@ const AnimatedText = ({ text }) => {
   return (
     <AnimatedTextInput
       editable={false}
-      style={{color:'#FFF',...styles.jSemi, }}
+      style={[{color:'#FFF',...styles.jSemi }, style]}
       textAlign={'center'}
       value={text.value}
       animatedProps={animatedProps}
