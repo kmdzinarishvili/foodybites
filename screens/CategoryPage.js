@@ -14,7 +14,6 @@ const CategoryPage = () =>{
     'American', 'Korean', 'European'];
     const categories = useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
 
-   
         return(
         <PageTemplate>
               <FlatList

@@ -28,7 +28,6 @@ const Stats = () =>{
 const IndFriend =({name ='Jayson Acevedo', 
             email = 'jayson.acevedo@gmail.com', route}) =>{
                 const {image} = route.params;
-                console.log(image);
     return (
         <View style={{backgroundColor:'#FFF'}}>
         <View style={profileStyles.container}>

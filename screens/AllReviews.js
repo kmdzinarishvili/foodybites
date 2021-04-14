@@ -7,11 +7,7 @@ import useFetch from '../hooks/useFetch';
 
 const AllReviews = () =>{
     const profile= useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile');
-      
-     
 
-
-    
     return <View style={{backgroundColor:'#FAFAFA', height:'100%', paddingHorizontal:68*h}}>
        <FlatList
        

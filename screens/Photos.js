@@ -42,7 +42,6 @@ const Photos = ({navigation}) =>{
             spacing={3}
             images={food}
             onPressImage={(item)=>{
-                console.log(item.uri);    
                 navigation.navigate('Photo',{image: item.uri})}
             }	 />
     
