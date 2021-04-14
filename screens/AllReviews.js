@@ -13,7 +13,7 @@ const AllReviews = () =>{
        
         data={profile}
         keyExtractor = {(item) =>`${item.id}`}
-       
+        showsVerticalScrollIndicator={false}
         renderItem ={({item})=>{
             return <FriendInfo showFollow={false} image={item['urls']['small']} justifyContent='space-between'
        
