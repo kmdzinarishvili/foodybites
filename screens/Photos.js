@@ -1,8 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import {View, Image, Text, StyleSheet, ScrollView, FlatList, Pressable} from 'react-native';
 
-import SafeView from '../components/SafeView';
-import useFetch from '../hooks/useFetch';
 import {w, h} from '../proportion';
 
 const Photos = ({navigation}) =>{
