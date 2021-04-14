@@ -50,7 +50,7 @@ const RootApp = () =>{
 
 
   return (
-    <RootStack.Navigator>
+    <RootStack.Navigator  headerMode="screen">
 
     <RootStack.Screen
         name="Home"

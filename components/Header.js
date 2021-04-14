@@ -7,9 +7,10 @@ import { useNavigation } from '@react-navigation/native';
 
  const Header = ({  name, search, color = "#FAFAFA", textColor}) =>{
     const navigation = useNavigation();
+
     //backgroundColor:color
 return (
-            <View style={[space.container,        {backgroundColor:color,  position:'relative'}]}>  
+            <SafeAreaView style={[space.container,        {backgroundColor:color,  position:'relative'}]}>  
                    <Pressable 
                             style={space.left}
                             onPress={()=>navigation.goBack()}>
@@ -29,7 +30,7 @@ return (
                     style={[{width: 63.55*w, height:63.55*h}, space.right]}
                     source={require('../imgs/header/blueSearch.png')}
                     />}
-            </View>
+            </SafeAreaView>
   
 
 );
@@ -38,7 +39,7 @@ const space=StyleSheet.create({
     container:{ 
         marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
         flexDirection:'row',
-        height:155*h, 
+        height:Platform.OS === "android" ? 155*h:155*h+106*h, 
         justifyContent:'center',
         alignItems: 'center',
         }
@@ -48,7 +49,7 @@ const space=StyleSheet.create({
     },
     left:{
         position:'absolute',
-        top: 39*h,
+        top:Platform.OS === "android" ? 39*h:39*h+106*h ,
         left: 67.5*w
 
     },
