@@ -30,7 +30,6 @@ const Photos = ({navigation}) =>{
         fetch_food();
     }, []);
     return <View style={styles.container}>
-        {/* <ScrollView> */}
         <View style={{flexDirection:'row',
                         flexWrap:'wrap',
                         justifyContent:'space-around',
@@ -39,27 +38,10 @@ const Photos = ({navigation}) =>{
             
 
             <MasonryList
+            imageContainerStyle={{borderRadius:22*w}}
             images={food} />
-             {/* {food?food.map((item, index)=>{
-                return     <Pressable
-                key={`${index}`}
-                onPress={()=>{
-                    navigation.navigate('Photo');
-                }}><Image 
-                        style={{width: index===4? 650*w: index===9?989*w  :300*w, 
-                            height: index===4?  650*h:index===9?678*h  : 300*h,
-                             borderRadius:22*w, marginHorizontal:45*w/2,
-                             margin:24*w
-                                }}
-                        source={item}
-                        />
-
-                        </Pressable>
-                    }):
-        
-                <Text>Loading</Text>} */}
+    
             </View>
-            {/* </ScrollView> */}
     </View>
 }
 
