@@ -20,6 +20,8 @@ const Review = () =>{
             style={reviewStyles.textInput} 
             placeholder='Write your experience'
             value={value}
+            textAlignVertical='top'
+            multiline={true}
             onChangeText={(text)=> setValue(text)}
             />
         <BlueFooter text='Done' action={()=>navigation.navigate('Home')}/>
@@ -47,14 +49,14 @@ const reviewStyles = StyleSheet.create({
         height:532 *h,
         borderColor:'#8A98BA',
         borderWidth:1*w,
-        justifyContent:'flex-start',
         borderRadius:35*w,
         textAlignVertical: 'top',
-        paddingVertical:60*w,
         paddingHorizontal:58*w,
         fontSize:49*w,
         ...styles.jReg,
         color:'#222455',
+        paddingTop:60*w
+        
         
     }
 })
