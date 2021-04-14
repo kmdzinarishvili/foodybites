@@ -33,10 +33,11 @@ const SelectorCircles = ({numCircles}) =>{
     </View>
 }
 
-const IndPhoto =({photo}) =>{
-    photo="https://media.istockphoto.com/photos/delicious-panna-cotta-with-berries-picture-id182026106?k=6&m=182026106&s=612x612&w=0&h=4CcYZf7CKpsFP6ECPJ0fq0lgB8geZo0rQ04pnjAK8NE="
+const IndPhoto =({route}) =>{
+    const {image} =route.params;
+    const photo="https://media.istockphoto.com/photos/delicious-panna-cotta-with-berries-picture-id182026106?k=6&m=182026106&s=612x612&w=0&h=4CcYZf7CKpsFP6ECPJ0fq0lgB8geZo0rQ04pnjAK8NE="
     return<View style={photoStyles.container}>
-        <AutoHeightImage  width={1125*w} source={{uri:photo}} />
+        <AutoHeightImage style={{marginBottom:350*h}} width={1125*w} source={{uri:image}} />
         <SelectorCircles numCircles={5}/>
     </View>
 
@@ -48,8 +49,8 @@ const photoStyles = StyleSheet.create({
         height:'100%',
         width:'100%',
         backgroundColor: '#25262E',
-        justifyContent:'space-around',
-        alignItems:'center'
+        justifyContent:'center',
+        alignItems:'center',
     },
     selectorContainer:{
         flexDirection:'row',

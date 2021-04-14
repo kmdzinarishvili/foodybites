@@ -21,7 +21,6 @@ const Photos = ({navigation}) =>{
 
         let newRes = [];
         await currFood.map((item)=> newRes.push({uri:item['urls']['regular']}));
-        console.log(newRes);
         setFood(newRes);
 
     }    
@@ -34,13 +33,15 @@ const Photos = ({navigation}) =>{
                         flexWrap:'wrap',
                         justifyContent:'space-around',
                         height: '100%'
+                        
                         }}>
             
 
             <MasonryList
             imageContainerStyle={{borderRadius:22*w}}
             spacing={3}
-            images={food} />
+            images={food}
+            onPressImage={(item)=>navigation.navigate('Photo', {'image': item['uri']} )}	 />
     
             </View>
     </View>
