@@ -7,6 +7,9 @@ import Rating from '../components/Review/Rating';
 import gradients from '../styles/gradients';
 import {LinearGradient} from 'expo-linear-gradient';
 import DistanceSlider from  '../components/Filter/DistanceSlider';
+import BlueFooter from '../components/BlueFooter';
+import { useNavigation } from '@react-navigation/native';
+ 
 
 const Category = ({country, id, pressedId, setPressedId }) =>{
 
@@ -51,10 +54,9 @@ const CategoryButtons = ({countries}) =>{
 }
 
 const Filter = () =>{
+    
+    const navigation =useNavigation();
  
-
-    // //pressed.id 
-    // //then change accordingly
     const countries = ['Italian', 'Chinese', 'Mexican',
                         'Thai', 'Arabian', 'Indian',
                         'American', 'Korean', 'European'];
@@ -64,14 +66,15 @@ const Filter = () =>{
                 flexDirection:'column',
                 alignItems:'center'
                 }}>
-        <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Select Category'/>
+        <FilterTitle style={{marginTop:166*h, marginBottom:83*h}} text='Select Category'/>
                 <CategoryButtons countries={countries}/>
      
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Distance'/>
-        <DistanceSlider style={{marginTop:172*h}}/>
+        <DistanceSlider style={{marginTop:88*h}}/>
         <FilterTitle style={{marginTop:127*h, marginBottom:83*h}} text='Ratings'/>
         
         <Rating />
+        <BlueFooter text={["Reset", "Apply"]} action={[()=>console.log('Reset'), ()=>navigation.navigate('Home Search')]} />
 
     </View>)
 }

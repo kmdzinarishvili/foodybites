@@ -5,7 +5,7 @@ import {w, h} from '../proportion';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
 
- const Header = ({  name, search, color = "#FAFAFA"}) =>{
+ const Header = ({  name, search, color = "#FAFAFA", textColor}) =>{
     const navigation = useNavigation();
     //backgroundColor:color
 return (
@@ -17,12 +17,12 @@ return (
 
                     <Image
                     style={[ {width: 41.1*w, height:74.61*h}]}
-                    source={require('../imgs/header/backArrow.png')}
+                    source={!textColor?require('../imgs/header/backArrow.png'): require('../imgs/restaurantPage/back_arrow.png')}
                     />
                     </Pressable>
                    
              
-                  <Text style={[styles.jBold, styles.font60, styles.blue]}>{name}</Text>
+                  <Text style={[styles.jBold, styles.font60,textColor?{color:textColor}: styles.blue]}>{name}</Text>
 
 
                     {search&&<Image

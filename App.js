@@ -20,6 +20,7 @@ import FriendPage from './screens/FriendPage';
 import IndRestaurant from './screens/individualPages/IndRestaurant';
 import IndCategory from './screens/individualPages/IndCategory';
 import IndFriend from './screens/individualPages/IndFriend';
+import IndPhoto from './screens/individualPages/IndPhoto';
 
 import Filter from './screens/Filter';
 import ReviewPage from './screens/ReviewPage';
@@ -27,6 +28,9 @@ import ReviewPage from './screens/ReviewPage';
 import Animated from 'react-native-reanimated';
 import HomeSearch from './screens/HomeSearch';
 import Photos from './screens/Photos';
+import AllReviews from './screens/AllReviews';
+
+
 
 
 const fetchFonts = async() => {
@@ -156,9 +160,48 @@ const RootApp = () =>{
             name="Photos"
             component={Photos}
             options={{
-              headerShown:false
+              header:() =>{ 
+                return (
+                <Header 
+                name='Menu & Photos' search={true}
+              
+                search={false}/>
+                  )}
             }}          
           />
+          <RootStack.Screen
+            name="Photo"
+            component={IndPhoto}
+            options={{
+              headerShown:false
+            }}        
+            options={{
+              header:() =>{ 
+                return (
+                <Header 
+                name='Preview' 
+                color={'#25262E'}
+                textColor={'#FFF'}
+                search={false}/>
+                  )}
+            }}    
+          />
+             <RootStack.Screen
+            name="All Reviews"
+            component={AllReviews}
+            options={{
+              headerShown:false
+            }}        
+            options={{
+              header:() =>{ 
+                return (
+                <Header 
+                name='Review & Rating' 
+                search={false}/>
+                  )}
+            }}    
+          />
+          
     </RootStack.Navigator>
     
 
