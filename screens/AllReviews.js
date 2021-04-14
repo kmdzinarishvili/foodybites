@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {View, Text, FlatList} from 'react-native';
 import FriendInfo from '../components/FriendInfo';
 import Star from '../components/Star';
+import {h} from '../proportion';
 
 const AllReviews = () =>{
     const [profile, setProfile] = useState()
@@ -23,8 +24,9 @@ const AllReviews = () =>{
 
 
     
-    return <View style={{backgroundColor:'#FAFAFA', height:'100%'}}>
+    return <View style={{backgroundColor:'#FAFAFA', height:'100%', paddingHorizontal:68*h}}>
        <FlatList
+       
         data={profile}
         keyExtractor = {(item) =>`${item.id}`}
        
