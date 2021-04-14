@@ -4,7 +4,7 @@ import {FlatList} from 'react-native';
 import CatView from '../SectionViews/CatView';
 import HomeSection from '../HomeSection';
 import { useNavigation } from '@react-navigation/native';
-
+import {h} from '../../proportion';
 
 
 const CatSec = () =>{
@@ -29,7 +29,7 @@ const CatSec = () =>{
         <HomeSection title='Category' number={9} goTo={()=> navigation.navigate('Category')}>    
         <FlatList
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{flexDirection:'row'}}
+            contentContainerStyle={{flexDirection:'row', marginTop:54*h/2}}
             data={categories}
             horizontal={true}
 

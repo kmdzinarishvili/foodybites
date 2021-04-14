@@ -1,30 +1,32 @@
 import { useNavigation } from '@react-navigation/native';
 import React, {useState} from 'react';
-import {View, Image, TextInput, StyleSheet, Pressable, Text} from 'react-native';
+import {View, Image, Platform, TextInput, StyleSheet, Pressable, Text} from 'react-native';
 import {w,h} from '../proportion';
 import styles from '../styles/styles';
-const SearchBar = ({placeholder, action, editable=true, autoFocus=false, rightComponent}) => {
+const SearchBar = ({placeholder, action, autoFocus=false, rightComponent}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const navigation=useNavigation();
     return(
     <View style={searchStyles.SectionStyle}>
     <Image source={require('../imgs/home/magnifying_glass.png')} style={searchStyles.ImageStyle} />
     
-    <Pressable 
-        
+    <View   
       style={[{ position: 'absolute',  width:'70%', left:60, }]}
-        onPress={action}
         >
-    
+    <Pressable style={{marginBottom: Platform.OS === "android" ? 25 : 0}}onPress={ action}>
+    <View pointerEvents="none">
+    <TextInput />
+
             <TextInput
-                autoFocus={autoFocus}
                 style={{fontSize:48*w },styles.jReg}
-                editable={editable}
                 value={searchTerm}
                 onChangeText={(text) => setSearchTerm(text)}
                 placeholder={placeholder}
                 />
-    </Pressable>
+
+        </View>
+        </Pressable>
+    </View>
 
     {!rightComponent? <Pressable
         onPress={()=>navigation.navigate('Filter')}>

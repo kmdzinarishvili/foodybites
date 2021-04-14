@@ -1,5 +1,5 @@
 import React, {forwardRef, useImperativeHandle} from 'react';
-import {View, StyleSheet, Image, Text, ImageBackground} from 'react-native';
+import {View, StyleSheet, ImageBackground} from 'react-native';
 import Animated, { 
     useAnimatedGestureHandler, 
     useAnimatedStyle, 
@@ -25,7 +25,7 @@ const SLIDER_WIDTH = 984*w - KNOB_WIDTH ;
 const SLIDER_HEIGHT =27 *h;
 
 let DistanceSlider =({style}, ref) =>{
-    const translateX = useSharedValue(15);
+    const translateX = useSharedValue(Platform.OS === "android" ?14:15);
 
 
     useImperativeHandle(ref, () => ({

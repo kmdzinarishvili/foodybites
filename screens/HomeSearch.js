@@ -13,7 +13,7 @@ const ExitCircle = () =>{
     const navigation = useNavigation()
     return(
     <Pressable
-        onPress={()=>navigation.goBack()}
+        onPress={()=>navigation.navigate('Home')}
         style={{backgroundColor:'#222455',
             opacity:0.5,
             width:76*w,
@@ -21,7 +21,7 @@ const ExitCircle = () =>{
             borderRadius:38*w,
             justifyContent:'center',
             alignItems:'center'}}>
-        <Image style={{width:29.89 *w, height: 28.89*h}} source={require('../imgs/X.png')}/>
+        <Image style={{width:29.89 *w, height: 28.89*h, transform: [{ rotate: '45deg' }]}} source={require('../imgs/footer/cross.png')}/>
     </Pressable>
     );
 }

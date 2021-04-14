@@ -35,7 +35,6 @@ const RestSec = () =>{
                 horizontal={true}
                 keyExtractor={(item) => {
                     return (`${item.id}`);
-
                 }
                 }
 
