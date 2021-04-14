@@ -1,35 +1,14 @@
 add customizable linear gradient in restaurant preview 
-center plus button 
-friends recommendations in restaurant preview -- check if working on ios (glitching on android)
 
-
-
-make multiple categories 
-
-opacity of italian 
-
-mixed background colors on trending restaurant page 
-
-
+opacity of italian  in restaurant preview
 
 
 minifriends not working on android 
 and showing vertical on trending page 
 
 
-abstract away logic for list page 
 
-trending restaurant page is weird 
-friends flatlist not scrolling 
-
-fix border radiuses 
-
-make pages and searchbars exact
-
-
-look into gesture handler for filter
-
-something about a map? -- look into google maps api 
+trending restaurant page loads partially white first 
 
 
 blurview space around 
@@ -45,34 +24,10 @@ add suggested to friends page -- to friend page
 add white icons on top of individual restaurant page
 
 
-idk whyyyyyyyy the restaurant page is loading slowly and also it says each child needs a unique key
-
-
-add data 
-
-
 add hitslop to back arrow (export as separate component )
 
 
+maybe change star component to have state inside so the whole thing doesn't rerender on a single press 
 
 
-maybe add random rating 
-
-
-  <Swipeable
-      onSwipeableLeftOpen={()=>console.log('Swiped Leftt')}
-      onSwipeableRightOpen={()=>console.log('Swiped right')}
-      renderLeftActions={() => <LeftItem/>}
-      renderRightActions={() => <RightItem  />}
-    >
-
-
-    maybe change star component to have state inside so the whole thing doesn't rerender on a single press 
-
-
-
-    the s in restaurants is getting cut off in the search bar 
-
-
-replace gray x with white one
 

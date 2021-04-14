@@ -7,6 +7,9 @@ import CatView from '../components/SectionViews/CatView';
 import {w,h} from '../proportion';
 
 const CategoryPage = () =>{
+    const countries = ['Italian', 'Chinese', 'Mexican',
+    'Thai', 'Arabian', 'Indian',
+    'American', 'Korean', 'European'];
     const [categories, setCategories] = useState();
     const fetch_category_pictures= async () =>{
         const result = await fetch(
@@ -33,7 +36,7 @@ const CategoryPage = () =>{
                 renderItem={({item, index})=>{
                 
                 return (
-                    <CatView image ={item['urls']['regular']} index={index}  width={993.15*w} height={231.72*h} marginHorizontal={0} showStripe={true} />
+                    <CatView image ={item['urls']['regular']} index={index} name={countries[index]} width={993.15*w} height={231.72*h} marginHorizontal={0} showStripe={true} />
                );
             }}                    
             />
