@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import {View, Image, Text, StyleSheet, ScrollView, FlatList, Pressable} from 'react-native';
+import {View,StyleSheet } from 'react-native';
 
 import {w, h} from '../proportion';
 import MasonryList from "react-native-masonry-list";
