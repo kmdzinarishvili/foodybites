@@ -6,25 +6,14 @@ import SearchBar from '../components/SearchBar';
 import CatView from '../components/SectionViews/CatView';
 import {w,h} from '../proportion';
 
+import useFetch from '../hooks/useFetch';
+
 const CategoryPage = () =>{
     const countries = ['Italian', 'Chinese', 'Mexican',
     'Thai', 'Arabian', 'Indian',
     'American', 'Korean', 'European'];
-    const [categories, setCategories] = useState();
-    const fetch_category_pictures= async () =>{
-        const result = await fetch(
-            'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food'
-        ).then(res=>res.json()).then(res=>res['results'])
-        .then(json => {setCategories(json);
-       })
-        .catch((error) => {
-            throw error;
-        });
-    }
-    
-    useEffect(()=>{
-        fetch_category_pictures();
-    }, []);
+    const categories = useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
+
    
         return(
         <PageTemplate>

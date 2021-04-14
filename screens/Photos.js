@@ -41,7 +41,7 @@ const Photos = ({navigation}) =>{
             imageContainerStyle={{borderRadius:22*w}}
             spacing={3}
             images={food}
-            onPressImage={(item)=>navigation.navigate('Photo', {'image': item['uri']} )}	 />
+            onPressImage={(item)=>navigation.navigate('Photo', {uri: item} )}	 />
     
             </View>
     </View>

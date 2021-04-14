@@ -220,12 +220,10 @@ export default function App() {
 
   if(!dataLoaded){
     return(
-      <View style={{justifyContent:'center', alignItems:'center'}}>
+      <View style={{justifyContent:'center', alignItems:'center', height:'100%'}}>
          <Text>LOADING</Text>
       </View>
-
     );
-
   }
 
 

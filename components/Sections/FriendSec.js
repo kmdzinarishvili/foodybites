@@ -5,26 +5,14 @@ import FriendView from '../SectionViews/FriendView';
 
 import HomeSection from '../HomeSection';
 import { useNavigation } from '@react-navigation/native';
+import useFetch from '../../hooks/useFetch';
 
 
 
 
 const FriendSec = () =>{
     const navigation= useNavigation()
-    const [friends, setFriends] = useState();
-
-    const fetch_friend_pictures= async () =>{
-        const result = await fetch(
-            'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile'
-        ).then(res=>res.json()).then(res=>res['results'])
-        .then(json => {setFriends(json)})
-        .catch((error) => {
-            throw error;
-        });
-    }
-    useEffect(() =>{
-        fetch_friend_pictures();
-    }, [] );
+    const friends= useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile');
 
     return(
         <HomeSection title='Friends' number={56} goTo={()=>navigation.navigate('Friend')}>    

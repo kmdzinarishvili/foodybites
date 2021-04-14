@@ -16,6 +16,7 @@ import RedirecToMaps from '../../components/Maps/RedirecToMaps';
 import RestaurantInfo from '../../components/Restaurant/RestaurantInfo';
 import Circle from '../../components/Restaurant/Circle';
 import HeaderIcons from '../../components/Restaurant/HeaderIcons';
+import useFetch from '../../hooks/useFetch';
 
 
 
@@ -32,36 +33,8 @@ const IndRestaurant = ({route, navigation}) =>{
     const rating = 4.5
 
 
-    const [food, setFood] = useState();
-    const fetch_food= async () =>{
-        const result = await fetch(
-            'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food'
-        ).then(res=>res.json()).then(res=>res['results'])
-        .then(json => {setFood(json)})
-        .catch((error) => {
-            throw error;
-        });
-    }    
-    
-    useEffect(()=>{
-        fetch_food();
-    }, []);
-    
-    const [profiles, setProfiles] = useState();
-    const fetch_profiles= async () =>{
-        const result = await fetch(
-            'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile'
-        ).then(res=>res.json()).then(res=>res['results'])
-        .then(json => {setProfiles(json)})
-        .catch((error) => {
-            throw error;
-        });
-    }    
-    
-    useEffect(()=>{
-        fetch_profiles();
-    }, []);
-    
+    const food = useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
+    const profiles = useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile');
      
 
 return (

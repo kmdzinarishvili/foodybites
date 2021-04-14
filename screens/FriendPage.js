@@ -4,10 +4,10 @@ import SearchBar from '../components/SearchBar';
 
 
 import FriendInfo from '../components/FriendInfo';
-import FriendView from '../components/SectionViews/FriendView';
 
 import {w,h} from '../proportion';
 import styles from '../styles/styles';
+import useFetch from '../hooks/useFetch';
 
 
 const Dividor = ({title}) =>{
@@ -20,20 +20,7 @@ const Dividor = ({title}) =>{
 }
 
 const FriendPage = () =>{
-    const [friends, setFriends] = useState();
-
-    const fetch_friend_pictures= async () =>{
-        const result = await fetch(
-            'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile'
-        ).then(res=>res.json()).then(res=>res['results'])
-        .then(json => {setFriends(json.slice(0,3))})
-        .catch((error) => {
-            throw error;
-        });
-    }
-    useEffect(() =>{
-        fetch_friend_pictures();
-    }, [] );
+    const friends = useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile');
     return(
         <View style={{backgroundColor:'#FAFAFA'}}>
                 <View style={{paddingHorizontal:68*w}}>

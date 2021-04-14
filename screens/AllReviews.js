@@ -3,23 +3,11 @@ import {View, Text, FlatList} from 'react-native';
 import FriendInfo from '../components/FriendInfo';
 import Star from '../components/Star';
 import {h} from '../proportion';
+import useFetch from '../hooks/useFetch';
 
 const AllReviews = () =>{
-    const [profile, setProfile] = useState()
-    const fetch_profiles= async () =>{
-        const result = await fetch(
-            'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile'
-        ).then(res=>res.json()).then(res=>res['results'])
-        .then(json => {setProfile(json)})
-        .catch((error) => {
-            throw error;
-        });
-    }    
-    
-    useEffect(()=>{
-        fetch_profiles();
-    }, []);
-    
+    const profile= useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile');
+      
      
 
 
