@@ -25,7 +25,7 @@ const RestSec = () =>{
     useEffect(()=>{
         fetch_restaurant_pictures();
     }, []);
-    let i = 0;
+ 
     return(
         <HomeSection title='Trending Restaurants' number={45} goTo={() =>navigation.navigate('Restaurant')}>
         <FlatList
