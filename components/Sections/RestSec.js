@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {FlatList, Text} from 'react-native';
+import {FlatList, Platform} from 'react-native';
 
 import RestaurantPreview from '../SectionViews/RestaurantPreview';
 
 import HomeSection from '../HomeSection';
 import { useNavigation } from '@react-navigation/native';
 
-
+import {w} from '../../proportion';
 
 
 const RestSec = () =>{
@@ -30,7 +30,7 @@ const RestSec = () =>{
         <HomeSection title='Trending Restaurants' number={45} goTo={() =>navigation.navigate('Restaurant')}>
         <FlatList
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{flexDirection:'row'}}
+                contentContainerStyle={{flexDirection:'row', marginTop:  20*w}}
                 data={restaurants}
                 horizontal={true}
                 keyExtractor={(item) => {

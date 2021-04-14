@@ -5,10 +5,8 @@ import {w, h} from '../proportion';
 
 
 const FooterNavigation = () =>{
-    const navigation = useNavigation();
     return(
-        <View style={{flexDirection:"row", justifyContent:'space-around', alignItems:'center', backgroundColor:'#FFF',
-                    width:Dimensions.get('window').width, position:'absolute', bottom:0, height:252*h, borderRadius:30}}>
+        <View style={styles.container}>
         <Image source={require('../imgs/footer/home.png')} style={styles.home} />
         <Image source={require('../imgs/footer/bookmark.png')} style={styles.bookmark} />
         
@@ -25,6 +23,20 @@ const FooterNavigation = () =>{
 };
 
 const styles = StyleSheet.create({
+    container:{
+        flexDirection:"row", 
+        justifyContent:'space-around', 
+        alignItems:'center',
+         backgroundColor:'#FFF',
+
+    width:Dimensions.get('window').width,
+     position:'absolute', 
+     bottom:0,
+      height:252*h, 
+      borderTopLeftRadius:30,
+      borderTopRightRadius:30
+
+    },
     home:{
         width: 73.86*w,
         height: 67.71*h,

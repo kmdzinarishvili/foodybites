@@ -32,10 +32,9 @@ const CatSec = () =>{
         <HomeSection title='Category' number={9} goTo={()=> navigation.navigate('Category')}>    
         <FlatList
             showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{flexDirection:'row', marginTop:54*h/2}}
+            contentContainerStyle={{flexDirection:'row'}}
             data={categories}
             horizontal={true}
-
             renderItem={({item, index})=>{
                 return (
                     <CatView image={item['urls']['regular']} name={countries[index]} index={index}/>);

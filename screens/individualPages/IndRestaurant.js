@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, Image, StyleSheet, Pressable, ImageBackground, FlatList, SafeAreaView, StatusBar, Linking } from 'react-native';
+import {View, Text, Image, StyleSheet, Pressable, ImageBackground, FlatList, SafeAreaView, StatusBar, Linking, Platform } from 'react-native';
 import { BlurView } from 'expo-blur';
 import BlueFooter from '../../components/BlueFooter';
 
@@ -47,6 +47,21 @@ const IndRestaurant = ({route, navigation}) =>{
         fetch_food();
     }, []);
     
+    const [profiles, setProfiles] = useState();
+    const fetch_profiles= async () =>{
+        const result = await fetch(
+            'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile'
+        ).then(res=>res.json()).then(res=>res['results'])
+        .then(json => {setProfiles(json)})
+        .catch((error) => {
+            throw error;
+        });
+    }    
+    
+    useEffect(()=>{
+        fetch_profiles();
+    }, []);
+    
      
 
 return (
@@ -59,7 +74,9 @@ return (
         flexDirection:'row', alignItems:'center', justifyContent:'space-around'}}>
  
         <Pressable
-            onPress={()=>Linking.openURL(`tel:${phoneNumber}`)} >
+            onPress={()=>Linking.openURL(Platform.OS==='android'?`tel:${phoneNumber}`: `tel://${phoneNumber}`)
+            .catch(err =>
+                console.error('An error occurred', err))} >
             <View style={{ flexDirection:'row', alignItems:'center', overflow:'hidden' }}>
         
                 <Circle>
@@ -102,9 +119,11 @@ return (
 
          <FlatList 
             showsVerticalScrollIndicator={false}
-            data={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]}
+            data={profiles}
+            contentContainerStyle={{paddingBottom:250}}
+            
 
-            keyExtractor={(item)=>`ahhhhhhhhhh${item}`}
+            keyExtractor={(item)=>`ahhh${item}`}
 
             ListHeaderComponent={
                 <View>
@@ -137,11 +156,12 @@ return (
                 </View>
             }
       
-            renderItem ={({item})=>{
+            renderItem ={({item, index})=>{
                 return <FriendInfo showFollow={false}  justifyContent='space-between'
+                        image={item['urls']['small']}
            
                 star={
-                    <Star key={item.id} rating={rating}/>
+                    <Star key={index} rating={rating}/>
                 }
                 />
                     

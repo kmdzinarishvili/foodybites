@@ -26,12 +26,13 @@ const Home = ({navigation}) => {
             }}>
             <View >
                 <SearchBar placeholder="Find Restaurants"  action={()=>navigation.navigate('Home Search')}/>
-                <RestSec  navigation={navigation} goTo={() =>navigation.navigate('Restaurant')}/>
-                <CatSec navigation={navigation} goTo={() =>navigation.navigate('Category')}/>
-                <FriendSec navigation={navigation} goTo={() =>navigation.navigate('Friend')}/>
+                <RestSec   goTo={() =>navigation.navigate('Restaurant')}/>
+                <CatSec goTo={() =>navigation.navigate('Category')}/>
+                <FriendSec goTo={() =>navigation.navigate('Friend')}/>
+           </View>
            </View>
            <FooterNavigation/>
-           </View>
+
         </SafeView>
 
     )

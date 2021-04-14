@@ -79,6 +79,7 @@ const restStyles = StyleSheet.create({
     whiteButton:{
         backgroundColor:'#FFF', position:'absolute', zIndex:1000, top:36*h, 
             overflow:'hidden', padding:31*w, borderRadius:10, fontSize:25*w
+            
     },
     left:{
         left: 31*w,
@@ -96,7 +97,8 @@ const restStyles = StyleSheet.create({
          backgroundColor:"#FFF",
           flexDirection:'column', 
           justifyContent:'space-around',
-          padding:25*w
+          padding:25*w, 
+          height:225*h
 
     },
     white22:{
