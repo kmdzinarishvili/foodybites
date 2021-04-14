@@ -30,4 +30,7 @@ add hitslop to back arrow (export as separate component )
 maybe change star component to have state inside so the whole thing doesn't rerender on a single press 
 
 
+write USE FETCH hook 
+
+
 

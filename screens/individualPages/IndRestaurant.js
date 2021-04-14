@@ -120,7 +120,7 @@ return (
          <FlatList 
             showsVerticalScrollIndicator={false}
             data={profiles}
-            contentContainerStyle={{paddingBottom:250}}
+            contentContainerStyle={{paddingBottom:850*h}}
             
 
             keyExtractor={(item)=>`ahhh${item.id}`}

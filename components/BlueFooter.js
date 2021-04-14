@@ -19,7 +19,7 @@ const BlueFooter = ({text="Footer", action}) =>{
             >
                 <Text style={[footerStyles.text, {paddingHorizontal:145*w,  paddingVertical:60*h}]}>{text[0]}</Text>
                 </Pressable>
-            <View style={{height:'100%', width:1, backgroundColor:'blue' }}></View>
+            <View style={{height:'100%', width:1, backgroundColor:'#FFF', opacity:0.4 }}></View>
             <Pressable
 
                 onPress={action[1]}

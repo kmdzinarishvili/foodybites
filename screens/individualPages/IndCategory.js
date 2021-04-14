@@ -13,8 +13,6 @@ const IndCategory = ({  route}) =>{
     const {image, gradient, name} = (route.params);
     const navigation = useNavigation();
 
-    
-    
     return (
         <Pressable>
         

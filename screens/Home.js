@@ -25,7 +25,7 @@ const Home = ({navigation}) => {
                 backgroundColor:'#F9F9f9',
             }}>
             <View >
-                <SearchBar placeholder="Find Restaurants"  action={()=>navigation.navigate('Home Search')}/>
+                <SearchBar placeholder="Find Restaurants" action={()=>navigation.navigate('Home Search')}/>
                 <RestSec   goTo={() =>navigation.navigate('Restaurant')}/>
                 <CatSec goTo={() =>navigation.navigate('Category')}/>
                 <FriendSec goTo={() =>navigation.navigate('Friend')}/>
