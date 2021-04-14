@@ -10,7 +10,7 @@ import RestaurantFlatList from '../../components/Restaurant/RestaurantFlatList';
 
 
 const IndCategory = ({ name='Italian',  route}) =>{
-    const gradient = (route.params);
+    const {image, gradient} = (route.params);
     const navigation = useNavigation();
 
     
@@ -20,8 +20,7 @@ const IndCategory = ({ name='Italian',  route}) =>{
         
             <ImageBackground source={
             {
-                uri:"https://images.unsplash.com/photo-1482049016688-2d3e1b311543?crop=entropy\u0026cs=tinysrgb\u0026fit=max\u0026fm=jpg\u0026ixid=MnwyMTg3NTR8MHwxfHNlYXJjaHwxfHxmb29kfGVufDB8fHx8MTYxNzYwMTMwMQ\u0026ixlib=rb-1.2.1\u0026q=80\u0026w=1080"
-            }
+                uri:image          }
             }
             style={{width:1125*w, height:317.72*h}}>
           

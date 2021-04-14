@@ -144,7 +144,7 @@ const RootApp = () =>{
             header:() =>{ 
               return (
               <Header 
-              name='Review & Rating' search={true}/>
+              name='Review & Rating' search={false}/>
                 )}
           }}          
         />
