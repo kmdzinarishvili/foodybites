@@ -8,7 +8,6 @@ import { useNavigation } from '@react-navigation/native';
  const Header = ({  name, search, color = "#FAFAFA", textColor}) =>{
     const navigation = useNavigation();
 
-    //backgroundColor:color
 return (
             <SafeAreaView style={[space.container,        {backgroundColor:color,  position:'relative'}]}>  
                    <Pressable 
@@ -55,7 +54,7 @@ const space=StyleSheet.create({
     },
     right:{
         position:'absolute',
-        top: 39*h,
+        top:Platform.OS === "android" ? 39*h:39*h+106*h ,
         right: 67.5*w
 
     }

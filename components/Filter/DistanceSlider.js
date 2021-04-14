@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {forwardRef, useImperativeHandle} from 'react';
 import {View, StyleSheet, Image, Text, ImageBackground} from 'react-native';
 import Animated, { 
     useAnimatedGestureHandler, 
@@ -24,9 +24,17 @@ const MAX_RANGE = 100;
 const SLIDER_WIDTH = 984*w - KNOB_WIDTH ;
 const SLIDER_HEIGHT =27 *h;
 
-const DistanceSlider =({style}) =>{
-    const translateX = useSharedValue(0);
+let DistanceSlider =({style}, ref) =>{
+    const translateX = useSharedValue(15);
 
+
+    useImperativeHandle(ref, () => ({
+        resetDistance: () => {
+            translateX.value=15;
+        },
+    }));
+        
+    
     const isSliding= useSharedValue(false);
     const onGestureEvent = useAnimatedGestureHandler({
         onStart: (_, ctx) => {
@@ -108,6 +116,8 @@ const styles = StyleSheet.create({
   })
 
 
+
+  DistanceSlider = forwardRef(DistanceSlider);
 
 
 export default DistanceSlider;

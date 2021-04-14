@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
-import {View, Image, Pressable, Text, StyleSheet} from 'react-native';
-import { FlatList } from 'react-native-gesture-handler';
+import React, {useState, forwardRef,useImperativeHandle} from 'react';
+import {View, FlatList, Image, Pressable, Text, StyleSheet, } from 'react-native';
 import { h, w } from '../../proportion';
 import {PanGestureHandler} from 'react-native-gesture-handler';
 
 
-const Rating = ({style}) =>{
+let Rating = ({style}, ref) =>{
     const [numStars, setNumStars] = useState(0);
     let myStars = [];
     let empty = [1,2,3,4,5];
@@ -15,6 +14,11 @@ const Rating = ({style}) =>{
             <Image  source={require('../../imgs/star.png')}/>
         </Pressable>)
     }
+    useImperativeHandle(ref, () => ({
+        resetStars: () => {
+            setNumStars(0);
+        },
+    }));
    
   
     return (
@@ -28,7 +32,6 @@ const Rating = ({style}) =>{
                     return  <Pressable onPress={()=>setNumStars(item)}>
                    {index<numStars? <Image style={sStyles.star} source={require('../../imgs/star.png')}/>: 
                                 <Image  style={sStyles.star} source ={require('../../imgs/gray_star.png')}/>}
-
                 </Pressable>
                 }} />
         </View>
@@ -51,4 +54,6 @@ const sStyles= StyleSheet.create({
     }
 })
 
+
+Rating = forwardRef(Rating);
 export default Rating;
