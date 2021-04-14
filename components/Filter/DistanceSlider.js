@@ -72,10 +72,6 @@ let DistanceSlider =({style}, ref) =>{
         const step = Math.ceil(translateX.value / oneStepValue) +5
         return String(step)
       });
-
-    console.log('rendering');
-    console.log(stepText.value);
-
     return(
         
         <View style={[styles.slider, style]}>
