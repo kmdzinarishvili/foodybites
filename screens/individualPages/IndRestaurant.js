@@ -123,7 +123,7 @@ return (
             contentContainerStyle={{paddingBottom:250}}
             
 
-            keyExtractor={(item)=>`ahhh${item}`}
+            keyExtractor={(item)=>`ahhh${item.id}`}
 
             ListHeaderComponent={
                 <View>
