@@ -39,6 +39,7 @@ const Photos = ({navigation}) =>{
 
             <MasonryList
             imageContainerStyle={{borderRadius:22*w}}
+            spacing={3}
             images={food} />
     
             </View>
