@@ -13,7 +13,7 @@ const SearchBar = ({placeholder, action,  rightComponent, autoFocus=false}) => {
     <View   
       style={[{ position: 'absolute',  width:'70%', left:60, }]}
         >
-    <Pressable style={{marginBottom: Platform.OS === "android" ? 25 : 0}}onPress={ action}>
+    <Pressable onPress={ action}>
     <View pointerEvents="none">
 
             <TextInput
