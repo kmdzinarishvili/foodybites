@@ -6,16 +6,15 @@ import IndCategory from './IndCategory';
 import useFetch from '../../hooks/useFetch';
 import gradients from '../../styles/gradients';
 
-const CategoryNav = ({navigation}) =>{
+const CategoryNav = ({route}) =>{
+const {image, gradient, name} = route.params
 const categories =  useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
 
     if (categories){
-        console.log(categories);
     return (
        <AppIntroSlider 
         renderItem={({item,index})=>{
-            const gradient =  index%3==0? gradients.pink:index%3==1? gradients.purple:gradients.blue;
-            return (<IndCategory image={item['urls']['regular']} gradient={gradient} name={index<countries.length?countries[index]:'German'}/>)
+            return (<IndCategory image={image} gradient={gradient} name={name}/>)
         }
         }
         data={categories} 
