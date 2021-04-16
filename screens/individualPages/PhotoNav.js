@@ -1,14 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {countries} from '../../data/data';
-import IndCategory from './IndCategory';
 import useFetch from '../../hooks/useFetch';
-import gradients from '../../styles/gradients';
 import IndPhoto from './IndPhoto';
 
-import {w,h} from '../../proportion';
-import { useEffect } from 'react/cjs/react.development';
+import {w} from '../../proportion';
 
 
 
@@ -39,16 +35,12 @@ const PhotoNav = ({route}) =>{
             }
             data={photos} 
             keyExtractor={(item)=>item.id}
-            // renderPagination={(active)=>{
-            //     return(<View style={styles.container}>
-            //         {photos.map((p,index)=>
-            //         <View key={`${index}`}
-            //           style={active===index?styles.selCircle:styles.regCircle}/>)}
-            //     </View>)}
-            // }
-            // renderPagination={(active)=>{
-            //     return (<View style={{backgroundColor='red', width:100, height:100}}></View>)
-            // }}
+            renderPagination={(active)=>{
+                return(<View style={styles.container}>
+                    {photos.map((item, index)=><View key={`${index}`}
+                      style={active===index?styles.selCircle:styles.regCircle}/>)}
+                </View>)}
+            }
             /> 
         );
     }else{
@@ -66,12 +58,15 @@ const PhotoNav = ({route}) =>{
 
 const styles = StyleSheet.create({
     container:{
-
-        backgroundColor: '#25262E',
+        position:'absolute',
+        bottom:'5%',
+        right:0,
+        left:0,
         justifyContent:'center',
-        alignItems:'center',
         flexDirection:'row',
-        bottom:40*w
+        alignItems:'flex-end'
+
+      
     },
     regCircle:{
         backgroundColor:'#6A6A6A',
