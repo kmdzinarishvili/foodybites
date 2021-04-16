@@ -22,6 +22,8 @@ import IndCategory from './screens/individualPages/IndCategory';
 import IndFriend from './screens/individualPages/IndFriend';
 import IndPhoto from './screens/individualPages/IndPhoto';
 
+import CategoryNav from './screens/individualPages/CategoryNav';
+
 import Filter from './screens/Filter';
 import ReviewPage from './screens/ReviewPage';
 
@@ -106,7 +108,7 @@ const RootApp = () =>{
       />
       <RootStack.Screen
         name="Individual Category"
-        component={IndCategory}
+        component={CategoryNav}
         options={{
         headerShown:false
         }}

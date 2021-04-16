@@ -9,12 +9,12 @@ import styles from '../../styles/styles';
 import RestaurantFlatList from '../../components/Restaurant/RestaurantFlatList';
 
 
-const IndCategory = ({  route}) =>{
-    const {image, gradient, name} = (route.params);
+const IndCategory = ({image, gradient, name ="Italian" }) =>{
+    // const {image, gradient, name} = (route.params);
     const navigation = useNavigation();
 
     return (
-        <Pressable>
+        <View >
         
             <ImageBackground source={
             {
@@ -38,7 +38,7 @@ const IndCategory = ({  route}) =>{
                 
                 <Pressable 
                     style={{ position:'absolute', top:140*h, left:68*w}}
-                    onPress={()=>navigation.goBack()}
+                    onPress={()=>navigation.navigate('Home')}
                     hitSlop={50*w}>
                     <Image
                         style={{width:34.1*h, height: 67.61*w}}
@@ -48,7 +48,7 @@ const IndCategory = ({  route}) =>{
             <RestaurantFlatList type="full"/>
 
         
-        </Pressable>
+        </View>
        
     );
 }

@@ -7,6 +7,8 @@ import {w,h} from '../proportion';
 
 import useFetch from '../hooks/useFetch';
 
+
+
 const CategoryPage = () =>{
     const countries = ['Italian', 'Chinese', 'Mexican',
     'Thai', 'Arabian', 'Indian',
@@ -14,7 +16,9 @@ const CategoryPage = () =>{
     const categories = useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
 
         return(
+           
         <PageTemplate>
+               
               <FlatList
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={{flexDirection:'column'}}
@@ -28,6 +32,7 @@ const CategoryPage = () =>{
             }}                    
             />
         </PageTemplate>
+
     );
    
 
