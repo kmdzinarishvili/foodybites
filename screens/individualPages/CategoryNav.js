@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Pressable, Image} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {countries} from '../../data/data';
 import IndCategory from './IndCategory';
@@ -17,7 +17,7 @@ const CategoryNav = ({route}) =>{
     useEffect(()=>{slider.current?slider.current.goToSlide(initIndex, true):console.log('not loaded')});
    
     if (categories){
-    return (
+    return (      
        <AppIntroSlider 
        ref={(ref) => (slider.current = ref)}
         renderItem={({item,index})=>{

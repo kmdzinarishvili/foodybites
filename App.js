@@ -31,6 +31,7 @@ import Animated from 'react-native-reanimated';
 import HomeSearch from './screens/HomeSearch';
 import Photos from './screens/Photos';
 import AllReviews from './screens/AllReviews';
+import PhotoNav from './screens/individualPages/PhotoNav';
 
 
 
@@ -173,7 +174,7 @@ const RootApp = () =>{
           />
           <RootStack.Screen
             name="Photo"
-            component={IndPhoto}
+            component={PhotoNav}
             options={{
               headerShown:false
             }}        

@@ -11,7 +11,6 @@ import RestaurantFlatList from '../../components/Restaurant/RestaurantFlatList';
 
 const IndCategory = ({image, gradient, name ="Italian" }) =>{
     const navigation = useNavigation();
-    var width = 0;
 
     return (
         <View >
