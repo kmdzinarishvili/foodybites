@@ -10,8 +10,8 @@ import RestaurantFlatList from '../../components/Restaurant/RestaurantFlatList';
 
 
 const IndCategory = ({image, gradient, name ="Italian" }) =>{
-    // const {image, gradient, name} = (route.params);
     const navigation = useNavigation();
+    var width = 0;
 
     return (
         <View >
@@ -33,9 +33,11 @@ const IndCategory = ({image, gradient, name ="Italian" }) =>{
                 {[1,2,3,4,5,6,7,8,9].map((num)=><View key={num} style={{margin:10*w,width:52*w, height: 15*w, backgroundColor:'#FFF', opacity:1, borderRadius:8*w }}></View>)}
                 </View>
 
-                <Text style={[styles.title, {color:"#FFF", position:'absolute', zIndex:1000,
-                        bottom:0, right:'40%', bottom:'30%'}]}> {name} </Text>
-                
+
+                <View style={{position: 'absolute',  left: 0, right: 0, bottom: '30%', justifyContent: 'center', alignItems: 'center'}}>
+                <Text  
+                    style={[styles.title, {color:"#FFF"}]}> {name} </Text>
+                </View>
                 <Pressable 
                     style={{ position:'absolute', top:140*h, left:68*w}}
                     onPress={()=>navigation.navigate('Home')}
