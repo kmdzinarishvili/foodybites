@@ -14,7 +14,6 @@ const FooterNavigation = () =>{
             <Image style={styles.cross} source={require('../imgs/footer/cross.png')} />
 
             </View>
-        <View style={{width:40}}></View>
         <Image source={require('../imgs/footer/bell.png')} style={styles.bell} />
         <Image source={require('../imgs/footer/person.png')} style={styles.person} />
         </View>
@@ -26,14 +25,13 @@ const styles = StyleSheet.create({
         flexDirection:"row", 
         justifyContent:'space-around', 
         alignItems:'center',
-         backgroundColor:'#FFF',
-
-    width:Dimensions.get('window').width,
-     position:'absolute', 
-     bottom:0,
-      height:252*h, 
-      borderTopLeftRadius:30,
-      borderTopRightRadius:30
+        backgroundColor:'#FFF',
+        width:Dimensions.get('window').width,
+        position:'absolute', 
+        bottom:0,
+        height:252*h, 
+        borderTopLeftRadius:30,
+        borderTopRightRadius:30
 
     },
     home:{
@@ -59,22 +57,24 @@ const styles = StyleSheet.create({
         height: 61.58*h
     },
     blueCircle: {backgroundColor:"#5663FF",
-     borderRadius:176.11*w/2,
-      width:176.11*w,
-       height:176.11*h,
-    justifyContent:'center', alignItems:'center',
-    position:'absolute', 
-    bottom:30, 
-    left: Dimensions.get('screen').width/2  -176*w/2,
-    shadowColor: '#000',
-    zIndex: 1,
-    shadowOffset: {
-        width: 0,
-        height: 16,
-    },
-    shadowOpacity: 0.25, 
-    shadowRadius: 15,
-    elevation: 16,
+        borderRadius:176.11*w/2,
+        width:176.11*w,
+        height:176.11*h,
+        justifyContent:'center', 
+        alignItems:'center',
+        position:'relative', 
+        bottom:30, 
+        // left: Dimensions.get('screen').width/2  -176*w/2,
+        shadowColor: '#000',
+        zIndex: 1,
+        shadowOffset: {
+            width: 0,
+            height: 16,
+        },
+        shadowOpacity: 0.25, 
+        shadowRadius: 15,
+        elevation: 16,
+        margin:0
 
     }
 
