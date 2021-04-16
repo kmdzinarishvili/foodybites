@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {countries} from '../../data/data';
@@ -7,15 +7,19 @@ import useFetch from '../../hooks/useFetch';
 import gradients from '../../styles/gradients';
 
 import {w,h} from '../../proportion';
+import { useEffect } from 'react/cjs/react.development';
 
 const CategoryNav = ({route}) =>{
-
+    const initIndex= route.params.index;
     const categories =  useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
     
+    const slider = useRef();
+    useEffect(()=>{slider.current?slider.current.goToSlide(initIndex, true):console.log('not loaded')});
+   
     if (categories){
-        console.log(categories);
     return (
        <AppIntroSlider 
+       ref={(ref) => (slider.current = ref)}
         renderItem={({item,index})=>{
             const gradient =  index%3==0? gradients.pink:index%3==1? gradients.purple:gradients.blue;
             return (<IndCategory image={item['urls']['regular']} gradient={gradient} name={index<countries.length?countries[index]:'German'}/>)
@@ -36,7 +40,7 @@ const CategoryNav = ({route}) =>{
     );
     }else{
         return (
-            <View style={{height:'100%', justifyContent:'center', flexDirection:'center'}}> 
+            <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center', flexDirection:'center'}}> 
                 <Text>
                     LOADING
                 </Text>

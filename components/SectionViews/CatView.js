@@ -13,7 +13,7 @@ const CatView = ({ image, index, name='Italian', width=300*w, height=300*h, marg
     return(
         <Pressable 
             onPress={() => {
-            navigation.navigate('Individual Category', { image:image, gradient:gradient, name:name})
+            navigation.navigate('Individual Category', {index:index})
             }}>
         <View>
             <ImageBackground
