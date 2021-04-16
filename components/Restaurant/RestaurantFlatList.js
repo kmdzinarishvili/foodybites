@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, FlatList} from 'react-native';
 
-import {w,h} from '../../proportion';
+import {w} from '../../proportion';
 
 import RestaurantPreview from '../SectionViews/RestaurantPreview';
 
