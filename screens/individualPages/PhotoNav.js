@@ -16,13 +16,11 @@ const CIRCLE_MARGIN =4.5*w;
 const PhotoNav = ({route}) =>{
     const initIndex = route.params.index;
     const photos =  useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
-    const [loaded, setLoaded]= useState(false);
     const slider = useRef();
     useEffect(()=>{
         if(slider.current){
             slider.current.goToSlide(initIndex, true);
         }
-        setLoaded(true)
     });
    
     if (photos){
