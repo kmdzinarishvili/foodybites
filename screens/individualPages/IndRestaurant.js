@@ -117,11 +117,11 @@ return (
                     data={food}
                     scrollEnabled={true}
                     keyExtractor={(item)=>item.id}
-                    renderItem ={({item})=>{
+                    renderItem ={({item, index})=>{
                         return(
                         <Pressable
                             onPress={()=>{
-                                navigation.navigate('Photo', {image:item['urls']['regular'] });
+                                navigation.navigate('Photo', {index:index });
                             }}>
                             <Image 
                             style={{width:450*w, height:336.57*h, borderRadius:22*w, marginHorizontal:45*w/2}}
