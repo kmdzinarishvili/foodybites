@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import { w,h } from '../proportion';
+import {View} from 'react-native';
+import { w } from '../proportion';
 
 
 const PageTemplate = ({children}) =>{

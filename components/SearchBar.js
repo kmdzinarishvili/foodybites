@@ -1,8 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import React, {useState} from 'react';
-import {View, Image, Platform, TextInput, StyleSheet, Pressable, Text} from 'react-native';
+import {View, Image, TextInput, StyleSheet, Pressable} from 'react-native';
 import {w,h} from '../proportion';
 import styles from '../styles/styles';
+
 const SearchBar = ({placeholder, action,  rightComponent, autoFocus=false}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const navigation=useNavigation();

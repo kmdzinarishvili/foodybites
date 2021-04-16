@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {FlatList} from 'react-native';
 
 import CatView from '../SectionViews/CatView';
 import HomeSection from '../HomeSection';
 import { useNavigation } from '@react-navigation/native';
-import {h} from '../../proportion';
 import useFetch from '../../hooks/useFetch';
 
 

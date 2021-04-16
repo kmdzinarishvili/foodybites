@@ -45,15 +45,8 @@ const RestaurantInfo = ({name, category, distance, rating, address, isOpen, dail
 }
 
 const indStyles = StyleSheet.create({
-    text:{
-        color:'#FFF', 
-        fontSize:40*w
-    },
     margin20:{
         marginVertical:20*h
-    },
-    imgTest:{
-        width:100, height:100
     }
 })
 

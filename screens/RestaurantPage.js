@@ -13,8 +13,6 @@ const RestaurantPage = () =>{
                  <SearchBar placeholder="Search"/>
            </View>
             <RestaurantFlatList />
-       
-        
         </View>
     );
 

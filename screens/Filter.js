@@ -1,5 +1,5 @@
 import React, {useState, useRef, useImperativeHandle} from 'react';
-import {View, Text, Pressable, Image} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import { h, w } from '../proportion';
 import styles from '../styles/styles';
 

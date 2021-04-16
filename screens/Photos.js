@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import {View,StyleSheet } from 'react-native';
 
-import {w, h} from '../proportion';
+import {w} from '../proportion';
 import MasonryList from "react-native-masonry-list";
 
 const Photos = ({navigation}) =>{

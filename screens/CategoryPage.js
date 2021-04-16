@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {View,FlatList} from 'react-native';
+import React from 'react';
+import {FlatList} from 'react-native';
 
 import PageTemplate from '../components/PageTemplate';
-import SearchBar from '../components/SearchBar';
 import CatView from '../components/SectionViews/CatView';
 import {w,h} from '../proportion';
 

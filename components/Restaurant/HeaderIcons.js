@@ -1,8 +1,5 @@
 import React from 'react';
 import {View, Image, Pressable, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-
-
-
 import { h, w } from '../../proportion';
 
 

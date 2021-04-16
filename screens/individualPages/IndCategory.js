@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, ImageBackground, Pressable, Image,  StatusBar} from 'react-native';
+import React from 'react';
+import {View, Text, ImageBackground, Pressable, Image} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import { w, h } from '../../proportion';
 import { useNavigation } from '@react-navigation/native';

@@ -1,5 +1,13 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, Image, StyleSheet, Pressable, ImageBackground, FlatList, SafeAreaView, StatusBar, Linking, Platform } from 'react-native';
+import React from 'react';
+import {View,
+        Text,
+        Image, 
+        StyleSheet, 
+        Pressable, 
+        ImageBackground,
+        FlatList,
+        Linking,
+        Platform } from 'react-native';
 import { BlurView } from 'expo-blur';
 import BlueFooter from '../../components/BlueFooter';
 

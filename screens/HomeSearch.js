@@ -1,9 +1,7 @@
 import React from 'react';
-import {View, Text, Image, Pressable} from 'react-native';
+import {View, Image, Pressable} from 'react-native';
 import SafeView from '../components/SafeView';
 import SearchBar from '../components/SearchBar';
-import Circle from '../components/Restaurant/Circle';
-
 import {w,h} from '../proportion';
 import { useNavigation } from '@react-navigation/core';
 import RestaurantFlatList from '../components/Restaurant/RestaurantFlatList';

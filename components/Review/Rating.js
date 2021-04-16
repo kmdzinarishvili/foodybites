@@ -1,7 +1,6 @@
 import React, {useState, forwardRef,useImperativeHandle} from 'react';
-import {View, FlatList, Image, Pressable, Text, StyleSheet, } from 'react-native';
+import {View, FlatList, Image, Pressable,  StyleSheet, } from 'react-native';
 import { h, w } from '../../proportion';
-import {PanGestureHandler} from 'react-native-gesture-handler';
 
 
 let Rating = ({style}, ref) =>{

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, FlatList, StyleSheet, Pressable, Platform} from 'react-native';
+import {View, Text, Image, StyleSheet, Pressable, Platform} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import styles from '../../styles/styles';
 import {w,h} from '../../proportion';

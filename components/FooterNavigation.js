@@ -1,6 +1,5 @@
-import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import {View, Image, StyleSheet, Dimensions, Pressable} from 'react-native';
+import {View, Image, StyleSheet, Dimensions} from 'react-native';
 import {w, h} from '../proportion';
 
 

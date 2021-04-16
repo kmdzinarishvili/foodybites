@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Pressable} from 'react-native';
-import {w,h} from '../proportion';
+import {w} from '../proportion';
 import styles from '../styles/styles';
 
 

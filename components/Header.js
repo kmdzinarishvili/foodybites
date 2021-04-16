@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
-import { View, Text, Image, StyleSheet, Pressable, SafeAreaView, StatusBar } from 'react-native';
-import SafeView from './SafeView';
+import React from 'react';
+import { Text, Image, StyleSheet, Pressable, SafeAreaView, StatusBar } from 'react-native';
 import {w, h} from '../proportion';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
