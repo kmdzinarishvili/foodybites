@@ -8,36 +8,13 @@ const REG_CIRCLE_WIDTH =17.02*w;
 const SEL_CIRCLE_WIDTH =29*w;
 const CIRCLE_MARGIN =4.5*w;
 
-
-// const SelectorCircles = ({numCircles}) =>{
-//     const [selected, setSelected] = useState(0)
-//     let ids = []
-//     for (let i = 0; i<numCircles; i++){
-//         ids.push(i)
-//     }
-
-//     return <View style={[photoStyles.selectorContainer, {left: (1125*w/2)-(numCircles-1)*(REG_CIRCLE_WIDTH+CIRCLE_MARGIN)/2 - (SEL_CIRCLE_WIDTH+CIRCLE_MARGIN)/2}]}>
-//         <FlatList 
-//             horizontal={true}
-//             contentContainerStyle={ {alignItems:'center'}}
-//             data={ids}
-//             keyExtractor={(id)=>`${id}`}
-//             renderItem={({item})=>{
-//                 return(<Pressable 
-//                 style={selected===item? photoStyles.selCircle:photoStyles.regCircle}>
-                    
-//             </Pressable>)
-//             }}
-//         />
-    
-//     </View>
-// }
-
 const IndPhoto =({image}) =>{
-    return<View style={photoStyles.container}>
+    // return <View style={{width:'100%', height:'100%',  backgroundColor: '#25262E'}}></View>
+    
+    
+    return(<View style={photoStyles.container}>
         <AutoHeightImage style={{marginBottom:350*h}} width={1125*w} source={{uri:image}} />
-        {/* <SelectorCircles numCircles={5}/> */}
-    </View>
+    </View>);
 
 }
 

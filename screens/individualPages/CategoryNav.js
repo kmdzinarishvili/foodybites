@@ -39,13 +39,6 @@ const CategoryNav = ({route}) =>{
                 console.log(initIndex);
                 const gradient =  initIndex%3==0? gradients.pink:initIndex%3==1? gradients.purple:gradients.blue;
                 return <IndCategory image={categories[initIndex]['urls']['regular']} gradient={gradient} name={initIndex<countries.length?countries[initIndex]:'German'}/>
-                // return(
-                //     <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center'}}> 
-                //     <Text>
-                //         LOADING
-                //     </Text>
-                // </View>
-                // );
 
             }
         }}

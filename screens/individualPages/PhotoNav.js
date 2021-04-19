@@ -17,18 +17,33 @@ const PhotoNav = ({route}) =>{
     const initIndex = route.params.index;
     const photos =  useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
     const slider = useRef();
-      useEffect(()=>{
+    const [timePassed, setTimePassed] = useState(false);
+
+    useEffect(()=>{
         if(slider.current){
-            slider.current.goToSlide(initIndex);
+            slider.current.goToSlide(initIndex)
         }
+        setTimeout( () => {
+            setTimePassed(true);
+         },150);
     });
    
   
+
     if (photos){
-      return(<AppIntroSlider 
+
+      return(
+      
+      <AppIntroSlider 
+        backgroundColor="#25262E"
         ref={(ref) => (slider.current = ref)}
             renderItem={({item,index})=>{
-                return (<IndPhoto image={item['urls']['regular']}/>)
+                if(timePassed&&index !==initIndex){
+                    return<IndPhoto image={item['urls']['regular']}/>
+                }else{
+                    return<IndPhoto image={photos[initIndex]['urls']['regular']}/>
+    
+                }
             }
             }
             data={photos} 
@@ -38,13 +53,17 @@ const PhotoNav = ({route}) =>{
                     {photos.map((item, index)=><View key={`${index}`}
                       style={active===index?styles.selCircle:styles.regCircle}/>)}
                 </View>)}
+
+                
             }
             /> );
 
     }else{
         return (
-            <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center'}}> 
-                <Text>
+            <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center',
+            backgroundColor: '#25262E',
+        }}> 
+                <Text style={{color:'#FFF'}}>
                     LOADING
                 </Text>
             </View>
