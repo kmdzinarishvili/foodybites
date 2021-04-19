@@ -15,6 +15,7 @@ const RestaurantPage = ({type='full', url = 'https://api.unsplash.com/search/pho
     return(
         <View style={{paddingHorizontal:68*w, marginBottom:100}} >
             <FlatList 
+            
                 contentContainerStyle={{alignItems:'center',}}  
             data={restaurants}
               keyExtractor={(item) => `item${item.id}`}

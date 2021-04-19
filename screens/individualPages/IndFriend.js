@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text,StyleSheet} from 'react-native';
+import {View, Text,StyleSheet, FlatList} from 'react-native';
 import FollowingButton from '../../components/FollowingButton';
 import FriendView from '../../components/SectionViews/FriendView';
 import {w, h } from '../../proportion';
 import styles from '../../styles/styles';
-import RestaurantFlatList from '../../components/Restaurant/RestaurantFlatList';
-
+import useFetch from '../../hooks/useFetch';
+import RestaurantPreview from '../../components/SectionViews/RestaurantPreview';
 const Stat = ({number, type}) =>{
     return (
     <View style={{alignItems:'center'}}>
@@ -27,23 +27,44 @@ const Stats = () =>{
 const IndFriend =({name ='Jayson Acevedo', 
             email = 'jayson.acevedo@gmail.com', route}) =>{
                 const {image} = route.params;
-    return (
-        <View style={{backgroundColor:'#FFF'}}>
-        <View style={profileStyles.container}>
-            <FriendView image={image} marginTop={146*h} width={374*w} 
-                height={374*h} />
+                const restaurants = useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=restaurant');
 
-            <Text style={profileStyles.name}>{name}</Text>
-            <Text style={profileStyles.email}>{email}</Text> 
-            <Stats/>
-            <View style={{flexDirection:'row',marginTop:67 *h}}>
-                <FollowingButton style={profileStyles.button}></FollowingButton>
-                <FollowingButton type="blocking" bool={true} style={profileStyles.button}></FollowingButton>
-            </View>
-            <View style={{width:'100%', height:3*w, backgroundColor:'#E2E2E2', marginTop:71.5*w}} />
-        </View>
-            <RestaurantFlatList/>
-        </View>
+    return (
+            <View style={{backgroundColor:'#FFF'}}>
+                <FlatList 
+                    ListHeaderComponent={
+                        <View style={{backgroundColor:'#FFF'}}>
+                            <View style={profileStyles.container}>
+                            <FriendView image={image} marginTop={146*h} width={374*w} 
+                                height={374*h} />
+                
+                            <Text style={profileStyles.name}>{name}</Text>
+                            <Text style={profileStyles.email}>{email}</Text> 
+                            <Stats/>
+                            <View style={{flexDirection:'row',marginTop:67 *h}}>
+                                <FollowingButton style={profileStyles.button}></FollowingButton>
+                                <FollowingButton type="blocking" bool={true} style={profileStyles.button}></FollowingButton>
+                            </View>
+                            <View style={{width:'100%', height:3*w, backgroundColor:'#E2E2E2', marginTop:71.5*w}} />
+                        </View>
+                        </View>
+                    }
+                        contentContainerStyle={{alignItems:'center',}}  
+                        data={restaurants}
+                        keyExtractor={(item) => `item${item.id}`}
+                        showsVerticalScrollIndicator={false}
+                        renderItem={({item})=>{
+                            return (
+                                <View>
+                                    <RestaurantPreview type={'full'} item={item}></RestaurantPreview>
+                                </View>
+                
+                            )}}/>
+                
+                        
+                        </View>
+
+
     );
 }
 
