@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Pressable, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import {View, Image, Pressable, SafeAreaView, StatusBar, Share } from 'react-native';
 import { h, w } from '../../proportion';
 
 
@@ -15,7 +15,13 @@ const HeaderIcons= ({onPress}) =>{
                 </Pressable>
 
                     <View style={{flexDirection:'row'}}>
-                        <Image style={{width: 60.91*w, height:73.1*h, margin:70*w, marginRight:0 }} source={require('../../imgs/restaurantPage/share.png')}/>
+                        <Pressable
+                            onPress={()=>Share.share({
+                                message:
+                                  "Check out this restaurant",
+                              })}>
+                                <Image style={{width: 60.91*w, height:73.1*h, margin:70*w, marginRight:0 }} source={require('../../imgs/restaurantPage/share.png')}/>
+                        </Pressable>
                         <Image style={{width: 60.91*w, height:73.1*h , margin:70*w}} source={require('../../imgs/restaurantPage/bookmark.png')}/>
                     </View>
             </View>
@@ -23,6 +29,8 @@ const HeaderIcons= ({onPress}) =>{
     );
 
 }
+
+//Share
 
 
 
