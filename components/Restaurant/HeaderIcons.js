@@ -30,8 +30,5 @@ const HeaderIcons= ({onPress}) =>{
 
 }
 
-//Share
-
-
 
 export default HeaderIcons;
