@@ -40,7 +40,7 @@ const CategoryNav = ({route}) =>{
     );
     }else{
         return (
-            <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center', flexDirection:'center'}}> 
+            <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center'}}> 
                 <Text>
                     LOADING
                 </Text>
