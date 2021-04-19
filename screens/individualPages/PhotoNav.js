@@ -22,9 +22,9 @@ const PhotoNav = ({route}) =>{
                 imageUrls={food}
                 index={index}
                 renderImage={(props)=> <Image style={{width:100, height:100}} {...props} />}
-                // renderHeader={(currentIndex)=>{console.warn(currentIndex)}}
-                // renderIndicator={(currentIndex)=>{console.warn(currentIndex)}}
-                backgroundColor="red"
+                renderIndicator={() => {return} }
+                backgroundColor={'#25262E'}
+                renderFooter={(ind) => <View style={{backgroundColor:"white"}}><Text>{ind}</Text> </View>}
                 />
  )
 
