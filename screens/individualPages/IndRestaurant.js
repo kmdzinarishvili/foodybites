@@ -47,7 +47,21 @@ const IndRestaurant = ({route, navigation}) =>{
 
 return (
     <View style={{height:'100%'}}>
-    <ImageBackground style={{width:'100%', height:909*h}} source={{uri:image}}>
+
+
+
+    {/* <View style={{marginHorizontal:66*w, marginVertical:38*h, marginBottom:340*h}}> */}
+
+
+         <FlatList 
+            showsVerticalScrollIndicator={false}
+            data={profiles}
+
+            keyExtractor={(item)=>`ahhh${item.id}`}
+
+            ListHeaderComponent={
+                <View>
+                        <ImageBackground style={{width:'100%', height:909*h}} source={{uri:image}}>
     <HeaderIcons onPress={()=> navigation.goBack()}/>
     <View>
         <BlurView style={{width:'90%', height:142*h, position:'absolute', top:400*h , 
@@ -93,21 +107,7 @@ return (
 
     </View>
     </ImageBackground> 
-
-
-    <View style={{marginHorizontal:66*w, marginVertical:38*h, marginBottom:340*h}}>
-
-
-         <FlatList 
-            showsVerticalScrollIndicator={false}
-            data={profiles}
-            contentContainerStyle={{paddingBottom:850*h}}
-            
-
-            keyExtractor={(item)=>`ahhh${item.id}`}
-
-            ListHeaderComponent={
-                <View>
+    <View style={restStyles.paddings}>
                 <RestaurantInfo name={name} category={category} distance={distance} rating={rating} address={address} isOpen={isOpen} dailyTime={dailyTime}/>
        
                 <HomeSection title='Menu & Photos' number ={32} style={{marginBottom:54*h, marginTop:0}} goTo={()=>navigation.navigate('Photos')}/>
@@ -135,20 +135,22 @@ return (
                 /> 
                 <HomeSection title='Review & Ratings' number ={32} goTo={()=>navigation.navigate('All Reviews')}/>
                 </View>
+                </View>
             }
       
             renderItem ={({item, index})=>{
-                return <FriendInfo showFollow={false}  justifyContent='space-between'
-                        image={item['urls']['small']}
+                return <View style={{        marginHorizontal:66*w,
+                }}><FriendInfo showFollow={false}  justifyContent='space-between'
+                        image={item['urls']['small']} 
            
                 star={
                     <Star key={index} rating={rating}/>
                 }
                 />
+                </View>
                     
             }}/> 
 
-        </View>
             <BlueFooter text='Rate Your Experience' action={()=>navigation.navigate('Review')} />
 
         </View>
@@ -238,6 +240,10 @@ const restStyles = StyleSheet.create({
         borderWidth:3*w,
         marginLeft:-10
 
+    },
+    paddings:{
+        marginHorizontal:66*w,
+         marginVertical:38*h,
     }
     
 });
