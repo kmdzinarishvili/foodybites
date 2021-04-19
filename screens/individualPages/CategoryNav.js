@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {View, Text, StyleSheet, Pressable, Image} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {countries} from '../../data/data';
@@ -12,24 +12,25 @@ import { useEffect } from 'react/cjs/react.development';
 const CategoryNav = ({route}) =>{
     const initIndex= route.params.index;
     const categories =  useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
-    
     const slider = useRef();
-    useEffect(()=>{slider.current?slider.current.goToSlide(initIndex, true):console.log('not loaded')});
-   
+    useEffect(()=>{
+        if(categories){
+            slider.current.goToSlide(initIndex)
+        }
+        });
     if (categories){
     return (      
+
        <AppIntroSlider 
-       ref={(ref) => (slider.current = ref)}
+        ref={(ref) => (slider.current) = ref}
         renderItem={({item,index})=>{
             const gradient =  index%3==0? gradients.pink:index%3==1? gradients.purple:gradients.blue;
             return (<IndCategory image={item['urls']['regular']} gradient={gradient} name={index<countries.length?countries[index]:'German'}/>)
-        }
-        }
+        }}
         data={categories} 
         keyExtractor={(item)=>item.id}
         renderPagination={(active)=>{
             const numPages = categories.length
-            console.log(active);
             return(<View style={styles.container}>
                 {categories.map((cat,index)=><View key={`${index}`}
                   style={[styles.page, {        width:(600*w)/numPages -20*w,

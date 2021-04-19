@@ -18,15 +18,13 @@ const PhotoNav = ({route}) =>{
     const photos =  useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
     const slider = useRef();
       useEffect(()=>{
-    if(slider.current){
-        slider.current.goToSlide(initIndex, true);
-    }
-});
+        if(slider.current){
+            slider.current.goToSlide(initIndex);
+        }
+    });
    
   
     if (photos){
-
-
       return(<AppIntroSlider 
         ref={(ref) => (slider.current = ref)}
             renderItem={({item,index})=>{
