@@ -13,19 +13,41 @@ const CategoryNav = ({route}) =>{
     const initIndex= route.params.index;
     const categories =  useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
     const slider = useRef();
+    const [timePassed, setTimePassed] = useState(false);
     useEffect(()=>{
-        if(categories){
+        if(slider.current){
             slider.current.goToSlide(initIndex)
         }
-        });
+        setTimeout( () => {
+            setTimePassed(true);
+         },200);
+    });
+
     if (categories){
-    return (      
+        return (      
 
        <AppIntroSlider 
-        ref={(ref) => (slider.current) = ref}
+        ref={(ref) => {
+    
+             (slider.current)= ref;
+        }}
         renderItem={({item,index})=>{
-            const gradient =  index%3==0? gradients.pink:index%3==1? gradients.purple:gradients.blue;
-            return (<IndCategory image={item['urls']['regular']} gradient={gradient} name={index<countries.length?countries[index]:'German'}/>)
+            if(timePassed&&index !==initIndex){
+                const gradient =  index%3==0? gradients.pink:index%3==1? gradients.purple:gradients.blue;
+                return (<IndCategory image={item['urls']['regular']} gradient={gradient} name={index<countries.length?countries[index]:'German'}/>)
+            }else{
+                console.log(initIndex);
+                const gradient =  initIndex%3==0? gradients.pink:initIndex%3==1? gradients.purple:gradients.blue;
+                return <IndCategory image={categories[initIndex]['urls']['regular']} gradient={gradient} name={initIndex<countries.length?countries[initIndex]:'German'}/>
+                // return(
+                //     <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center'}}> 
+                //     <Text>
+                //         LOADING
+                //     </Text>
+                // </View>
+                // );
+
+            }
         }}
         data={categories} 
         keyExtractor={(item)=>item.id}
