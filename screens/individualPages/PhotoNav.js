@@ -6,7 +6,6 @@ import IndPhoto from './IndPhoto';
 
 import {w} from '../../proportion';
 import ImageViewer from 'react-native-image-zoom-viewer';
-import { SwiperFlatList } from 'react-native-swiper-flatlist';
 
 
 
@@ -19,12 +18,14 @@ const CIRCLE_MARGIN =4.5*w;
 const PhotoNav = ({route}) =>{
     const index = route.params.index;
    const food = route.params.food;
-   return ( < ImageViewer style={{width:'100%', height:'100%'}} 
+   return ( < ImageViewer 
                 imageUrls={food}
                 index={index}
                 renderImage={(props)=> <Image style={{width:100, height:100}} {...props} />}
-                renderHeader={(currentIndex)=>{console.warn(currentIndex)}}
-                renderIndicator={(currentIndex)=>{console.warn(currentIndex)}}/>
+                // renderHeader={(currentIndex)=>{console.warn(currentIndex)}}
+                // renderIndicator={(currentIndex)=>{console.warn(currentIndex)}}
+                backgroundColor="red"
+                />
  )
 
 }
