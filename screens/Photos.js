@@ -1,11 +1,14 @@
 import React, {useState,useEffect} from 'react';
-import {View,StyleSheet } from 'react-native';
+import {View,StyleSheet, Modal , Text} from 'react-native';
 
 import {w} from '../proportion';
 import MasonryList from "react-native-masonry-list";
 
-const Photos = ({navigation}) =>{
 
+
+
+
+const Photos = ({navigation}) =>{
     const [food, setFood] = useState();
     const fetch_food= async () =>{
         let currFood = [];
@@ -20,7 +23,7 @@ const Photos = ({navigation}) =>{
         });
 
         let newRes = [];
-        await currFood.map((item)=> newRes.push({uri:item['urls']['regular']}));
+        await currFood.map((item)=> newRes.push({url:item['urls']['regular']}));
         setFood(newRes);
 
     }    
@@ -28,6 +31,8 @@ const Photos = ({navigation}) =>{
     useEffect(()=>{
         fetch_food();
     }, []);
+
+    if(food){
     return <View style={styles.container}>
         <View style={{flexDirection:'row',
                         flexWrap:'wrap',
@@ -38,12 +43,22 @@ const Photos = ({navigation}) =>{
             imageContainerStyle={{borderRadius:22*w}}
             spacing={3}
             images={food}
-            onPressImage={(index)=>{
-                navigation.navigate('Photo',{index: index})}
-            }	 />
+            onPressImage={({item, index})=>{
+                navigation.navigate('Photo',{index: index, food:food});
+            }} ></MasonryList>
             </View>
     </View>
+    }else{
+        return(<View style={{height:'100%', justifyContent:'center', alignItems:'center'}}>
+            <Text>LOADING</Text>
+        </View>);
+    }
 }
+
+
+//onChange	
+
+//renderIndicator	
 
 const styles= StyleSheet.create({
     container:{

@@ -36,7 +36,6 @@ const CategoryNav = ({route}) =>{
                 const gradient =  index%3==0? gradients.pink:index%3==1? gradients.purple:gradients.blue;
                 return (<IndCategory image={item['urls']['regular']} gradient={gradient} name={index<countries.length?countries[index]:'German'}/>)
             }else{
-                console.log(initIndex);
                 const gradient =  initIndex%3==0? gradients.pink:initIndex%3==1? gradients.purple:gradients.blue;
                 return <IndCategory image={categories[initIndex]['urls']['regular']} gradient={gradient} name={initIndex<countries.length?countries[initIndex]:'German'}/>
 

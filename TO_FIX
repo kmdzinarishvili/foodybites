@@ -1,36 +1,5 @@
-add customizable linear gradient in restaurant preview 
+share button 
 
-opacity of italian  in restaurant preview
+and fix picture sliders with diff library 
 
-
-minifriends not working on android 
-and showing vertical on trending page 
-
-
-
-trending restaurant page loads partially white first 
-
-
-blurview space around 
-
-better library for blurview
-
-
-the picture of the arrow on the restaurant page 
-
-
-add suggested to friends page -- to friend page 
-
-add white icons on top of individual restaurant page
-
-
-add hitslop to back arrow (export as separate component )
-
-
-maybe change star component to have state inside so the whole thing doesn't rerender on a single press 
-
-
-write USE FETCH hook 
-
-
-
+react-native-image-zoom-viewer

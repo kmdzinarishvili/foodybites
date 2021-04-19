@@ -1,10 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Modal, Image} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import useFetch from '../../hooks/useFetch';
 import IndPhoto from './IndPhoto';
 
 import {w} from '../../proportion';
+import ImageViewer from 'react-native-image-zoom-viewer';
+import { SwiperFlatList } from 'react-native-swiper-flatlist';
+
 
 
 
@@ -14,57 +17,16 @@ const CIRCLE_MARGIN =4.5*w;
 
 
 const PhotoNav = ({route}) =>{
-    const initIndex = route.params.index;
-    const photos =  useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
-    const slider = useRef();
-    const [timePassed, setTimePassed] = useState(false);
+    const index = route.params.index;
+   const food = route.params.food;
+   return ( < ImageViewer style={{width:'100%', height:'100%'}} 
+                imageUrls={food}
+                index={index}
+                renderImage={(props)=> <Image style={{width:100, height:100}} {...props} />}
+                renderHeader={(currentIndex)=>{console.warn(currentIndex)}}
+                renderIndicator={(currentIndex)=>{console.warn(currentIndex)}}/>
+ )
 
-    useEffect(()=>{
-        if(slider.current){
-            slider.current.goToSlide(initIndex)
-        }
-        setTimeout( () => {
-            setTimePassed(true);
-         },150);
-    });
-   
-  
-
-    if (photos){
-
-      return(
-      
-      <AppIntroSlider 
-        backgroundColor="#25262E"
-        ref={(ref) => (slider.current = ref)}
-            renderItem={({item,index})=>{
-                if(timePassed&&index !==initIndex){
-                    return<IndPhoto image={item['urls']['regular']}/>
-                }else{
-                    return<IndPhoto image={photos[initIndex]['urls']['regular']}/>
-    
-                }
-            }
-            }
-            data={photos} 
-            keyExtractor={(item)=>item.id}
-            renderPagination={(active)=>{
-                return(<View style={styles.container}>
-                    {photos.map((item, index)=><View key={`${index}`}
-                      style={active===index?styles.selCircle:styles.regCircle}/>)}
-                </View>)}
-
-                
-            }
-            /> );
-
-    }else{
-        return (
-            <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center',
-            backgroundColor: '#25262E',}}> 
-            </View>
-        )
-    }
 }
 
 
