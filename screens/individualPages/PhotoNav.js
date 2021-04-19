@@ -61,11 +61,7 @@ const PhotoNav = ({route}) =>{
     }else{
         return (
             <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center',
-            backgroundColor: '#25262E',
-        }}> 
-                <Text style={{color:'#FFF'}}>
-                    LOADING
-                </Text>
+            backgroundColor: '#25262E',}}> 
             </View>
         )
     }
