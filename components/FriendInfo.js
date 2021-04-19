@@ -20,9 +20,9 @@ image="https://images.unsplash.com/photo-1579783483458-83d02161294e?crop=entropy
                <FriendView  image={image} width={160*w} height={160*h}/>
             <View  >
                 
-                <Text style={[{color: '#3E3F68', fontSize:50*w, paddingTop:30*w}, styles.jSemi]}>{name}</Text>
+                <Text style={[{color: '#3E3F68', fontSize:50*w, paddingTop:45*w}, styles.jSemi]}>{name}</Text>
                 {showFollow?<Text style={[{color: 'rgba(110, 127, 170, 0.8)', marginTop:19*w,fontSize:40*w}, styles.jReg]}>{numReviews} Review{numReviews!==1?"s":""}</Text>:
-                <Text style={[styles.jReg, {marginRight:280*w, paddingTop:50*w, color: 'rgba(110, 127, 170, 0.8)'}]}>{text}</Text>}
+                <Text style={[styles.jReg, {marginRight:280*w, color: 'rgba(110, 127, 170, 0.8)'}]}>{text}</Text>}
             
             
             </View>
