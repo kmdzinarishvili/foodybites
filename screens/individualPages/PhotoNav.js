@@ -17,15 +17,17 @@ const PhotoNav = ({route}) =>{
     const initIndex = route.params.index;
     const photos =  useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
     const slider = useRef();
-    useEffect(()=>{
-        if(slider.current){
-            slider.current.goToSlide(initIndex, true);
-        }
-    });
+      useEffect(()=>{
+    if(slider.current){
+        slider.current.goToSlide(initIndex, true);
+    }
+});
    
+  
     if (photos){
-        return (
-        <AppIntroSlider 
+
+
+      return(<AppIntroSlider 
         ref={(ref) => (slider.current = ref)}
             renderItem={({item,index})=>{
                 return (<IndPhoto image={item['urls']['regular']}/>)
@@ -39,11 +41,11 @@ const PhotoNav = ({route}) =>{
                       style={active===index?styles.selCircle:styles.regCircle}/>)}
                 </View>)}
             }
-            /> 
-        );
+            /> );
+
     }else{
         return (
-            <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center', flexDirection:'center'}}> 
+            <View style={{height:'100%', width:'100%', justifyContent:'center', alignItems:'center'}}> 
                 <Text>
                     LOADING
                 </Text>
@@ -51,6 +53,7 @@ const PhotoNav = ({route}) =>{
         )
     }
 }
+
 
 
 
