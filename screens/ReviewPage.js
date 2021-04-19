@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TextInput } from 'react-native';
+import {StyleSheet, Text, TextInput, KeyboardAvoidingView, View} from 'react-native';
 import BlueFooter from '../components/BlueFooter';
 import Rating from '../components/Review/Rating';
 import SafeView from '../components/SafeView';
@@ -24,7 +24,13 @@ const Review = () =>{
             multiline={true}
             onChangeText={(text)=> setValue(text)}
             />
-        <BlueFooter text='Done' action={()=>navigation.navigate('Home')}/>
+        
+         <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+       style={reviewStyles.footer}>
+          <BlueFooter text='Done' action={()=>navigation.navigate('Home')}/>
+          
+          </KeyboardAvoidingView>
     </SafeView>
     )
 }
@@ -58,7 +64,19 @@ const reviewStyles = StyleSheet.create({
         paddingTop:60*w
         
         
-    }
+    },
+      footer:{ 
+         position:'absolute',
+         bottom:0,
+         height:198*h, 
+         width:'100%', 
+         backgroundColor:'#5663FF',
+         borderTopLeftRadius:80*w,
+         borderTopRightRadius:80*w,
+         flexDirection:'row',
+         justifyContent:'center',
+         alignItems:'center',
+         },
 })
 
 export default Review;
