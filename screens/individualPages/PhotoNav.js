@@ -21,7 +21,7 @@ const PhotoNav = ({route}) =>{
             < ImageViewer 
                 imageUrls={food}
                 index={index}
-                style={{marginTop:-50*h}} 
+                // style={{ paddingTop: Platform.OS === 'android' ? -155 * h/2 : -155 * h/2 + 106 * h/2}} 
                 renderImage={(props)=> <Image {...props} />}
                 renderIndicator={() => {return} }
                 backgroundColor={'#25262E'}
@@ -41,9 +41,9 @@ const PhotoNav = ({route}) =>{
 
 const styles = StyleSheet.create({
     container:    {
-        width:1125*w,
-         alignItems:'center',
-          flexDirection:'row', 
+    width:1125*w,
+    alignItems:'center',
+    flexDirection:'row', 
     justifyContent:'center', 
     paddingBottom:'5%'
 },
