@@ -57,7 +57,7 @@ const FriendInfo = ({
 					<Text
 						style={[
 							styles.jReg,
-							{ marginRight: 280 * w, color: 'rgba(110, 127, 170, 0.8)' },
+							{ marginRight: 350 * w, color: 'rgba(110, 127, 170, 0.8)' },
 						]}
 					>
 						{text}
