@@ -34,8 +34,9 @@ const Review = () => {
 			<KeyboardAvoidingView
 				behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
 				style={reviewStyles.footer}
+				keyboardVerticalOffset = {300*h}
 			>
-				<BlueFooter text="Done" action={() => navigation.navigate('Home')} />
+				<BlueFooter text="Done" action={() => navigation.navigate('Home')}  styles={{}}/>
 			</KeyboardAvoidingView>
 		</SafeView>
 	);
@@ -72,7 +73,8 @@ const reviewStyles = StyleSheet.create({
 	footer: {
 		position: 'absolute',
 		bottom: 0,
-		height: 198 * h,
+		// height: 198 * h,
+		paddingVertical:Platform.OS === 'ios' ? 80*h: 60*h ,
 		width: '100%',
 		backgroundColor: '#5663FF',
 		borderTopLeftRadius: 80 * w,

@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { w, h } from '../proportion';
 import styles from '../styles/styles';
 
-const BlueFooter = ({ text = 'Footer', action }) => {
+const BlueFooter = ({ text = 'Footer', action, styles }) => {
 	if (typeof text === 'string') {
 		return (
-			<Pressable onPress={action} style={footerStyles.footer}>
+			<Pressable onPress={action} style={styles?styles: footerStyles.footer}>
 				<Text style={footerStyles.text}>{text}</Text>
 			</Pressable>
 		);
