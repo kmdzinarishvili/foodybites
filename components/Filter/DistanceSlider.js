@@ -25,7 +25,7 @@ let DistanceSlider = ({ style }, ref) => {
 
 	useImperativeHandle(ref, () => ({
 		resetDistance: () => {
-			translateX.value = 15;
+			translateX.value = Platform.OS === 'android' ? 14 : 15;
 		},
 	}));
 
