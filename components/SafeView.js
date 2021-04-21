@@ -2,21 +2,20 @@ import React from 'react';
 import { SafeAreaView, StatusBar, Platform, StyleSheet } from 'react-native';
 
 const SafeView = ({ children, style }) => {
-    return (
-        <SafeAreaView forceInset={{top:'always'}}style={[styles.view, style]}>
-            {children}
-        </SafeAreaView>
-    );
-}
+	return (
+		<SafeAreaView forceInset={{ top: 'always' }} style={[styles.view, style]}>
+			{children}
+		</SafeAreaView>
+	);
+};
 
 const styles = StyleSheet.create({
-    view: {
-        flex: 1,
-        marginTop:0,
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-        backgroundColor:'#FAFAFA'
-   
-    }
+	view: {
+		flex: 1,
+		marginTop: 0,
+		paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+		backgroundColor: '#FAFAFA',
+	},
 });
 
 export default SafeView;
