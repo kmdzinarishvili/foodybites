@@ -10,10 +10,11 @@ const REG_CIRCLE_WIDTH =17.02*w;
 const SEL_CIRCLE_WIDTH =29*w;
 const CIRCLE_MARGIN =4.5*w;
 
-
+ 
 const PhotoNav = ({route}) =>{
     const index = route.params.index;
    const food = route.params.food;
+
    return ( < ImageViewer 
                 imageUrls={food}
                 index={index}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View,
         Text,
         Image, 
@@ -41,17 +41,37 @@ const IndRestaurant = ({route, navigation}) =>{
     const rating = 4.5
 
 
-    const food = useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food');
+    const [food, setFood] = useState();
+    const fetch_food= async () =>{
+        let currFood = [];
+        const result = await fetch(
+            'https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=food'
+        ).then(res=>res.json()).then(res=>res['results'])
+        .then(json => {
+            currFood =(json);
+        })
+        .catch((error) => {
+            throw error;
+        });
+
+        let newRes = [];
+        await currFood.map((item)=> newRes.push({url:item['urls']['regular']}));
+        setFood(newRes);
+
+    }    
+    
+    useEffect(()=>{
+        fetch_food();
+    }, []);
+    
+    
     const profiles = useFetch('https://api.unsplash.com/search/photos/?client_id=i3AmYBQbRiDxMi3p937gP1nTnvqdBuSeyIm_99ZQ_jE&query=profile');
      
 
+    
+
 return (
     <View style={{height:'100%'}}>
-
-
-
-    {/* <View style={{marginHorizontal:66*w, marginVertical:38*h, marginBottom:340*h}}> */}
-
 
          <FlatList 
             showsVerticalScrollIndicator={false}
@@ -111,28 +131,28 @@ return (
                 <RestaurantInfo name={name} category={category} distance={distance} rating={rating} address={address} isOpen={isOpen} dailyTime={dailyTime}/>
        
                 <HomeSection title='Menu & Photos' number ={32} style={{marginBottom:54*h, marginTop:0}} goTo={()=>navigation.navigate('Photos')}/>
-                <FlatList 
+               {food? <FlatList 
                     showsHorizontalScrollIndicator={false}
                     horizontal={true}
                     data={food}
                     scrollEnabled={true}
-                    keyExtractor={(item)=>item.id}
+                    keyExtractor={(item, index)=> `picture${index}`}
                     renderItem ={({item, index})=>{
                         return(
                         <Pressable
                             onPress={()=>{
-                                navigation.navigate('Photo', {index:index });
+                                navigation.navigate('Photo', {index:index, food:food});
                             }}>
                             <Image 
                             style={{width:450*w, height:336.57*h, borderRadius:22*w, marginHorizontal:45*w/2}}
-                            source={{uri:item['urls']['regular']}}
+                            source={{uri:item.url}}
                             />
                         </Pressable>
                     
                         )}}
 
 
-                /> 
+                /> : <View/>}
                 <HomeSection title='Review & Ratings' number ={32} goTo={()=>navigation.navigate('All Reviews')}/>
                 </View>
                 </View>
