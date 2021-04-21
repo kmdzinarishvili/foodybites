@@ -11,7 +11,7 @@ import { w, h } from '../proportion';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
 
-const Header = ({ name, search, color = '#FAFAFA', textColor }) => {
+const Header = ({ name, search, color = '#FAFAFA', textColor, x=false }) => {
 	const navigation = useNavigation();
 
 	return (
@@ -48,6 +48,18 @@ const Header = ({ name, search, color = '#FAFAFA', textColor }) => {
 					source={require('../imgs/header/blueSearch.png')}
 				/>
 			)}
+			{x&&
+			<Pressable
+				style={ space.right}
+				onPress={()=>{
+					navigation.navigate('Home');
+				}}>
+				<Image
+				style={{ width: 65* w, height: 65* h }}
+				source={require('../imgs/header/grey_x.png')}
+				/>
+			</Pressable>
+			}
 		</SafeAreaView>
 	);
 };

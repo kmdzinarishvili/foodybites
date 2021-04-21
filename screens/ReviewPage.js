@@ -73,7 +73,6 @@ const reviewStyles = StyleSheet.create({
 	footer: {
 		position: 'absolute',
 		bottom: 0,
-		// height: 198 * h,
 		paddingVertical:Platform.OS === 'ios' ? 80*h: 60*h ,
 		width: '100%',
 		backgroundColor: '#5663FF',

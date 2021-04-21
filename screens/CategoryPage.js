@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 
 import PageTemplate from '../components/PageTemplate';
 import CatView from '../components/SectionViews/CatView';
@@ -24,7 +24,8 @@ const CategoryPage = () => {
 	);
 
 	return (
-		<PageTemplate>
+		<View style={{width:'100%', backgroundColor:'#FFF'}}>
+		<PageTemplate bColor="#FFF">
 			<FlatList
 				showsVerticalScrollIndicator={false}
 				contentContainerStyle={{ flexDirection: 'column' }}
@@ -40,11 +41,13 @@ const CategoryPage = () => {
 							height={231.72 * h}
 							marginHorizontal={0}
 							showStripe={true}
+							num={categories.length}
 						/>
 					);
 				}}
 			/>
 		</PageTemplate>
+		</View>
 	);
 };
 

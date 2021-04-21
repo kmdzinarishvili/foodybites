@@ -66,9 +66,6 @@ const Photos = ({ navigation }) => {
 	}
 };
 
-//onChange
-
-//renderIndicator
 
 const styles = StyleSheet.create({
 	container: {

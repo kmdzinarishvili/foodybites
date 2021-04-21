@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View,  StyleSheet, Image} from 'react-native';
 import {h, w} from '../../proportion';
 import ImageViewer from 'react-native-image-zoom-viewer';

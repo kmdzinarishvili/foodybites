@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import SearchBar from '../components/SearchBar';
 
 import FriendInfo from '../components/FriendInfo';
 
@@ -31,9 +30,7 @@ const FriendPage = () => {
 	);
 	return (
 		<View style={{ backgroundColor: '#FAFAFA' }}>
-			<View style={{ paddingHorizontal: 68 * w }}>
-				<SearchBar placeholder="Search" />
-			</View>
+			<View style={{ paddingHorizontal: 68 * w }}/>
 
 			<FlatList
 				ListHeaderComponent={

@@ -65,7 +65,7 @@ const RootApp = () => {
 				component={CategoryPage}
 				options={{
 					header: () => {
-						return <Header name="Categories" search={true} />;
+						return <Header name="Categories" search={true} color="#FFF" />;
 					},
 				}}
 			/>
@@ -108,7 +108,7 @@ const RootApp = () => {
 				component={Filter}
 				options={{
 					header: () => {
-						return <Header name="Filter" search={false} />;
+						return <Header name="Filter" search={false} x={true} />;
 					},
 				}}
 			/>

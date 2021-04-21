@@ -68,10 +68,10 @@ const IndFriend = ({
 							</View>
 							<View
 								style={{
-									width: '100%',
-									height: 3 * w,
+									width: 1125*w,
+									height: 6 * w,
 									backgroundColor: '#E2E2E2',
-									marginTop: 71.5 * w,
+									marginVertical: 60 * w,
 								}}
 							/>
 						</View>
