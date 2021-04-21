@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Modal, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
 import { w } from '../proportion';
 import MasonryList from 'react-native-masonry-list';
@@ -44,8 +44,8 @@ const Photos = ({ navigation }) => {
 						imageContainerStyle={{ borderRadius: 22 * w }}
 						spacing={3}
 						images={food}
-						onPressImage={({ item, index }) => {
-							navigation.navigate('Photo', { index: index, food: food });
+						onPressImage={( item ) => {
+							navigation.navigate('Photo', { index: item.index, food: food });
 						}}
 					></MasonryList>
 				</View>
