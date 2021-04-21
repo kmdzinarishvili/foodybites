@@ -23,7 +23,7 @@ const CatSec = () =>{
             horizontal={true}
             renderItem={({item, index})=>{
                 return (
-                    <CatView image={item['urls']['regular']} name={countries[index]} index={index}/>);
+                    <CatView image={item['urls']['regular']} name={countries[index]} index={index} num={categories.length}/>);
            
             }}
             keyExtractor={(item) => item.id}

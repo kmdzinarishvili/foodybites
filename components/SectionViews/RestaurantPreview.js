@@ -52,7 +52,7 @@ const RestaurantPreview = ({type='small', item={urls:{regular:"https://images.un
                         
                         <LinearGradient colors={gradients.pink} 
                             style={[styles.linearGradient,  styles.spaceRight, restStyles.rad9, {opacity:0.65}]}>
-                        <Text  style={[restStyles.white22, ]}>{category}</Text>
+                        <Text  style={[restStyles.white22, {zIndex:100}]}>{category}</Text>
                         </LinearGradient>
                         
                             <Text style={[styles.jReg, restStyles.white22, restStyles.purple,restStyles.rad9]}>{distance} km</Text>

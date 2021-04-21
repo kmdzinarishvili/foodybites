@@ -1,9 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
-import {View, Text, StyleSheet, Modal, Image} from 'react-native';
-import AppIntroSlider from 'react-native-app-intro-slider';
-import useFetch from '../../hooks/useFetch';
-import IndPhoto from './IndPhoto';
-
+import React from 'react';
+import {View,  StyleSheet, Image} from 'react-native';
 import {h, w} from '../../proportion';
 import ImageViewer from 'react-native-image-zoom-viewer';
 
@@ -40,8 +36,12 @@ const PhotoNav = ({route}) =>{
 
 
 const styles = StyleSheet.create({
-    container:    {width:1125*w, alignItems:'center', flexDirection:'row', 
-    justifyContent:'center', paddingBottom:'5%'
+    container:    {
+        width:1125*w,
+         alignItems:'center',
+          flexDirection:'row', 
+    justifyContent:'center', 
+    paddingBottom:'5%'
 },
     regCircle:{
         backgroundColor:'#6A6A6A',

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ImageBackground, Pressable, Image} from 'react-native';
+import {View, Text, ImageBackground, Pressable, Image, StyleSheet} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import { w, h } from '../../proportion';
 import { useNavigation } from '@react-navigation/native';
@@ -9,9 +9,16 @@ import styles from '../../styles/styles';
 import RestaurantFlatList from '../../components/Restaurant/RestaurantFlatList';
 
 
-const IndCategory = ({image, gradient, name ="Italian" }) =>{
-    const navigation = useNavigation();
-
+const IndCategory = ({navigation, route}) =>{
+    const {image, gradient, name, length, active} = route.params
+    const pagination = [];      
+    for (let i =0; i<length; i++){
+        pagination.push(<View key={`${i}`}
+          style={[pagStyles.page, { width:(600*w)/length -20*w,
+        opacity:i===active?1:0.5}]}/>)
+        
+        
+        }
     return (
         <View >
         
@@ -20,7 +27,9 @@ const IndCategory = ({image, gradient, name ="Italian" }) =>{
                 uri:image          }
             }
             style={{width:1125*w, height:317.72*h}}>
-          
+          <View style={pagStyles.container}>
+               {pagination}
+             </View>
             <LinearGradient
             colors={gradient}
             style={{width:'100%', height:'100%', opacity:0.85,
@@ -48,4 +57,27 @@ const IndCategory = ({image, gradient, name ="Italian" }) =>{
        
     );
 }
+
+
+
+const pagStyles = StyleSheet.create({
+    container:{
+        justifyContent:'center',
+        alignSelf:'center',
+        flexDirection:'row', 
+        width:600*w,
+        position:'absolute',
+        top:250*h,
+        zIndex:100
+    },
+    page:{
+        margin:10*w,
+        height: 15*w,
+        backgroundColor:'#FFF',
+        borderRadius:8*w 
+    }
+})
+
+
+
 export default IndCategory;
