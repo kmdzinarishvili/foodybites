@@ -4,7 +4,7 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import useFetch from '../../hooks/useFetch';
 import IndPhoto from './IndPhoto';
 
-import {w} from '../../proportion';
+import {h, w} from '../../proportion';
 import ImageViewer from 'react-native-image-zoom-viewer';
 
 
@@ -24,7 +24,13 @@ const PhotoNav = ({route}) =>{
                 renderImage={(props)=> <Image style={{width:100, height:100}} {...props} />}
                 renderIndicator={() => {return} }
                 backgroundColor={'#25262E'}
-                renderFooter={(ind) => <View style={{backgroundColor:"white"}}><Text>{ind}</Text> </View>}
+                renderFooter={(active) => 
+                <View style={styles.container
+                
+                }>
+                        {food.map((foo,index)=>
+                        <View key={`${index}`}style={index===active?styles.selCircle:styles.regCircle}/>)}
+                    </View>}
                 />
  )
 
@@ -34,17 +40,9 @@ const PhotoNav = ({route}) =>{
 
 
 const styles = StyleSheet.create({
-    container:{
-        position:'absolute',
-        bottom:'5%',
-        right:0,
-        left:0,
-        justifyContent:'center',
-        flexDirection:'row',
-        alignItems:'flex-end'
-
-      
-    },
+    container:    {width:1125*w, alignItems:'center', flexDirection:'row', 
+    justifyContent:'center', paddingBottom:'5%'
+},
     regCircle:{
         backgroundColor:'#6A6A6A',
         margin:CIRCLE_MARGIN,
