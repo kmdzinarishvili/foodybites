@@ -1,6 +1,6 @@
 import React from 'react';
 import Animated, { useAnimatedProps } from 'react-native-reanimated';
-import { TextInput } from 'react-native-gesture-handler';
+import { TextInput } from 'react-native';
 import styles from '../../styles/styles';
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);

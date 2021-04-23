@@ -37,7 +37,7 @@ const fetchFonts = async () => {
 const RootStack = createStackNavigator();
 
 const RootApp = () => {
-	Animated.addWhitelistedNativeProps({ text: true });
+	// Animated.addWhitelistedNativeProps({ text: true });
 
 	return (
 		<RootStack.Navigator headerMode="screen">
