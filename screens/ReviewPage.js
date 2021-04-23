@@ -13,9 +13,11 @@ import { w, h } from '../proportion';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/core';
 
+
 const Review = () => {
 	const [value, setValue] = useState('');
 	const navigation = useNavigation();
+
 
 	return (
 		<SafeView style={reviewStyles.container}>
@@ -33,10 +35,10 @@ const Review = () => {
 
 			<KeyboardAvoidingView
 				behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-				style={reviewStyles.footer}
+				style={[reviewStyles.footer]}
 				keyboardVerticalOffset = {300*h}
 			>
-				<BlueFooter text="Done" action={() => navigation.navigate('Home')}  styles={{}}/>
+				<BlueFooter text="Done" action={() => navigation.navigate('Home')}  styles={{paddingBottom:45*h}}/>
 			</KeyboardAvoidingView>
 		</SafeView>
 	);
@@ -73,7 +75,8 @@ const reviewStyles = StyleSheet.create({
 	footer: {
 		position: 'absolute',
 		bottom: 0,
-		paddingVertical:Platform.OS === 'ios' ? 100*h: 60*h ,
+		paddingBottom:Platform.OS === 'ios' ? 0: 60*h ,
+		paddingTop:Platform.OS === 'ios' ? 100*h: 60*h ,
 		width: '100%',
 		backgroundColor: '#5663FF',
 		borderTopLeftRadius: 80 * w,
