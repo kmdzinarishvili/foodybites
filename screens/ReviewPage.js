@@ -38,7 +38,7 @@ const Review = () => {
 				style={[reviewStyles.footer]}
 				keyboardVerticalOffset = {300*h}
 			>
-				<BlueFooter text="Done" action={() => navigation.navigate('Home')}  styles={{paddingBottom:45*h}}/>
+				<BlueFooter text="Done" action={() => navigation.navigate('Home')}  styles={{paddingBottom:Platform.OS === 'ios' ? 45*h: 0 }}/>
 			</KeyboardAvoidingView>
 		</SafeView>
 	);
