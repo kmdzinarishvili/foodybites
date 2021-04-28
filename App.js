@@ -26,6 +26,9 @@ import Photos from './screens/Photos';
 import AllReviews from './screens/AllReviews';
 import PhotoNav from './screens/individualPages/PhotoNav';
 
+import Intro from './screens/login/Intro';
+import Login from './screens/login/Login';
+
 const fetchFonts = async () => {
 	return Font.loadAsync({
 		'josefin-bold': require('./assets/fonts/JosefinSans-Bold.ttf'),
@@ -41,6 +44,20 @@ const RootApp = () => {
 
 	return (
 		<RootStack.Navigator headerMode="screen">
+			<RootStack.Screen
+				name="Intro"
+				component={Intro}
+				options={{
+					headerShown: false,
+				}}
+			/>
+			<RootStack.Screen
+				name="Login"
+				component={Login}
+				options={{
+					headerShown: false,
+				}}
+			/>
 			<RootStack.Screen
 				name="Home"
 				component={Home}
