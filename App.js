@@ -34,6 +34,7 @@ const fetchFonts = async () => {
 		'josefin-bold': require('./assets/fonts/JosefinSans-Bold.ttf'),
 		'josefin-regular': require('./assets/fonts/JosefinSans-Regular.ttf'),
 		'josefin-semibold': require('./assets/fonts/JosefinSans-SemiBold.ttf'),
+		'josefine-light': require('./assets/fonts/JosefinSans-Light.ttf'),
 	});
 };
 

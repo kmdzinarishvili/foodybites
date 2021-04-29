@@ -3,9 +3,9 @@ import { Pressable, StyleSheet, Text } from 'react-native';
 import { w, h } from '../../proportion';
 import styles from '../../styles/styles';
 
-const LoginButton = ({ text }) => {
+const LoginButton = ({ text, style }) => {
 	return (
-		<Pressable style={buttonStyles.container}>
+		<Pressable style={[buttonStyles.container, style]}>
 			<Text style={buttonStyles.text}>{text}</Text>
 		</Pressable>
 	);
