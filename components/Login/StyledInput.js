@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Image, TextInput, StyleSheet } from 'react-native';
 import { w, h } from '../../proportion';
 import styles from '../../styles/styles';
 
-const StyledInput = ({ image, width, height, placeholder, style }) => {
+const StyledInput = ({
+	image,
+	width,
+	height,
+	placeholder,
+	style,
+	secure = false,
+}) => {
+	const [value, setValue] = useState('');
+	console.log(value);
 	return (
 		<View style={[inpStyles.container, style]}>
 			<Image
@@ -17,6 +26,9 @@ const StyledInput = ({ image, width, height, placeholder, style }) => {
 				style={inpStyles.input}
 				placeholder={placeholder}
 				placeholderTextColor={'#FFF'}
+				value={value}
+				onChangeText={setValue}
+				secureTextEntry={secure}
 			/>
 		</View>
 	);
@@ -39,6 +51,8 @@ const inpStyles = StyleSheet.create({
 		...styles.jReg,
 		margin: 68 * w,
 		height: 52 * h,
+		alignSelf: 'stretch',
+		width: 500 * w,
 	},
 });
 

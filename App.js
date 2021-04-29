@@ -3,6 +3,8 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import * as firebase from 'firebase';
+
 import * as Font from 'expo-font';
 
 import Header from './components/Header';
@@ -28,6 +30,8 @@ import PhotoNav from './screens/individualPages/PhotoNav';
 
 import Intro from './screens/login/Intro';
 import Login from './screens/login/Login';
+import Welcome from './screens/login/Welcome';
+import ApiKeys from './constants/ApiKeys';
 
 const fetchFonts = async () => {
 	return Font.loadAsync({
@@ -55,6 +59,13 @@ const RootApp = () => {
 			<RootStack.Screen
 				name="Login"
 				component={Login}
+				options={{
+					headerShown: false,
+				}}
+			/>
+			<RootStack.Screen
+				name="Welcome"
+				component={Welcome}
 				options={{
 					headerShown: false,
 				}}
@@ -193,16 +204,24 @@ const RootApp = () => {
 };
 export default function App() {
 	const [dataLoaded, setDataLoaded] = useState(false);
+	const [firebaseLoaded, setFirebaseLoaded] = useState(false);
 
+	const loadFirebase = async () => {
+		if (!firebase.apps.length) {
+			await firebase.initializeApp(ApiKeys.FirebaseConfig);
+			setFirebaseLoaded(true);
+		}
+	};
 	const loadFonts = async () => {
 		await fetchFonts();
 		setDataLoaded(true);
 	};
 	useEffect(() => {
 		loadFonts();
+		loadFirebase();
 	});
 
-	if (!dataLoaded) {
+	if (!dataLoaded || !firebaseLoaded) {
 		return (
 			<View
 				style={{

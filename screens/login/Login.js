@@ -14,7 +14,10 @@ import LoginButton from '../../components/Login/LoginButton';
 import styles from '../../styles/styles';
 import { w, h } from '../../proportion';
 
-const Login = () => {
+const Login = ({ navigation }) => {
+	const login = () => {
+		navigation.navigate('Welcome');
+	};
 	return (
 		<ImageBackground
 			source={require('../../imgs/login/loginPicture.png')}
@@ -38,9 +41,14 @@ const Login = () => {
 					width={56 * w}
 					height={60 * h}
 					placeholder="Password"
+					secure={true}
 				/>
 				<Text style={loginStyles.forgot}>Forgot Password?</Text>
-				<LoginButton text="Login" style={loginStyles.loginButton} />
+				<LoginButton
+					text="Login"
+					style={loginStyles.loginButton}
+					action={login}
+				/>
 				<Pressable style={loginStyles.createPress}>
 					<Text style={loginStyles.create}>Create New Account</Text>
 				</Pressable>
