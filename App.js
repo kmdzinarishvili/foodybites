@@ -51,13 +51,13 @@ const RootApp = () => {
 
 	return (
 		<RootStack.Navigator headerMode="screen">
-			<RootStack.Screen
+			{/* <RootStack.Screen
 				name="Intro"
 				component={Intro}
 				options={{
 					headerShown: false,
 				}}
-			/>
+			/> */}
 			<RootStack.Screen
 				name="Login"
 				component={Login}
@@ -69,15 +69,7 @@ const RootApp = () => {
 				name="Forgot Password"
 				component={ForgotPassword}
 				options={{
-					header: () => {
-						return (
-							<LoginHeader
-								color="rgba(0,0,0, 0.2)"
-								search={false}
-								name="Forgot Password"
-							/>
-						);
-					},
+					headerShown: false,
 				}}
 			/>
 			<RootStack.Screen
