@@ -30,6 +30,8 @@ import PhotoNav from './screens/individualPages/PhotoNav';
 
 import Intro from './screens/login/Intro';
 import Login from './screens/login/Login';
+import ForgotPassword from './screens/login/ForgotPassword';
+import LoginHeader from './components/Login/LoginHeader';
 import Welcome from './screens/login/Welcome';
 import ApiKeys from './constants/ApiKeys';
 
@@ -61,6 +63,21 @@ const RootApp = () => {
 				component={Login}
 				options={{
 					headerShown: false,
+				}}
+			/>
+			<RootStack.Screen
+				name="Forgot Password"
+				component={ForgotPassword}
+				options={{
+					header: () => {
+						return (
+							<LoginHeader
+								color="rgba(0,0,0, 0.2)"
+								search={false}
+								name="Forgot Password"
+							/>
+						);
+					},
 				}}
 			/>
 			<RootStack.Screen
