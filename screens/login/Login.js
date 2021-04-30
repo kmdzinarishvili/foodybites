@@ -1,40 +1,33 @@
 import React from 'react';
 import {
 	StyleSheet,
-	ImageBackground,
+	View,
 	StatusBar,
 	Text,
 	Pressable,
+	KeyboardAvoidingView,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 
 import StyledInput from '../../components/Login/StyledInput';
 import LoginButton from '../../components/Login/LoginButton';
 
 import styles from '../../styles/styles';
 import { w, h } from '../../proportion';
+import LoginBackground from '../../components/Login/LoginBackground';
 
 const Login = ({ navigation }) => {
 	const login = () => {
 		navigation.navigate('Welcome');
 	};
 	return (
-		<ImageBackground
-			source={require('../../imgs/login/loginPicture.png')}
-			style={{ width: '100%', height: '100%' }}
-		>
-			<StatusBar barStyle="light-content" />
-			<LinearGradient
-				colors={['rgba(45,45,45,0.41)', 'rgba(8,8,8,1)']}
-				style={loginStyles.linearGradient}
-			>
-				<Text style={loginStyles.title}>Foodybite</Text>
+		<LoginBackground>
+			<Text style={loginStyles.title}>Foodybite</Text>
+			<KeyboardAvoidingView behavior={'position'} style={[loginStyles.view]}>
 				<StyledInput
 					image={require('../../imgs/login/emailIcon.png')}
 					width={56 * w}
 					height={45 * h}
 					placeholder="Email"
-					style={loginStyles.email}
 				/>
 				<StyledInput
 					image={require('../../imgs/login/passwordIcon.png')}
@@ -43,7 +36,12 @@ const Login = ({ navigation }) => {
 					placeholder="Password"
 					secure={true}
 				/>
-				<Text style={loginStyles.forgot}>Forgot Password?</Text>
+				<Pressable
+					onPress={() => navigation.navigate('Forgot Password')}
+					style={loginStyles.forgot}
+				>
+					<Text style={loginStyles.forgotTxt}>Forgot Password?</Text>
+				</Pressable>
 				<LoginButton
 					text="Login"
 					style={loginStyles.loginButton}
@@ -52,8 +50,8 @@ const Login = ({ navigation }) => {
 				<Pressable style={loginStyles.createPress}>
 					<Text style={loginStyles.create}>Create New Account</Text>
 				</Pressable>
-			</LinearGradient>
-		</ImageBackground>
+			</KeyboardAvoidingView>
+		</LoginBackground>
 	);
 };
 
@@ -71,11 +69,13 @@ const loginStyles = StyleSheet.create({
 		alignItems: 'center',
 		paddingHorizontal: 118 * w,
 	},
-	email: {
-		marginTop: 700 * h,
+	view: {
+		paddingTop: '50%',
 	},
 	forgot: {
 		alignSelf: 'flex-end',
+	},
+	forgotTxt: {
 		color: '#FFF',
 		marginVertical: 28 * h,
 		fontSize: 50 * w,
@@ -91,6 +91,7 @@ const loginStyles = StyleSheet.create({
 	},
 	createPress: {
 		marginTop: 170 * h,
+		alignSelf: 'center',
 		borderBottomWidth: 1 * h,
 		padding: 23 * h,
 		borderBottomColor: '#FFF',
