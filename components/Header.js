@@ -11,7 +11,7 @@ import { w, h } from '../proportion';
 import styles from '../styles/styles';
 import { useNavigation } from '@react-navigation/native';
 
-const Header = ({ name, search, color = '#FAFAFA', textColor, x=false }) => {
+const Header = ({ name, search, color = '#FAFAFA', textColor, x = false }) => {
 	const navigation = useNavigation();
 
 	return (
@@ -48,24 +48,25 @@ const Header = ({ name, search, color = '#FAFAFA', textColor, x=false }) => {
 					source={require('../imgs/header/blueSearch.png')}
 				/>
 			)}
-			{x&&
-			<Pressable
-				style={ space.right}
-				onPress={()=>{
-					navigation.navigate('Home');
-				}}>
-				<Image
-				style={{ width: 65* w, height: 65* h }}
-				source={require('../imgs/header/grey_x.png')}
-				/>
-			</Pressable>
-			}
+			{x && (
+				<Pressable
+					style={space.right}
+					onPress={() => {
+						navigation.navigate('Home');
+					}}
+				>
+					<Image
+						style={{ width: 65 * w, height: 65 * h }}
+						source={require('../imgs/header/grey_x.png')}
+					/>
+				</Pressable>
+			)}
 		</SafeAreaView>
 	);
 };
 const space = StyleSheet.create({
 	container: {
-		marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+		marginTop: 0,
 		flexDirection: 'row',
 		height: Platform.OS === 'android' ? 155 * h : 155 * h + 106 * h,
 		justifyContent: 'center',
