@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
 	StyleSheet,
 	View,
@@ -19,6 +19,8 @@ const Login = ({ navigation }) => {
 	const login = () => {
 		navigation.navigate('Welcome');
 	};
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 	return (
 		<LoginBackground>
 			<Text style={loginStyles.title}>Foodybite</Text>
@@ -28,6 +30,8 @@ const Login = ({ navigation }) => {
 					width={56 * w}
 					height={45 * h}
 					placeholder="Email"
+					value={email}
+					setValue={setEmail}
 				/>
 				<StyledInput
 					image={require('../../imgs/login/passwordIcon.png')}
@@ -35,6 +39,8 @@ const Login = ({ navigation }) => {
 					height={60 * h}
 					placeholder="Password"
 					secure={true}
+					value={password}
+					setValue={setPassword}
 				/>
 				<Pressable
 					onPress={() => navigation.navigate('Forgot Password')}
@@ -47,7 +53,12 @@ const Login = ({ navigation }) => {
 					style={loginStyles.loginButton}
 					action={login}
 				/>
-				<Pressable style={loginStyles.createPress}>
+				<Pressable
+					style={loginStyles.createPress}
+					onPress={() => {
+						navigation.navigate('Sign Up');
+					}}
+				>
 					<Text style={loginStyles.create}>Create New Account</Text>
 				</Pressable>
 			</KeyboardAvoidingView>

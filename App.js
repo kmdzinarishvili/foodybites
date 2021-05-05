@@ -33,6 +33,7 @@ import Login from './screens/login/Login';
 import ForgotPassword from './screens/login/ForgotPassword';
 import Welcome from './screens/login/Welcome';
 import ApiKeys from './constants/ApiKeys';
+import SignUp from './screens/login/SignUp';
 
 const fetchFonts = async () => {
 	return Font.loadAsync({
@@ -73,6 +74,13 @@ const RootApp = () => {
 				}}
 			/>
 			<RootStack.Screen
+				name="Sign Up"
+				component={SignUp}
+				options={{
+					headerShown: false,
+				}}
+			/>
+			<RootStack.Screen
 				name="Welcome"
 				component={Welcome}
 				options={{
@@ -86,7 +94,6 @@ const RootApp = () => {
 					headerShown: false,
 				}}
 			/>
-
 			<RootStack.Screen
 				name="Restaurant"
 				component={RestaurantPage}

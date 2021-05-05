@@ -10,9 +10,9 @@ const StyledInput = ({
 	placeholder,
 	style,
 	secure = false,
+	value,
+	setValue,
 }) => {
-	const [value, setValue] = useState('');
-	console.log(value);
 	return (
 		<View style={[inpStyles.container, style]}>
 			<Image
