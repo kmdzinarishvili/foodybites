@@ -1,11 +1,17 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 
-const SignUp = () => {
+const SignUp = ({ navigation }) => {
 	return (
-		<View style={{ margin: 200 }}>
-			<Text>create accoung page </Text>
-		</View>
+		<Pressable
+			onPress={() => {
+				navigation.goBack();
+			}}
+		>
+			<View style={{ margin: 200 }}>
+				<Text>create accoung page </Text>
+			</View>
+		</Pressable>
 	);
 };
 

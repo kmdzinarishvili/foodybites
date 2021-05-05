@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import {
@@ -14,9 +15,15 @@ import { w, h } from '../../proportion';
 import styles from '../../styles/styles';
 
 const LoginHeader = () => {
+	const navigation = useNavigation();
 	return (
 		<SafeAreaView style={headStyles.container}>
-			<Pressable style={headStyles.imgPressable}>
+			<Pressable
+				style={headStyles.imgPressable}
+				onPress={() => {
+					navigation.goBack();
+				}}
+			>
 				<Image
 					source={require('../../imgs/restaurantPage/back_arrow.png')}
 					style={headStyles.img}
@@ -45,7 +52,7 @@ const headStyles = StyleSheet.create({
 	},
 	imgPressable: {
 		position: 'absolute',
-		left: 68 * w,
+		left: 0 * w,
 		top: 137 * h,
 	},
 });
