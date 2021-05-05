@@ -6,7 +6,9 @@ import {
 	Text,
 	Pressable,
 	KeyboardAvoidingView,
+	Alert,
 } from 'react-native';
+import * as firebase from 'firebase';
 
 import StyledInput from '../../components/Login/StyledInput';
 import LoginButton from '../../components/Login/LoginButton';
@@ -16,11 +18,18 @@ import { w, h } from '../../proportion';
 import LoginBackground from '../../components/Login/LoginBackground';
 
 const Login = ({ navigation }) => {
-	const login = () => {
-		navigation.navigate('Welcome');
-	};
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const login = async () => {
+		firebase
+			.auth()
+			.signInWithEmailAndPassword(email, password)
+			.then(() => {
+				Alert.alert('success');
+			})
+			.catch((error) => Alert.alert(error.message));
+	};
+
 	return (
 		<LoginBackground>
 			<Text style={loginStyles.title}>Foodybite</Text>
