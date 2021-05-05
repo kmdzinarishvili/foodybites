@@ -47,24 +47,32 @@ const SignUp = ({ navigation }) => {
 						height={59.75 * h}
 						placeholder="Name"
 						style={{ marginTop: 185 * h }}
+						value={name}
+						setValue={setName}
 					/>
 					<StyledInput
 						image={require('../../imgs/login/emailIcon.png')}
 						width={56 * w}
 						height={45 * h}
 						placeholder="Email"
+						value={email}
+						setValue={setEmail}
 					/>
 					<StyledInput
 						image={require('../../imgs/login/passwordIcon.png')}
 						width={56 * w}
 						height={60 * h}
 						placeholder="Password"
+						value={password}
+						setValue={setPassword}
 					/>
 					<StyledInput
 						image={require('../../imgs/login/passwordIcon.png')}
 						width={56 * w}
 						height={60 * h}
 						placeholder="Confirm Password"
+						value={confirmPassword}
+						setValue={setConfirmPassword}
 					/>
 					<LoginButton text="Register" style={suStyles.button} />
 				</KeyboardAvoidingView>
@@ -90,6 +98,7 @@ const suStyles = StyleSheet.create({
 	},
 	kaView: {
 		alignItems: 'center',
+		paddingBottom: 60 * h,
 	},
 
 	blurView: {
