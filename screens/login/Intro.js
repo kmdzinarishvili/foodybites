@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, SafeAreaView, Image, StyleSheet } from 'react-native';
 import { h, w } from '../../proportion';
 import Animated, {
@@ -6,6 +6,7 @@ import Animated, {
 	useAnimatedStyle,
 	withTiming,
 } from 'react-native-reanimated';
+import * as firebase from 'firebase';
 
 import styles from '../../styles/styles';
 const INIT_WIDTH = 1900;
@@ -21,6 +22,14 @@ const Intro = ({ navigation, route }) => {
 
 	const textY = useSharedValue(2436 * h);
 	const textScale = useSharedValue(2);
+
+	const [isAuthenticationReady, setIsAuthenticationReady] = useState(false);
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
+	const onAuthStateChanged = (user) => {
+		setIsAuthenticationReady(true);
+		setIsAuthenticated(!!user);
+	};
+	firebase.auth().onAuthStateChanged(onAuthStateChanged);
 
 	const animatedStyles = useAnimatedStyle(() => {
 		return {
@@ -59,7 +68,15 @@ const Intro = ({ navigation, route }) => {
 			textScale.value = withTiming(1);
 		}, 2000);
 		setTimeout(() => {
-			navigation.navigate('Login');
+			if (isAuthenticationReady) {
+				if (!isAuthenticated) {
+					navigation.navigate('Login');
+				} else {
+					navigation.navigate('Home');
+				}
+			} else {
+				console.log('authentication is NOT ready');
+			}
 		}, 4000);
 	});
 

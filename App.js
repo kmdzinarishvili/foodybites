@@ -31,7 +31,6 @@ import PhotoNav from './screens/individualPages/PhotoNav';
 import Intro from './screens/login/Intro';
 import Login from './screens/login/Login';
 import ForgotPassword from './screens/login/ForgotPassword';
-import LoginHeader from './components/Login/LoginHeader';
 import Welcome from './screens/login/Welcome';
 import ApiKeys from './constants/ApiKeys';
 
@@ -51,13 +50,14 @@ const RootApp = () => {
 
 	return (
 		<RootStack.Navigator headerMode="screen">
-			{/* <RootStack.Screen
+			<RootStack.Screen
 				name="Intro"
 				component={Intro}
 				options={{
 					headerShown: false,
 				}}
-			/> */}
+			/>
+
 			<RootStack.Screen
 				name="Login"
 				component={Login}

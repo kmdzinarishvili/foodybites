@@ -7,7 +7,7 @@ const ForgotPassword = () => {
 		<LoginBackground>
 			<LoginHeader />
 			<View style={{ padding: 100 }}>
-				<Text>Forgot Passwordd Page</Text>
+				<Text>Forgot Password Page</Text>
 			</View>
 		</LoginBackground>
 	);
