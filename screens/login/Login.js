@@ -41,6 +41,7 @@ const Login = ({ navigation }) => {
 					placeholder="Email"
 					value={email}
 					setValue={setEmail}
+					autoCapitalize="none"
 				/>
 				<StyledInput
 					image={require('../../imgs/login/passwordIcon.png')}

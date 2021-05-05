@@ -13,6 +13,7 @@ const StyledInput = ({
 	value,
 	setValue,
 	autoFocus = false,
+	autoCapitalize = 'sentences',
 }) => {
 	return (
 		<View style={[inpStyles.container, style]}>
@@ -28,6 +29,7 @@ const StyledInput = ({
 				placeholder={placeholder}
 				placeholderTextColor={'#FFF'}
 				value={value}
+				autoCapitalize={autoCapitalize}
 				onChangeText={setValue}
 				secureTextEntry={secure}
 				autoFocus={autoFocus}

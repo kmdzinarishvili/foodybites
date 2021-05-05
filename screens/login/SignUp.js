@@ -7,8 +7,10 @@ import {
 	StyleSheet,
 	ScrollView,
 	KeyboardAvoidingView,
+	Alert,
 } from 'react-native';
 import { BlurView } from 'expo-blur';
+import * as firebase from 'firebase';
 import LoginBackground from '../../components/Login/LoginBackground';
 import { h, w } from '../../proportion';
 import StyledInput from '../../components/Login/StyledInput';
@@ -20,6 +22,20 @@ const SignUp = ({ navigation }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
+
+	const register = () => {
+		if (password !== confirmPassword) {
+			Alert.alert('Passwords do not match');
+			return;
+		}
+		firebase
+			.auth()
+			.createUserWithEmailAndPassword(email, password)
+			.then(navigation.navigate('Home'))
+			.catch((error) => {
+				Alert.alert(error.message);
+			});
+	};
 
 	return (
 		<LoginBackground source={require('../../imgs/login/background.png')}>
@@ -57,12 +73,14 @@ const SignUp = ({ navigation }) => {
 						placeholder="Email"
 						value={email}
 						setValue={setEmail}
+						autoCapitalize="none"
 					/>
 					<StyledInput
 						image={require('../../imgs/login/passwordIcon.png')}
 						width={56 * w}
 						height={60 * h}
 						placeholder="Password"
+						secure={true}
 						value={password}
 						setValue={setPassword}
 					/>
@@ -71,10 +89,15 @@ const SignUp = ({ navigation }) => {
 						width={56 * w}
 						height={60 * h}
 						placeholder="Confirm Password"
+						secure={true}
 						value={confirmPassword}
 						setValue={setConfirmPassword}
 					/>
-					<LoginButton text="Register" style={suStyles.button} />
+					<LoginButton
+						text="Register"
+						style={suStyles.button}
+						action={register}
+					/>
 				</KeyboardAvoidingView>
 				<View style={suStyles.textGroup}>
 					<Text style={suStyles.textReg}>Already have an account?</Text>
