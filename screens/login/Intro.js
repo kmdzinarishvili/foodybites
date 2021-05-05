@@ -83,7 +83,7 @@ const Intro = ({ navigation, route }) => {
 	const AnimatedText = Animated.createAnimatedComponent(Text);
 	const AnimatedImage = Animated.createAnimatedComponent(Image);
 	return (
-		<View>
+		<View style={{ overflow: 'hidden' }}>
 			<AnimatedImage
 				style={[sStyles.img, animatedStyles]}
 				source={require('../../imgs/login/bigPicture.png')}
@@ -113,8 +113,6 @@ const sStyles = StyleSheet.create({
 		height: '87%',
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderWidth: 10,
-		borderColor: 'blue',
 	},
 	text: {
 		color: '#3E3F68',

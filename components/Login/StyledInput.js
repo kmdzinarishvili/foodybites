@@ -12,6 +12,7 @@ const StyledInput = ({
 	secure = false,
 	value,
 	setValue,
+	autoFocus = false,
 }) => {
 	return (
 		<View style={[inpStyles.container, style]}>
@@ -29,6 +30,7 @@ const StyledInput = ({
 				value={value}
 				onChangeText={setValue}
 				secureTextEntry={secure}
+				autoFocus={autoFocus}
 			/>
 		</View>
 	);
@@ -43,7 +45,7 @@ const inpStyles = StyleSheet.create({
 		flexDirection: 'row',
 		alignItems: 'center',
 		paddingHorizontal: 68 * w,
-		margin: 28 * h,
+		marginVertical: 28 * h,
 	},
 	input: {
 		fontSize: 50 * w,

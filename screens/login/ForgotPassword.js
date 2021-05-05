@@ -21,10 +21,15 @@ const ForgotPassword = ({ navigation }) => {
 				placeholder="Email"
 				value={email}
 				setValue={setEmail}
+				autoFocus={true}
 			/>
 
 			<KeyboardAvoidingView behavior={'position'} style={[fpStyles.view]}>
-				<LoginButton text="Login" action={() => {}} />
+				<LoginButton
+					text="Login"
+					action={() => navigation.navigate('Home')}
+					autoFocus={true}
+				/>
 			</KeyboardAvoidingView>
 		</LoginBackground>
 	);
@@ -42,7 +47,7 @@ const fpStyles = StyleSheet.create({
 	},
 
 	view: {
-		paddingTop: 587 * h,
+		paddingTop: 1000 * h,
 		paddingBottom: 130 * h,
 		width: '100%',
 	},

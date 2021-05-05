@@ -9,12 +9,12 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { w } from '../../proportion';
 
-const LoginBackground = ({ children }) => {
+const LoginBackground = ({
+	children,
+	source = require('../../imgs/login/loginPicture.png'),
+}) => {
 	return (
-		<ImageBackground
-			source={require('../../imgs/login/loginPicture.png')}
-			style={{ width: '100%', height: '100%' }}
-		>
+		<ImageBackground source={source} style={{ width: '100%', height: '100%' }}>
 			<StatusBar barStyle="light-content" />
 			<LinearGradient
 				colors={['rgba(45,45,45,0.41)', 'rgba(8,8,8,1)']}
