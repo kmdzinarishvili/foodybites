@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -241,12 +241,13 @@ export default function App() {
 		return (
 			<View
 				style={{
+					width: '100%',
+					height: '100%',
 					justifyContent: 'center',
 					alignItems: 'center',
-					height: '100%',
 				}}
 			>
-				<Text>LOADING</Text>
+				<ActivityIndicator size="large" color="#5663FF" />
 			</View>
 		);
 	} else {
