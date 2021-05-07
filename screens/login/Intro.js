@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, SafeAreaView, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Alert } from 'react-native';
 import { h, w } from '../../proportion';
 import Animated, {
 	useSharedValue,
@@ -23,6 +23,7 @@ const Intro = ({ navigation, route }) => {
 	const textY = useSharedValue(2436 * h);
 	const textScale = useSharedValue(2);
 
+	const [notNavigated, setNotNavigated] = useState(true);
 	const [isAuthenticationReady, setIsAuthenticationReady] = useState(false);
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const onAuthStateChanged = (user) => {
@@ -68,10 +69,12 @@ const Intro = ({ navigation, route }) => {
 			textScale.value = withTiming(1);
 		}, 2000);
 		setTimeout(() => {
-			if (isAuthenticationReady) {
+			if (isAuthenticationReady && notNavigated) {
 				if (!isAuthenticated) {
+					setNotNavigated(false);
 					navigation.navigate('Login');
 				} else {
+					setNotNavigated(false);
 					navigation.navigate('Home');
 				}
 			} else {

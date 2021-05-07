@@ -1,12 +1,31 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import {
+	View,
+	Text,
+	StyleSheet,
+	KeyboardAvoidingView,
+	Alert,
+} from 'react-native';
+import * as firebase from 'firebase';
 import LoginBackground from '../../components/Login/LoginBackground';
 import LoginHeader from '../../components/Login/LoginHeader';
 import { h, w } from '../../proportion';
 import StyledInput from '../../components/Login/StyledInput';
 import LoginButton from '../../components/Login/LoginButton';
 const ForgotPassword = ({ navigation }) => {
-	const [email, setEmail] = useState();
+	const [email, setEmail] = useState('');
+
+	const sendForgotPassword = () => {
+		firebase
+			.auth()
+			.sendPasswordResetEmail(email)
+			.then()
+			.catch((error) => {
+				Alert.alert(error.message);
+			});
+		navigation.goBack();
+	};
+
 	return (
 		<LoginBackground>
 			<LoginHeader />
@@ -22,14 +41,11 @@ const ForgotPassword = ({ navigation }) => {
 				value={email}
 				setValue={setEmail}
 				autoFocus={true}
+				autoCapitalize="none"
 			/>
 
 			<KeyboardAvoidingView behavior={'position'} style={[fpStyles.view]}>
-				<LoginButton
-					text="Login"
-					action={() => navigation.navigate('Home')}
-					autoFocus={true}
-				/>
+				<LoginButton text="Send" action={sendForgotPassword} />
 			</KeyboardAvoidingView>
 		</LoginBackground>
 	);

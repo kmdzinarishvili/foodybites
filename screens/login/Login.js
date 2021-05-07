@@ -25,7 +25,7 @@ const Login = ({ navigation }) => {
 			.auth()
 			.signInWithEmailAndPassword(email, password)
 			.then(() => {
-				Alert.alert('success');
+				navigation.navigate('Welcome');
 			})
 			.catch((error) => Alert.alert(error.message));
 	};

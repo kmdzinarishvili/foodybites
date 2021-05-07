@@ -47,6 +47,7 @@ const fetchFonts = async () => {
 const RootStack = createStackNavigator();
 
 const RootApp = () => {
+	firebase.auth().signOut();
 	Animated.addWhitelistedNativeProps({ text: true });
 
 	return (
