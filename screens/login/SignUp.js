@@ -31,7 +31,14 @@ const SignUp = ({ navigation }) => {
 		firebase
 			.auth()
 			.createUserWithEmailAndPassword(email, password)
-			.then(() => navigation.navigate('welcome'))
+			.then((result) => {
+				return result.user.updateProfile({
+					displayName: name,
+				});
+			})
+			.then(() => {
+				navigation.navigate('Welcome');
+			})
 			.catch((error) => {
 				Alert.alert(error.message);
 			});
