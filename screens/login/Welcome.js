@@ -21,8 +21,8 @@ const Welcome = ({ navigation }) => {
 			return;
 		}
 
-		let location = await Location.getCurrentPositionAsync({});
-		setLocation(location);
+		let curLoc = await Location.getCurrentPositionAsync({});
+		setLocation(curLoc);
 
 		let text = 'Waiting..';
 		if (errorMsg) {
