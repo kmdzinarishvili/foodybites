@@ -32,8 +32,9 @@ const Login = ({ navigation }) => {
 
 	return (
 		<LoginBackground>
-			<Text style={loginStyles.title}>Foodybite</Text>
 			<KeyboardAvoidingView behavior={'position'} style={[loginStyles.view]}>
+				<Text style={loginStyles.title}>Foodybite</Text>
+
 				<StyledInput
 					image={require('../../imgs/login/emailIcon.png')}
 					width={56 * w}
@@ -81,7 +82,8 @@ const loginStyles = StyleSheet.create({
 		fontSize: 123 * w,
 		color: '#FFF',
 		...styles.jBold,
-		marginTop: 337 * h,
+		alignSelf: 'center',
+		marginBottom: 337 * h,
 	},
 	linearGradient: {
 		width: '100%',

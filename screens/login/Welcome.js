@@ -16,7 +16,9 @@ const Welcome = ({ navigation }) => {
 
 	const turnOnGPS = async () => {
 		let { status } = await Location.requestForegroundPermissionsAsync();
+
 		if (status !== 'granted') {
+			Alert.alert('Permission was not granted');
 			setErrorMsg('Permission to access location was denied');
 			return;
 		}
@@ -38,30 +40,39 @@ const Welcome = ({ navigation }) => {
 	return (
 		<LoginBackground
 			source={require('../../imgs/login/welcomeBackground.png')}
-			alignItems="flex-start"
+			alignItems="flex-end"
 		>
-			<Pressable
-				style={wStyles.skipPressable}
-				onPress={() => {
-					navigation.navigate('Home');
+			<View
+				style={{
+					height: '100%',
+					justifyContent: 'flex-end',
 				}}
 			>
-				<BlurView intensity={50} tint={'default'} style={wStyles.blurView}>
-					<Text style={wStyles.skip}>Skip</Text>
-				</BlurView>
-			</Pressable>
+				<Pressable
+					style={wStyles.skipPressable}
+					onPress={() => {
+						navigation.navigate('Home');
+					}}
+				>
+					<BlurView intensity={50} tint={'default'} style={wStyles.blurView}>
+						<Text style={wStyles.skip}>Skip</Text>
+					</BlurView>
+				</Pressable>
 
-			<View style={wStyles.textBox}>
-				<Text style={wStyles.hi}>Hi {name},</Text>
-				<Text style={[wStyles.hi, wStyles.welcome]}>Welcome To </Text>
-				<Text style={wStyles.foodybite}>Foodybite</Text>
+				<View style={wStyles.bottomView}>
+					<View style={wStyles.textBox}>
+						<Text style={wStyles.hi}>Hi {name},</Text>
+						<Text style={[wStyles.hi, wStyles.welcome]}>Welcome To </Text>
+						<Text style={wStyles.foodybite}>Foodybite</Text>
+					</View>
+					<Text style={wStyles.gpsText}>
+						Please turn on your GPS to find out better restaurant
+						suggestionsnear you.
+					</Text>
+
+					<LoginButton text="Turn On GPS" action={turnOnGPS} />
+				</View>
 			</View>
-			<Text style={wStyles.gpsText}>
-				Please turn on your GPS to find out better restaurant suggestionsnear
-				you.
-			</Text>
-
-			<LoginButton text="Turn On GPS" action={turnOnGPS} />
 		</LoginBackground>
 	);
 };
@@ -100,16 +111,15 @@ const wStyles = StyleSheet.create({
 		fontSize: 120 * w,
 		...styles.jSemi,
 	},
-	textBox: {
-		backgroundColor: 'red',
-		marginTop: 1013 * h,
-	},
 	gpsText: {
 		fontSize: 65 * w,
 		color: '#FFF',
 		fontFamily: 'josefine-light',
 		marginTop: 194 * h,
-		marginBottom: 241 * h,
+		marginBottom: 261 * h,
+	},
+	bottomView: {
+		marginBottom: 110 * h,
 	},
 });
 export default Welcome;
