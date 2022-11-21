@@ -30,7 +30,7 @@ const Intro = ({ navigation, route }) => {
 		setIsAuthenticationReady(true);
 		setIsAuthenticated(!!user);
 	};
-	firebase.auth().onAuthStateChanged(onAuthStateChanged);
+	// firebase.auth().onAuthStateChanged(onAuthStateChanged);
 
 	const animatedStyles = useAnimatedStyle(() => {
 		return {
@@ -69,7 +69,8 @@ const Intro = ({ navigation, route }) => {
 			textScale.value = withTiming(1);
 		}, 2000);
 		setTimeout(() => {
-			if (isAuthenticationReady && notNavigated) {
+			// isAuthenticationReady &&
+			if (notNavigated) {
 				if (!isAuthenticated) {
 					setNotNavigated(false);
 					navigation.navigate('Login');

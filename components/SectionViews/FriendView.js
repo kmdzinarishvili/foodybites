@@ -13,7 +13,10 @@ const FriendView = ({
 	const navigation = useNavigation();
 	return (
 		<Pressable
-			onPress={() => navigation.navigate('Individual Friend', { image: image })}
+			onPress={() => {
+				navigation.navigate('Individual Friend', { image: image })
+			}
+			}
 		>
 			<Image
 				style={[

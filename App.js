@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import * as firebase from 'firebase';
-
-import * as Font from 'expo-font';
+import { loadAsync } from 'expo-font';
 
 import Header from './components/Header';
 
@@ -28,15 +26,8 @@ import Photos from './screens/Photos';
 import AllReviews from './screens/AllReviews';
 import PhotoNav from './screens/individualPages/PhotoNav';
 
-import Intro from './screens/login/Intro';
-import Login from './screens/login/Login';
-import ForgotPassword from './screens/login/ForgotPassword';
-import Welcome from './screens/login/Welcome';
-import ApiKeys from './constants/ApiKeys';
-import SignUp from './screens/login/SignUp';
-
 const fetchFonts = async () => {
-	return Font.loadAsync({
+	return loadAsync({
 		'josefin-bold': require('./assets/fonts/JosefinSans-Bold.ttf'),
 		'josefin-regular': require('./assets/fonts/JosefinSans-Regular.ttf'),
 		'josefin-semibold': require('./assets/fonts/JosefinSans-SemiBold.ttf'),
@@ -47,47 +38,9 @@ const fetchFonts = async () => {
 const RootStack = createStackNavigator();
 
 const RootApp = () => {
-	firebase.auth().signOut();
 	Animated.addWhitelistedNativeProps({ text: true });
-
 	return (
 		<RootStack.Navigator headerMode="screen">
-			<RootStack.Screen
-				name="Intro"
-				component={Intro}
-				options={{
-					headerShown: false,
-				}}
-			/>
-
-			<RootStack.Screen
-				name="Login"
-				component={Login}
-				options={{
-					headerShown: false,
-				}}
-			/>
-			<RootStack.Screen
-				name="Forgot Password"
-				component={ForgotPassword}
-				options={{
-					headerShown: false,
-				}}
-			/>
-			<RootStack.Screen
-				name="Sign Up"
-				component={SignUp}
-				options={{
-					headerShown: false,
-				}}
-			/>
-			<RootStack.Screen
-				name="Welcome"
-				component={Welcome}
-				options={{
-					headerShown: false,
-				}}
-			/>
 			<RootStack.Screen
 				name="Home"
 				component={Home}
@@ -144,7 +97,7 @@ const RootApp = () => {
 				component={IndFriend}
 				options={{
 					header: () => {
-						return <Header color="#FFF" name="Profile" />;
+						return <Header color="#FFF" name="Profile" search={false} />;
 					},
 				}}
 			/>
@@ -181,16 +134,13 @@ const RootApp = () => {
 				component={Photos}
 				options={{
 					header: () => {
-						return <Header name="Menu & Photos" search={true} search={false} />;
+						return <Header name="Menu & Photos" search={true} x={false} />;
 					},
 				}}
 			/>
 			<RootStack.Screen
 				name="Photo"
 				component={PhotoNav}
-				options={{
-					headerShown: false,
-				}}
 				options={{
 					header: () => {
 						return (
@@ -208,9 +158,6 @@ const RootApp = () => {
 				name="All Reviews"
 				component={AllReviews}
 				options={{
-					headerShown: false,
-				}}
-				options={{
 					header: () => {
 						return <Header name="Review & Rating" search={false} />;
 					},
@@ -220,25 +167,17 @@ const RootApp = () => {
 	);
 };
 export default function App() {
-	const [dataLoaded, setDataLoaded] = useState(false);
-	const [firebaseLoaded, setFirebaseLoaded] = useState(false);
+	const [fontsLoaded, setFontsLoaded] = useState(false);
 
-	const loadFirebase = async () => {
-		if (!firebase.apps.length) {
-			await firebase.initializeApp(ApiKeys.FirebaseConfig);
-			setFirebaseLoaded(true);
-		}
-	};
 	const loadFonts = async () => {
 		await fetchFonts();
-		setDataLoaded(true);
+		setFontsLoaded(true);
 	};
 	useEffect(() => {
 		loadFonts();
-		loadFirebase();
-	});
+	}, []);
 
-	if (!dataLoaded || !firebaseLoaded) {
+	if (!fontsLoaded) {
 		return (
 			<View
 				style={{

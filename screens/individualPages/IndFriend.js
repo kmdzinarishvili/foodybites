@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import FollowingButton from '../../components/FollowingButton';
@@ -68,7 +69,7 @@ const IndFriend = ({
 							</View>
 							<View
 								style={{
-									width: 1125*w,
+									width: 1125 * w,
 									height: 6 * w,
 									backgroundColor: '#E2E2E2',
 									marginVertical: 60 * w,

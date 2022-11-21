@@ -6,11 +6,9 @@ import { BlurView } from 'expo-blur';
 import LoginBackground from '../../components/Login/LoginBackground';
 import { h, w } from '../../proportion';
 import styles from '../../styles/styles';
-import * as firebase from 'firebase';
 import LoginButton from '../../components/Login/LoginButton';
 
 const Welcome = ({ navigation }) => {
-	const name = firebase.auth().currentUser.displayName;
 	const [location, setLocation] = useState(null);
 	const [errorMsg, setErrorMsg] = useState(null);
 
@@ -61,13 +59,13 @@ const Welcome = ({ navigation }) => {
 
 				<View style={wStyles.bottomView}>
 					<View style={wStyles.textBox}>
-						<Text style={wStyles.hi}>Hi {name},</Text>
+						<Text style={wStyles.hi}>Hi,</Text>
 						<Text style={[wStyles.hi, wStyles.welcome]}>Welcome To </Text>
 						<Text style={wStyles.foodybite}>Foodybite</Text>
 					</View>
 					<Text style={wStyles.gpsText}>
-						Please turn on your GPS to find out better restaurant
-						suggestionsnear you.
+						Please turn on your GPS to find out better restaurant
+						suggestions near you.
 					</Text>
 
 					<LoginButton text="Turn On GPS" action={turnOnGPS} />
