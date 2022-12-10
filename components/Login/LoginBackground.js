@@ -3,8 +3,6 @@ import {
 	StyleSheet,
 	ImageBackground,
 	StatusBar,
-	Text,
-	Pressable,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { w } from '../../proportion';

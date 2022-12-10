@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, StyleSheet, Alert } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { h, w } from '../../proportion';
 import Animated, {
 	useSharedValue,
@@ -30,7 +30,7 @@ const Intro = ({ navigation, route }) => {
 		setIsAuthenticationReady(true);
 		setIsAuthenticated(!!user);
 	};
-	// firebase.auth().onAuthStateChanged(onAuthStateChanged);
+	firebase.auth().onAuthStateChanged(onAuthStateChanged);
 
 	const animatedStyles = useAnimatedStyle(() => {
 		return {
@@ -69,8 +69,8 @@ const Intro = ({ navigation, route }) => {
 			textScale.value = withTiming(1);
 		}, 2000);
 		setTimeout(() => {
-			// isAuthenticationReady &&
-			if (notNavigated) {
+			if (isAuthenticationReady &&
+				notNavigated) {
 				if (!isAuthenticated) {
 					setNotNavigated(false);
 					navigation.navigate('Login');
@@ -78,8 +78,6 @@ const Intro = ({ navigation, route }) => {
 					setNotNavigated(false);
 					navigation.navigate('Home');
 				}
-			} else {
-				console.log('authentication is NOT ready');
 			}
 		}, 4000);
 	});
