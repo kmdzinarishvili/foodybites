@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { View, ActivityIndicator, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { LogBox } from 'react-native';
 
+
+import * as firebase from 'firebase';
 import { loadAsync } from 'expo-font';
 
 import Header from './components/Header';
@@ -26,6 +29,13 @@ import Photos from './screens/Photos';
 import AllReviews from './screens/AllReviews';
 import PhotoNav from './screens/individualPages/PhotoNav';
 
+import Intro from './screens/login/Intro';
+import Login from './screens/login/Login';
+import ForgotPassword from './screens/login/ForgotPassword';
+import Welcome from './screens/login/Welcome';
+import ApiKeys from './constants/ApiKeys';
+import SignUp from './screens/login/SignUp';
+
 const fetchFonts = async () => {
 	return loadAsync({
 		'josefin-bold': require('./assets/fonts/JosefinSans-Bold.ttf'),
@@ -38,9 +48,46 @@ const fetchFonts = async () => {
 const RootStack = createStackNavigator();
 
 const RootApp = () => {
+	firebase.auth().signOut();
 	Animated.addWhitelistedNativeProps({ text: true });
 	return (
 		<RootStack.Navigator headerMode="screen">
+			<RootStack.Screen
+				name="Intro"
+				component={Intro}
+				options={{
+					headerShown: false,
+				}}
+			/>
+
+			<RootStack.Screen
+				name="Login"
+				component={Login}
+				options={{
+					headerShown: false,
+				}}
+			/>
+			<RootStack.Screen
+				name="Forgot Password"
+				component={ForgotPassword}
+				options={{
+					headerShown: false,
+				}}
+			/>
+			<RootStack.Screen
+				name="Sign Up"
+				component={SignUp}
+				options={{
+					headerShown: false,
+				}}
+			/>
+			<RootStack.Screen
+				name="Welcome"
+				component={Welcome}
+				options={{
+					headerShown: false,
+				}}
+			/>
 			<RootStack.Screen
 				name="Home"
 				component={Home}
@@ -167,17 +214,27 @@ const RootApp = () => {
 	);
 };
 export default function App() {
+	LogBox.ignoreAllLogs();
 	const [fontsLoaded, setFontsLoaded] = useState(false);
+	const [firebaseLoaded, setFirebaseLoaded] = useState(false);
 
+
+	const loadFirebase = async () => {
+		if (!firebase.apps.length) {
+			await firebase.initializeApp(ApiKeys.FirebaseConfig);
+			setFirebaseLoaded(true);
+		}
+	};
 	const loadFonts = async () => {
 		await fetchFonts();
 		setFontsLoaded(true);
 	};
 	useEffect(() => {
 		loadFonts();
+		loadFirebase();
 	}, []);
 
-	if (!fontsLoaded) {
+	if (!fontsLoaded || !firebaseLoaded) {
 		return (
 			<View
 				style={{
